@@ -14,7 +14,7 @@ exclude_lines =
 ignore_errors = True
 
 include =
-    */cannabis-reports/*
+    */cannabis_reports/*
 
 omit =
     */virtualenv/*

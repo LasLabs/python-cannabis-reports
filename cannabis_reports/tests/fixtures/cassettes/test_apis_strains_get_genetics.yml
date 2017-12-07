@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/strains/CYGU94JYKY000000000000000/genetics?page=1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+yXX2/aMBTFv0rkZ5w4CWXEbyxr14e1k+g/pmUPxnHBanBS28A2xHefHAoDhqOq
+        SqI9NI84vufc3HN/EiuQEk0A/r4CgswYwCDOs3w25kQ4X4hIJaEMdMCcFhRgEI3u7z7E3y6CLjp8
+        QAdkXDwBDKZaFwonXuItl0uXEiHImCvJilxq5dJ8lnik4Im38F2UeEpLwoVKvKrKz/J1dTfF4Mtv
+        iTcXTyJfCjiWjKVMJh7dtgazl9YS71lCmqfMVYuJ6VNmjWmBDuAzMmGvEyhfVXtfaFtGJd7jPMvg
+        vwJuIUwPirE0zmcFEb8A3o31bmPQ+bgxeDRTdOJ580wZSyEtDXC2He1JgXUHTJhgmlO1daoABtvc
+        qSOTwygOh60FL/F23talCCtnt9otiNmVr+aMTnmWSibMIc3nQgMcogZ97fTWHSDZgrOl2pMOGlTe
+        qpmmJSOapQNtpFOimeZlzgKE+hD1oX/m+BEOEC5nZA5/56IM4m1s7s+L1HLf70LUg37f8fs4DDHq
+        nri/7uyCfcV+cmqnVTAYRqNGQmOpXButZpvGWmDVsVLNpDou/86pOiNn5VS5GLnZkJGNUlGDrqop
+        hRpUbp1S3QgHUTWlbqeE2xB1/XD++bKRvFgq14YoPSW8BT4dyNQMp4Pa72SqM2lWMpllMJ/c7MWl
+        hU39sEFfbbDptHLLbIpwcIZRr5pNg8fJlAjuXOeu4/9NzKdu3IuvhucP93UnpqryW9mkCJUshWZ1
+        VOKRTUtQ5NCvjUt2iZqZtF+6Ekk3pSPnxjg6GlyTPLIL/A88sqbLyqOXBVCaCLMOFxYkBahBa9VI
+        8htUbv9PXYDDU/fXP9Z/AAAA//8DAONPmI6PEgAA
+    headers:
+      CF-RAY: [3ca2efcc1b005f81-LAS]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Fri, 08 Dec 2017 21:49:49 GMT']
+      ETag: [W/"5df183ce86f3ed90f9881332e1e7a513-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=d63f891ef0fbf62bcf9bfc403795d408d1512769788; expires=Sat,
+          08-Dec-18 21:49:48 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6IlI0M1ZGWUxRZFVMQ1M4UWtRWTBSbnc9PSIsInZhbHVlIjoiTmtWZGJoaDlkVmJ3MG12WXJKZ3lCUFRWeUtiZldLUUtPQVNtVW5WeDZXSE85V2tEa2FuYzBKOEJ2WmdRek5DRWM3NmdQbzFhc3Z2NFpJQzNDSDA0bmc9PSIsIm1hYyI6ImM1OGE5YmFiYTAxMDRlODg4YjBjNDE3NjVlZDY2OTQ5YTIyY2IxMjY4NjlhNzUwNmFiYzYwZWRlNmMxYzQxMTEifQ%3D%3D;
+          expires=Fri, 08-Dec-2017 23:49:49 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['22']
+      X-RateLimit-Reset: ['1512770687']
+    status: {code: 200, message: OK}
+version: 1
