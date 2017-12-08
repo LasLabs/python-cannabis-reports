@@ -1,0 +1,250 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.apis.dispensaries &#8212; Cannabis Reports 0.0.0b48 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.0b48',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.apis.dispensaries</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">BaseApi</span>
+
+<span class="kn">from</span> <span class="nn">..models.dispensary</span> <span class="k">import</span> <span class="n">Dispensary</span>
+<span class="kn">from</span> <span class="nn">..models.edible</span> <span class="k">import</span> <span class="n">Edible</span>
+<span class="kn">from</span> <span class="nn">..models.extract</span> <span class="k">import</span> <span class="n">Extract</span>
+<span class="kn">from</span> <span class="nn">..models.product</span> <span class="k">import</span> <span class="n">Product</span>
+<span class="kn">from</span> <span class="nn">..models.strain</span> <span class="k">import</span> <span class="n">Strain</span>
+
+
+<div class="viewcode-block" id="Dispensaries"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries">[docs]</a><span class="k">class</span> <span class="nc">Dispensaries</span><span class="p">(</span><span class="n">BaseApi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This represents the ``Dispensaries`` Endpoint.</span>
+
+<span class="sd">    https://developers.cannabisreports.com/docs/dispensaries</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">__object__</span> <span class="o">=</span> <span class="n">Dispensary</span>
+    <span class="n">__endpoint__</span> <span class="o">=</span> <span class="s1">&#39;dispensaries&#39;</span>
+
+<div class="viewcode-block" id="Dispensaries.get"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">slug</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span></div>
+
+<div class="viewcode-block" id="Dispensaries.get_by_slug"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_by_slug">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_by_slug</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets information about an individual dispensary based on the</span>
+<span class="sd">        state, city, and slug</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            city (str): City the dispensary is in.</span>
+<span class="sd">            state (str): Two character state for the dispensary.</span>
+<span class="sd">            slug (str): Slug for the name of the dispensary.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Dispensary: The dispensary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dispensaries.get_strains"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_strains">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_strains</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a paginated list of strains for a dispensary with the</span>
+<span class="sd">        given slug.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            city (str): City the dispensary is in.</span>
+<span class="sd">            state (str): Two character state for the dispensary.</span>
+<span class="sd">            slug (str): Slug for the name of the dispensary.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=Strain):</span>
+<span class="sd">                The strains for this dispensary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/strains&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Strain</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dispensaries.get_extracts"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_extracts">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_extracts</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a paginated list of extracts for a dispensary with the</span>
+<span class="sd">        given slug.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            city (str): City the dispensary is in.</span>
+<span class="sd">            state (str): Two character state for the dispensary.</span>
+<span class="sd">            slug (str): Slug for the name of the dispensary.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=Extract):</span>
+<span class="sd">                The extracts for this dispensary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/extracts&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Extract</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dispensaries.get_edibles"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_edibles">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_edibles</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a paginated list of edibles for a dispensary with the given</span>
+<span class="sd">        slug.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            city (str): City the dispensary is in.</span>
+<span class="sd">            state (str): Two character state for the dispensary.</span>
+<span class="sd">            slug (str): Slug for the name of the dispensary.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=Edible):</span>
+<span class="sd">                The edibles for this dispensary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/edibles&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Edible</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Dispensaries.get_products"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_products">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_products</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets a paginated list of products for a dispensary with the given</span>
+<span class="sd">        slug.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            city (str): City the dispensary is in.</span>
+<span class="sd">            state (str): Two character state for the dispensary.</span>
+<span class="sd">            slug (str): Slug for the name of the dispensary.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=Product):</span>
+<span class="sd">                The products for this dispensary.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/products&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Product</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

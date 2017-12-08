@@ -6,13 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Index &#8212; Cannabis Reports 0.0.0b46 documentation</title>
+    <title>Index &#8212; Cannabis Reports 0.0.0b48 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b46',
+        VERSION:     '0.0.0b48',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -212,6 +212,8 @@
 </li>
       <li><a href="cannabis_reports.apis.html#module-cannabis_reports.apis.abstract_item_endpoint">cannabis_reports.apis.abstract_item_endpoint (module)</a>
 </li>
+      <li><a href="cannabis_reports.apis.html#module-cannabis_reports.apis.dispensaries">cannabis_reports.apis.dispensaries (module)</a>
+</li>
       <li><a href="cannabis_reports.apis.html#module-cannabis_reports.apis.edibles">cannabis_reports.apis.edibles (module)</a>
 </li>
       <li><a href="cannabis_reports.apis.html#module-cannabis_reports.apis.extracts">cannabis_reports.apis.extracts (module)</a>
@@ -254,10 +256,10 @@
 </li>
       <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.review">cannabis_reports.models.review (module)</a>
 </li>
-      <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.seed_company">cannabis_reports.models.seed_company (module)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.seed_company">cannabis_reports.models.seed_company (module)</a>
+</li>
       <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.strain">cannabis_reports.models.strain (module)</a>
 </li>
       <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.user">cannabis_reports.models.user (module)</a>
@@ -344,14 +346,20 @@
 </li>
       <li><a href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.delete">delete() (cannabis_reports.request_paginator.RequestPaginator method)</a>
 </li>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Dispensaries">Dispensaries (class in cannabis_reports.apis)</a>
+
+      <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries">(class in cannabis_reports.apis.dispensaries)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.models.html#cannabis_reports.models.Dispensary">Dispensary (class in cannabis_reports.models)</a>
 
       <ul>
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.dispensary.Dispensary">(class in cannabis_reports.models.dispensary)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_request_paginator.TestRequestPaginator.do_call">do_call() (cannabis_reports.tests.test_request_paginator.TestRequestPaginator method)</a>
 </li>
       <li><a href="cannabis_reports.models.html#cannabis_reports.models.Effect.dry_mouth">dry_mouth (cannabis_reports.models.Effect attribute)</a>
@@ -500,12 +508,16 @@
       </ul></li>
       <li><a href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.GET">GET (cannabis_reports.request_paginator.RequestPaginator attribute)</a>
 </li>
-      <li><a href="cannabis_reports.html#cannabis_reports.base_api.BaseApi.get">get() (cannabis_reports.base_api.BaseApi class method)</a>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Dispensaries.get">get() (cannabis_reports.apis.Dispensaries class method)</a>
 
       <ul>
         <li><a href="cannabis_reports.html#cannabis_reports.BaseApi.get">(cannabis_reports.BaseApi class method)</a>
 </li>
         <li><a href="cannabis_reports.html#cannabis_reports.BaseModel.get">(cannabis_reports.BaseModel method)</a>
+</li>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get">(cannabis_reports.apis.dispensaries.Dispensaries class method)</a>
+</li>
+        <li><a href="cannabis_reports.html#cannabis_reports.base_api.BaseApi.get">(cannabis_reports.base_api.BaseApi class method)</a>
 </li>
         <li><a href="cannabis_reports.html#cannabis_reports.base_model.BaseModel.get">(cannabis_reports.base_model.BaseModel method)</a>
 </li>
@@ -515,7 +527,15 @@
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available">get_available() (cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint class method)</a>
 
       <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Producers.get_available">(cannabis_reports.apis.Producers class method)</a>
+</li>
         <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_available">(cannabis_reports.apis.producers.Producers class method)</a>
+</li>
+      </ul></li>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Dispensaries.get_by_slug">get_by_slug() (cannabis_reports.apis.Dispensaries class method)</a>
+
+      <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_by_slug">(cannabis_reports.apis.dispensaries.Dispensaries class method)</a>
 </li>
       </ul></li>
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Strains.get_children">get_children() (cannabis_reports.apis.Strains class method)</a>
@@ -524,26 +544,42 @@
         <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.strains.Strains.get_children">(cannabis_reports.apis.strains.Strains class method)</a>
 </li>
       </ul></li>
-      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_edibles">get_edibles() (cannabis_reports.apis.producers.Producers class method)</a>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Dispensaries.get_edibles">get_edibles() (cannabis_reports.apis.Dispensaries class method)</a>
+
+      <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Producers.get_edibles">(cannabis_reports.apis.Producers class method)</a>
 </li>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_edibles">(cannabis_reports.apis.dispensaries.Dispensaries class method)</a>
+</li>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_edibles">(cannabis_reports.apis.producers.Producers class method)</a>
+</li>
+      </ul></li>
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_effects_flavors">get_effects_flavors() (cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint class method)</a>
 </li>
-      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_extracts">get_extracts() (cannabis_reports.apis.producers.Producers class method)</a>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Dispensaries.get_extracts">get_extracts() (cannabis_reports.apis.Dispensaries class method)</a>
+
+      <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Producers.get_extracts">(cannabis_reports.apis.Producers class method)</a>
 </li>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_extracts">(cannabis_reports.apis.dispensaries.Dispensaries class method)</a>
+</li>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_extracts">(cannabis_reports.apis.producers.Producers class method)</a>
+</li>
+      </ul></li>
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Strains.get_genetics">get_genetics() (cannabis_reports.apis.Strains class method)</a>
 
       <ul>
         <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.strains.Strains.get_genetics">(cannabis_reports.apis.strains.Strains class method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.html#cannabis_reports.base_model.BaseModel.get_non_empty_vals">get_non_empty_vals() (cannabis_reports.base_model.BaseModel static method)</a>
 
       <ul>
         <li><a href="cannabis_reports.html#cannabis_reports.BaseModel.get_non_empty_vals">(cannabis_reports.BaseModel static method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Edibles.get_producer">get_producer() (cannabis_reports.apis.Edibles class method)</a>
 
       <ul>
@@ -562,8 +598,16 @@
         <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.products.Products.get_producer">(cannabis_reports.apis.products.Products class method)</a>
 </li>
       </ul></li>
-      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_products">get_products() (cannabis_reports.apis.producers.Producers class method)</a>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Dispensaries.get_products">get_products() (cannabis_reports.apis.Dispensaries class method)</a>
+
+      <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Producers.get_products">(cannabis_reports.apis.Producers class method)</a>
 </li>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_products">(cannabis_reports.apis.dispensaries.Dispensaries class method)</a>
+</li>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_products">(cannabis_reports.apis.producers.Producers class method)</a>
+</li>
+      </ul></li>
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_reviews">get_reviews() (cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint class method)</a>
 </li>
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Strains.get_seed_company">get_seed_company() (cannabis_reports.apis.Strains class method)</a>
@@ -588,6 +632,12 @@
         <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.flowers.Flowers.get_strain">(cannabis_reports.apis.flowers.Flowers class method)</a>
 </li>
         <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.products.Products.get_strain">(cannabis_reports.apis.products.Products class method)</a>
+</li>
+      </ul></li>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Dispensaries.get_strains">get_strains() (cannabis_reports.apis.Dispensaries class method)</a>
+
+      <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_strains">(cannabis_reports.apis.dispensaries.Dispensaries class method)</a>
 </li>
       </ul></li>
       <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_user">get_user() (cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint class method)</a>
@@ -743,6 +793,8 @@
 </li>
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.Product.name">(cannabis_reports.models.Product attribute)</a>
 </li>
+        <li><a href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany.name">(cannabis_reports.models.SeedCompany attribute)</a>
+</li>
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.Strain.name">(cannabis_reports.models.Strain attribute)</a>
 </li>
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.dispensary.Dispensary.name">(cannabis_reports.models.dispensary.Dispensary attribute)</a>
@@ -756,6 +808,8 @@
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.menu_item.MenuItem.name">(cannabis_reports.models.menu_item.MenuItem attribute)</a>
 </li>
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.product.Product.name">(cannabis_reports.models.product.Product attribute)</a>
+</li>
+        <li><a href="cannabis_reports.models.html#cannabis_reports.models.seed_company.SeedCompany.name">(cannabis_reports.models.seed_company.SeedCompany attribute)</a>
 </li>
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.strain.Strain.name">(cannabis_reports.models.strain.Strain attribute)</a>
 </li>
@@ -892,8 +946,12 @@
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.producer.Producer">(class in cannabis_reports.models.producer)</a>
 </li>
       </ul></li>
-      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers">Producers (class in cannabis_reports.apis.producers)</a>
+      <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.Producers">Producers (class in cannabis_reports.apis)</a>
+
+      <ul>
+        <li><a href="cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers">(class in cannabis_reports.apis.producers)</a>
 </li>
+      </ul></li>
       <li><a href="cannabis_reports.models.html#cannabis_reports.models.Product">Product (class in cannabis_reports.models)</a>
 
       <ul>

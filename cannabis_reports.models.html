@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.models package &#8212; Cannabis Reports 0.0.0b46 documentation</title>
+    <title>cannabis_reports.models package &#8212; Cannabis Reports 0.0.0b48 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b46',
+        VERSION:     '0.0.0b48',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -1026,6 +1026,7 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 <li><strong>image</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
 <li><strong>lineage</strong> (<code class="xref py py-class docutils literal"><span class="pre">Property</span></code>): Countries of origin for the genetics for the strain. Object keys are the country name and the values are the two character country codes.</li>
 <li><strong>link</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>name</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): The name of this seed company., a unicode string</li>
 <li><strong>qr</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the QR code for this record., a unicode string</li>
 <li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): The number of reviews for all of the strains available from this seed company., an instance of GeneralOverview</li>
 <li><strong>strains</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the strains available from this seed company., an instance of GeneralOverview</li>
@@ -1033,6 +1034,12 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
+<dl class="attribute">
+<dt id="cannabis_reports.models.seed_company.SeedCompany.name">
+<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.seed_company.SeedCompany.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this seed company.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cannabis_reports.models.seed_company.SeedCompany.reviews">
 <code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.seed_company.SeedCompany.reviews" title="Permalink to this definition">¶</a></dt>
@@ -2133,6 +2140,7 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 <li><strong>image</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
 <li><strong>lineage</strong> (<code class="xref py py-class docutils literal"><span class="pre">Property</span></code>): Countries of origin for the genetics for the strain. Object keys are the country name and the values are the two character country codes.</li>
 <li><strong>link</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>name</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): The name of this seed company., a unicode string</li>
 <li><strong>qr</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the QR code for this record., a unicode string</li>
 <li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): The number of reviews for all of the strains available from this seed company., an instance of GeneralOverview</li>
 <li><strong>strains</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the strains available from this seed company., an instance of GeneralOverview</li>
@@ -2140,6 +2148,12 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
+<dl class="attribute">
+<dt id="cannabis_reports.models.SeedCompany.name">
+<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.SeedCompany.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this seed company.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cannabis_reports.models.SeedCompany.reviews">
 <code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.SeedCompany.reviews" title="Permalink to this definition">¶</a></dt>

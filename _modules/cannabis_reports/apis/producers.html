@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.producers &#8212; Cannabis Reports 0.0.0b46 documentation</title>
+    <title>cannabis_reports.apis.producers &#8212; Cannabis Reports 0.0.0b48 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b46',
+        VERSION:     '0.0.0b48',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -81,7 +81,7 @@
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/extracts&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_class</span><span class="o">=</span><span class="n">Extract</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Extract</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Producers.get_edibles"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_edibles">[docs]</a>    <span class="nd">@classmethod</span>
@@ -102,7 +102,7 @@
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/edibles&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_class</span><span class="o">=</span><span class="n">Edible</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Edible</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Producers.get_products"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_products">[docs]</a>    <span class="nd">@classmethod</span>
@@ -123,7 +123,7 @@
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/products&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_class</span><span class="o">=</span><span class="n">Product</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Product</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Producers.get_available"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_available">[docs]</a>    <span class="nd">@classmethod</span>
@@ -153,7 +153,7 @@
                 <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span>
             <span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_class</span><span class="o">=</span><span class="n">MenuItemSummary</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">MenuItemSummary</span><span class="p">,</span>
         <span class="p">)</span></div></div>
 </pre></div>
 

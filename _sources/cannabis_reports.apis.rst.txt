@@ -12,6 +12,14 @@ cannabis\_reports\.apis\.abstract\_item\_endpoint module
     :undoc-members:
     :show-inheritance:
 
+cannabis\_reports\.apis\.dispensaries module
+--------------------------------------------
+
+.. automodule:: cannabis_reports.apis.dispensaries
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cannabis\_reports\.apis\.edibles module
 ---------------------------------------
 
