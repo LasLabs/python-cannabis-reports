@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.request_paginator &#8212; Cannabis Reports 0.0.0b40 documentation</title>
+    <title>cannabis_reports.request_paginator &#8212; Cannabis Reports 0.0.0b42 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.0.0b40',
+        VERSION:     '0.0.0b42',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -53,12 +53,11 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Response attributes that mean things</span>
-    <span class="n">PAGE_TOTAL</span> <span class="o">=</span> <span class="s1">&#39;total&#39;</span>  <span class="c1"># Total number of pages</span>
+    <span class="n">PAGE_TOTAL</span> <span class="o">=</span> <span class="s1">&#39;total_pages&#39;</span>  <span class="c1"># Total number of pages</span>
     <span class="n">PAGE_CURRENT</span> <span class="o">=</span> <span class="s1">&#39;current_page&#39;</span>  <span class="c1"># Current page number</span>
-    <span class="n">PAGE_DATA_MULTI</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>  <span class="c1"># Attribute if multiple results</span>
+    <span class="n">PAGE_DATA</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>  <span class="c1"># Attribute if multiple results</span>
 
     <span class="n">SSL_VERIFY</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Verify SSL</span>
-    <span class="n">PAGE_SIZE</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Page size returned by CannabisReports</span>
 
     <span class="c1"># HTTP operation constants</span>
     <span class="n">DELETE</span> <span class="o">=</span> <span class="s1">&#39;delete&#39;</span>
@@ -71,19 +70,22 @@
     <span class="n">page_total</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">,</span>
-                 <span class="n">request_type</span><span class="o">=</span><span class="n">GET</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                 <span class="n">request_type</span><span class="o">=</span><span class="n">GET</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iteration_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize the RequestPaginator object.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            endpoint (str): URI endpoint to call.</span>
 <span class="sd">            session (requests.Session): The authenticated requests session.</span>
-<span class="sd">            data (dict): Data to be sent in the query string for the</span>
-<span class="sd">             Request.</span>
-<span class="sd">            output_type (type): Class type to output. Object will be</span>
-<span class="sd">             instantiated using the current row before output.</span>
-<span class="sd">            request_type (str): Type of request to send (``GET`` or ``POST``).</span>
+<span class="sd">            data (dict, optional): Data to be sent in the query string for</span>
+<span class="sd">                the Request.</span>
+<span class="sd">            output_type (type, optional): Class type to output. Object will be</span>
+<span class="sd">                instantiated using the current row before output.</span>
+<span class="sd">            request_type (str, optional): Type of request to send (``GET`` or</span>
+<span class="sd">                ``POST``).</span>
 <span class="sd">            session (requests.Session, optional): An authenticated requests</span>
-<span class="sd">             session to use.</span>
+<span class="sd">                session to use.</span>
+<span class="sd">            iteration_limit (int, optional): Stop after iterating this many</span>
+<span class="sd">                pages.</span>
 
 <span class="sd">        Raises:</span>
 <span class="sd">            NotImplementedError: In the event that an invalid request type was</span>
@@ -98,19 +100,39 @@
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">request_type</span> <span class="o">=</span> <span class="n">request_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span> <span class="ow">or</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit_iter</span> <span class="o">=</span> <span class="n">iteration_limit</span>
 
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_page</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Provide an iterator for the remote request.</span>
 
 <span class="sd">        The result is returned as an instantiated `self.output_type`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            start_page (int, optional): The page number to start on.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            StopIteration: To indicate the end of the data set.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            mixed: An instantiated object of the type declared in the</span>
+<span class="sd">                ``self.output_type``, using the data from each row of the</span>
+<span class="sd">                received data.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">=</span> <span class="n">page</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span> <span class="o">=</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span><span class="p">:</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">=</span> <span class="n">start_page</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span> <span class="o">=</span> <span class="n">start_page</span>
+
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span><span class="p">:</span>
+
             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="ow">or</span> <span class="kc">None</span>
             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
                 <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_type</span><span class="p">(</span><span class="o">**</span><span class="n">row</span><span class="p">)</span>
+
+            <span class="n">iteration_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">-</span> <span class="n">start_page</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit_iter</span> <span class="ow">and</span> <span class="n">iteration_count</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit_iter</span><span class="p">:</span>
+                <span class="k">break</span>
+
         <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
 
 <div class="viewcode-block" id="RequestPaginator.call"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.call">[docs]</a>    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -120,13 +142,12 @@
 <span class="sd">            data (dict, optional): Either the request parameters or the JSON</span>
 <span class="sd">             data, depending on the request type.</span>
 
-<span class="sd">        Raises:</span>
-<span class="sd">            NotImplementedError: In the event that an invalid request type was</span>
-<span class="sd">             defined.</span>
-
 <span class="sd">        Returns:</span>
-<span class="sd">            mixed: JSON decoded respons.</span>
+<span class="sd">            mixed: JSON decoded response.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;page&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_type</span><span class="p">)(</span><span class="n">data</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RequestPaginator.delete"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -195,7 +216,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span> <span class="o">=</span> <span class="n">pagination</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PAGE_TOTAL</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">PAGE_DATA_MULTI</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">PAGE_DATA</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">pass</span>
 

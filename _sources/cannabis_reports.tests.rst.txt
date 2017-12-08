@@ -12,6 +12,14 @@ cannabis\_reports\.tests\.api\_common module
     :undoc-members:
     :show-inheritance:
 
+cannabis\_reports\.tests\.test\_apis\_strains module
+----------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_apis_strains
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cannabis\_reports\.tests\.test\_base\_api module
 ------------------------------------------------
 

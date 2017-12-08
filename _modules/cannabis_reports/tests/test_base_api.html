@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.tests.test_base_api &#8212; Cannabis Reports 0.0.0b40 documentation</title>
+    <title>cannabis_reports.tests.test_base_api &#8212; Cannabis Reports 0.0.0b42 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b40',
+        VERSION:     '0.0.0b42',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -91,12 +91,13 @@
                 <span class="n">output_type</span><span class="o">=</span><span class="n">TestApi</span><span class="o">.</span><span class="n">__object__</span><span class="o">.</span><span class="n">from_api</span><span class="p">,</span>
                 <span class="n">request_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">REQUEST_TYPE</span><span class="p">,</span>
                 <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+                <span class="n">iteration_limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="p">)</span></div>
 
 <div class="viewcode-block" id="TestBaseApi.test_new_paginator_singleton"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_singleton">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">PAGINATOR</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_new_paginator_singleton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paginator</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;It should return the record if singleton and found.&quot;&quot;&quot;</span>
-        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;9876&#39;</span><span class="p">}]</span>
+        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;9876&#39;</span><span class="p">}</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(</span><span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">ucpc</span><span class="p">,</span> <span class="s1">&#39;9876&#39;</span><span class="p">)</span></div>
@@ -104,7 +105,7 @@
 <div class="viewcode-block" id="TestBaseApi.test_new_paginator_singleton_none"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_singleton_none">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">PAGINATOR</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_new_paginator_singleton_none</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paginator</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;It should return None if singleton and not found.&quot;&quot;&quot;</span>
-        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(</span><span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
@@ -119,7 +120,7 @@
 <div class="viewcode-block" id="TestBaseApi.test_new_paginator_singleton_out_type"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_singleton_out_type">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">PAGINATOR</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">test_new_paginator_singleton_out_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paginator</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;It should return an object of the correct type if defined.&quot;&quot;&quot;</span>
-        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;9876&#39;</span><span class="p">}]</span>
+        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;9876&#39;</span><span class="p">}</span>
         <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(</span><span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="n">mock</span><span class="o">.</span><span class="n">MagicMock</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">mock</span><span class="o">.</span><span class="n">MagicMock</span><span class="p">)</span></div>
 

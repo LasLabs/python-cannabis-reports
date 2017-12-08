@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.request_paginator package &#8212; Cannabis Reports 0.0.0b40 documentation</title>
+    <title>cannabis_reports.request_paginator package &#8212; Cannabis Reports 0.0.0b42 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b40',
+        VERSION:     '0.0.0b42',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -46,7 +46,7 @@
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cannabis_reports.request_paginator" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cannabis_reports.request_paginator.RequestPaginator">
-<em class="property">class </em><code class="descclassname">cannabis_reports.request_paginator.</code><code class="descname">RequestPaginator</code><span class="sig-paren">(</span><em>endpoint</em>, <em>data=None</em>, <em>output_type=&lt;type 'dict'&gt;</em>, <em>request_type='get'</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cannabis_reports.request_paginator.</code><code class="descname">RequestPaginator</code><span class="sig-paren">(</span><em>endpoint</em>, <em>data=None</em>, <em>output_type=&lt;type 'dict'&gt;</em>, <em>request_type='get'</em>, <em>session=None</em>, <em>iteration_limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>RequestPaginator provides an iterator based upon an initial request.</p>
 <dl class="attribute">
@@ -65,18 +65,13 @@
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_DATA_MULTI">
-<code class="descname">PAGE_DATA_MULTI</code><em class="property"> = 'data'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_DATA_MULTI" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_SIZE">
-<code class="descname">PAGE_SIZE</code><em class="property"> = 50</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_SIZE" title="Permalink to this definition">¶</a></dt>
+<dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_DATA">
+<code class="descname">PAGE_DATA</code><em class="property"> = 'data'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_DATA" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_TOTAL">
-<code class="descname">PAGE_TOTAL</code><em class="property"> = 'total'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_TOTAL" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PAGE_TOTAL</code><em class="property"> = 'total_pages'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_TOTAL" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -105,12 +100,9 @@
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a><em>, </em><em>optional</em>) – Either the request parameters or the JSON
 data, depending on the request type.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">NotImplementedError</span></code> – In the event that an invalid request type was
-defined.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">JSON decoded response.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">JSON decoded respons.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">mixed</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">mixed</td>
 </tr>
 </tbody>
 </table>

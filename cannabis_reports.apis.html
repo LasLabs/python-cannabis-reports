@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b40 documentation</title>
+    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b42 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b40',
+        VERSION:     '0.0.0b42',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -52,7 +52,7 @@
 <em class="property">class </em><code class="descclassname">cannabis_reports.apis.abstract_item_endpoint.</code><code class="descname">AbstractItemEndpoint</code><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_api.BaseApi" title="cannabis_reports.base_api.BaseApi"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_api.BaseApi</span></code></a></p>
 <p>This represents an abstract item endpoint.</p>
-<p>The Strains, Flowers, Rxtracts, Edibles, and Products APIs inherit from
+<p>The Strains, Flowers, Extracts, Edibles, and Products APIs inherit from
 this.</p>
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available">
@@ -64,8 +64,7 @@ this.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id1"><span class="problematic" id="id2">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> for
 the cannabis object you want the children from.</li>
 <li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Latitude for the center of your availability search.</li>
 <li><strong>lng</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Longitude for the center of your availability search.</li>
@@ -93,10 +92,10 @@ the cannabis object you want the children from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id3"><span class="problematic" id="id4">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p><a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> for
 the cannabis object you want the effect and flavor profile
-from.</li>
+from.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -116,8 +115,8 @@ from.</li>
 </dd></dl>
 
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_review">
-<em class="property">classmethod </em><code class="descname">get_review</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_review" title="Permalink to this definition">¶</a></dt>
+<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_reviews">
+<em class="property">classmethod </em><code class="descname">get_reviews</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_reviews"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_reviews" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the reviews for a cannabis object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -125,9 +124,9 @@ from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id5"><span class="problematic" id="id6">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis object you want the reviews from.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p><a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> for
+the cannabis object you want the reviews from.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -151,9 +150,9 @@ the cannabis object you want the reviews from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id7"><span class="problematic" id="id8">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis object you want the user from.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p><a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> for
+the cannabis object you want the user from.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -222,7 +221,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id9"><span class="problematic" id="id10">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id4"><span class="problematic" id="id5">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis edible you want the seed company from.</li>
 </ul>
@@ -254,7 +253,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id11"><span class="problematic" id="id12">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id6"><span class="problematic" id="id7">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis edible you want the genetics from.</li>
 </ul>
@@ -280,7 +279,7 @@ the cannabis edible you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id13"><span class="problematic" id="id14">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id8"><span class="problematic" id="id9">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis edible you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -321,7 +320,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id15"><span class="problematic" id="id16">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id10"><span class="problematic" id="id11">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis extract you want the seed company from.</li>
 </ul>
@@ -353,7 +352,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id17"><span class="problematic" id="id18">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id12"><span class="problematic" id="id13">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis extract you want the genetics from.</li>
 </ul>
@@ -379,7 +378,7 @@ the cannabis extract you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id19"><span class="problematic" id="id20">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id14"><span class="problematic" id="id15">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis extract you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -420,7 +419,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id21"><span class="problematic" id="id22">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id16"><span class="problematic" id="id17">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis flower you want the seed company from.</li>
 </ul>
@@ -452,7 +451,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id23"><span class="problematic" id="id24">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id18"><span class="problematic" id="id19">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis flower you want the genetics from.</li>
 </ul>
@@ -478,7 +477,7 @@ the cannabis flower you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id25"><span class="problematic" id="id26">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id20"><span class="problematic" id="id21">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis flower you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -520,7 +519,7 @@ producer using latitude and longitude.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id27"><span class="problematic" id="id28">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id22"><span class="problematic" id="id23">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis object you want the children from.</li>
 <li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Latitude for the center of your availability search.</li>
@@ -550,7 +549,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id29"><span class="problematic" id="id30">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id24"><span class="problematic" id="id25">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis producer you want the edibles for.</li>
 </ul>
@@ -577,7 +576,7 @@ given UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id31"><span class="problematic" id="id32">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id26"><span class="problematic" id="id27">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis producer you want the extracts for.</li>
 </ul>
@@ -604,7 +603,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id33"><span class="problematic" id="id34">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id28"><span class="problematic" id="id29">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis producer you want the products for.</li>
 </ul>
@@ -641,7 +640,7 @@ the cannabis producer you want the products for.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id35"><span class="problematic" id="id36">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id30"><span class="problematic" id="id31">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis product you want the seed company from.</li>
 </ul>
@@ -673,7 +672,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id37"><span class="problematic" id="id38">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id32"><span class="problematic" id="id33">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis product you want the genetics from.</li>
 </ul>
@@ -699,7 +698,7 @@ the cannabis product you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id39"><span class="problematic" id="id40">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id34"><span class="problematic" id="id35">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis product you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -740,7 +739,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id41"><span class="problematic" id="id42">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id36"><span class="problematic" id="id37">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the children from.</li>
 </ul>
@@ -767,7 +766,7 @@ with the given UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id43"><span class="problematic" id="id44">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id38"><span class="problematic" id="id39">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the genetics from.</li>
 </ul>
@@ -793,7 +792,7 @@ the cannabis strain you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id45"><span class="problematic" id="id46">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id40"><span class="problematic" id="id41">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the seed company from.</li>
 </ul>
@@ -835,7 +834,7 @@ the cannabis strain you want the seed company from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id47"><span class="problematic" id="id48">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id42"><span class="problematic" id="id43">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis edible you want the seed company from.</li>
 </ul>
@@ -867,7 +866,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id49"><span class="problematic" id="id50">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id44"><span class="problematic" id="id45">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis edible you want the genetics from.</li>
 </ul>
@@ -893,7 +892,7 @@ the cannabis edible you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id51"><span class="problematic" id="id52">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id46"><span class="problematic" id="id47">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis edible you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -931,7 +930,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id53"><span class="problematic" id="id54">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id48"><span class="problematic" id="id49">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis extract you want the seed company from.</li>
 </ul>
@@ -963,7 +962,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id55"><span class="problematic" id="id56">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id50"><span class="problematic" id="id51">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis extract you want the genetics from.</li>
 </ul>
@@ -989,7 +988,7 @@ the cannabis extract you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id57"><span class="problematic" id="id58">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id52"><span class="problematic" id="id53">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis extract you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -1027,7 +1026,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id59"><span class="problematic" id="id60">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id54"><span class="problematic" id="id55">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis flower you want the seed company from.</li>
 </ul>
@@ -1059,7 +1058,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id61"><span class="problematic" id="id62">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id56"><span class="problematic" id="id57">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis flower you want the genetics from.</li>
 </ul>
@@ -1085,7 +1084,7 @@ the cannabis flower you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id63"><span class="problematic" id="id64">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id58"><span class="problematic" id="id59">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis flower you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -1123,7 +1122,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id65"><span class="problematic" id="id66">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id60"><span class="problematic" id="id61">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis product you want the seed company from.</li>
 </ul>
@@ -1155,7 +1154,7 @@ UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id67"><span class="problematic" id="id68">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id62"><span class="problematic" id="id63">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis product you want the genetics from.</li>
 </ul>
@@ -1181,7 +1180,7 @@ the cannabis product you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id69"><span class="problematic" id="id70">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id64"><span class="problematic" id="id65">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis product you want the genetics from.</li>
 <li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
@@ -1219,7 +1218,7 @@ for descending.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id71"><span class="problematic" id="id72">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id66"><span class="problematic" id="id67">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the children from.</li>
 </ul>
@@ -1246,7 +1245,7 @@ with the given UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id73"><span class="problematic" id="id74">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id68"><span class="problematic" id="id69">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the genetics from.</li>
 </ul>
@@ -1272,7 +1271,7 @@ the cannabis strain you want the genetics from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id75"><span class="problematic" id="id76">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id70"><span class="problematic" id="id71">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the seed company from.</li>
 </ul>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.abstract_item_endpoint &#8212; Cannabis Reports 0.0.0b40 documentation</title>
+    <title>cannabis_reports.apis.abstract_item_endpoint &#8212; Cannabis Reports 0.0.0b42 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b40',
+        VERSION:     '0.0.0b42',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -56,7 +56,7 @@
 <div class="viewcode-block" id="AbstractItemEndpoint"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint">[docs]</a><span class="k">class</span> <span class="nc">AbstractItemEndpoint</span><span class="p">(</span><span class="n">BaseApi</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This represents an abstract item endpoint.</span>
 
-<span class="sd">    The Strains, Flowers, Rxtracts, Edibles, and Products APIs inherit from</span>
+<span class="sd">    The Strains, Flowers, Extracts, Edibles, and Products APIs inherit from</span>
 <span class="sd">    this.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -67,7 +67,7 @@
 <span class="sd">        Args:</span>
 <span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
 <span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
 <span class="sd">                the cannabis object you want the user from.</span>
 
 <span class="sd">        Returns:</span>
@@ -81,14 +81,14 @@
             <span class="n">out_type</span><span class="o">=</span><span class="n">User</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="AbstractItemEndpoint.get_review"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_review">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_review</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
+<div class="viewcode-block" id="AbstractItemEndpoint.get_reviews"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_reviews">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_reviews</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get the reviews for a cannabis object.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
 <span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
 <span class="sd">                the cannabis object you want the reviews from.</span>
 
 <span class="sd">        Returns:</span>
@@ -96,9 +96,9 @@
 <span class="sd">                Reviews iterator.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/review&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/reviews&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_class</span><span class="o">=</span><span class="n">Review</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Review</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="AbstractItemEndpoint.get_effects_flavors"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_effects_flavors">[docs]</a>    <span class="nd">@classmethod</span>
@@ -108,7 +108,7 @@
 <span class="sd">        Args:</span>
 <span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
 <span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
 <span class="sd">                the cannabis object you want the effect and flavor profile</span>
 <span class="sd">                from.</span>
 
@@ -119,7 +119,7 @@
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/effectsFlavors&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_class</span><span class="o">=</span><span class="n">EffectsFlavors</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">EffectsFlavors</span><span class="p">,</span>
             <span class="n">singletone</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span></div>
 
@@ -130,7 +130,7 @@
 <span class="sd">        Args:</span>
 <span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
 <span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
 <span class="sd">                the cannabis object you want the children from.</span>
 <span class="sd">            lat (float): Latitude for the center of your availability search.</span>
 <span class="sd">            lng (float): Longitude for the center of your availability search.</span>
@@ -149,7 +149,7 @@
                 <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span>
             <span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_class</span><span class="o">=</span><span class="n">MenuItemSummary</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">MenuItemSummary</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="AbstractItemEndpoint.search"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search">[docs]</a>    <span class="nd">@classmethod</span>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.tests.test_request_paginator &#8212; Cannabis Reports 0.0.0b40 documentation</title>
+    <title>cannabis_reports.tests.test_request_paginator &#8212; Cannabis Reports 0.0.0b42 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b40',
+        VERSION:     '0.0.0b42',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -66,7 +66,7 @@
                 <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s1">&#39;pagination&#39;</span><span class="p">:</span> <span class="p">{</span>
                         <span class="s1">&#39;current_page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                        <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="s1">&#39;total_pages&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
                     <span class="p">},</span>
                 <span class="p">},</span>
                 <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[{</span>
@@ -76,8 +76,8 @@
             <span class="p">{</span>
                 <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s1">&#39;pagination&#39;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s1">&#39;current_page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                        <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="s1">&#39;current_page&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="s1">&#39;total_pages&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
                     <span class="p">},</span>
                 <span class="p">},</span>
                 <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[{</span>
@@ -87,11 +87,10 @@
             <span class="p">{</span>
                 <span class="s1">&#39;meta&#39;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="s1">&#39;pagination&#39;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="s1">&#39;current_page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                        <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="s1">&#39;current_page&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                        <span class="s1">&#39;total_pages&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
                     <span class="p">},</span>
                 <span class="p">},</span>
-                <span class="c1"># This one emulates a singleton</span>
                 <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[{</span>
                     <span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
                 <span class="p">}],</span>
@@ -191,6 +190,15 @@
             <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_responses</span>
             <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paginator</span><span class="p">)</span>
             <span class="n">expect</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">expect</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestRequestPaginator.test_iter_limit"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_request_paginator.TestRequestPaginator.test_iter_limit">[docs]</a>    <span class="k">def</span> <span class="nf">test_iter_limit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; It should stop iteration after the correct page. &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">mock_session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+            <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="o">.</span><span class="n">json</span><span class="o">.</span><span class="n">side_effect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_responses</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">paginator</span><span class="o">.</span><span class="n">limit_iter</span> <span class="o">=</span> <span class="mi">2</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paginator</span><span class="p">)</span>
+            <span class="n">expect</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;page&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">expect</span><span class="p">)</span></div></div>
 </pre></div>
 
