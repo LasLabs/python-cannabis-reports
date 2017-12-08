@@ -144,7 +144,7 @@ class BaseApi(object):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis object you want information about.
 
         Returns:

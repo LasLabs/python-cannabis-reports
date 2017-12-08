@@ -24,7 +24,7 @@ class Strains(AbstractItemEndpoint):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis strain you want the seed company from.
 
         Returns:
@@ -46,7 +46,7 @@ class Strains(AbstractItemEndpoint):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis strain you want the genetics from.
 
         Returns:
@@ -65,7 +65,7 @@ class Strains(AbstractItemEndpoint):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis strain you want the children from.
             limit (int, optional): Stop after iterating this many pages.
 

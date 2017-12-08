@@ -31,9 +31,6 @@ class CannabisReports(object):
         cr = CannabisReports('api_key')
         for strain in cr.Strains.list():
             print(strain.serialize())
-
-    Attributes:
-
     """
 
     __apis__ = {}

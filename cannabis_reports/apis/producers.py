@@ -30,7 +30,7 @@ class Producers(BaseApi):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis producer you want the extracts for.
 
         Returns:
@@ -51,7 +51,7 @@ class Producers(BaseApi):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis producer you want the edibles for.
 
         Returns:
@@ -72,7 +72,7 @@ class Producers(BaseApi):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis producer you want the products for.
 
         Returns:
@@ -93,7 +93,7 @@ class Producers(BaseApi):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis object you want the children from.
             lat (float): Latitude for the center of your availability search.
             lng (float): Longitude for the center of your availability search.

@@ -32,7 +32,7 @@ Usage
 
 The `CannabisReports object <https://laslabs.github.io/python-cannabis-reports/
 cannabis-reports.html#cannabis-reports.CannabisReports>`_ is the primary point of
- interaction with the CannabisReports API.
+interaction with the CannabisReports API.
 
 Connection
 ==========
@@ -51,20 +51,13 @@ API Endpoints
 The CannabisReports API endpoints are exposed as variables on the instantiated 
 ``CannabisReports`` object. The available endpoints are:
 
-* `Dispensaries <https://laslabs.github.io/python-cannabis-reports/
-  cannabis-reports.apis.html#module-cannabis-reports.apis.dispensaries>`_
-* `Edibles <https://laslabs.github.io/python-cannabis-reports/
-  cannabis-reports.apis.html#module-cannabis-reports.apis.edibles>`_
-* `Extracts <https://laslabs.github.io/python-cannabis-reports/
-  cannabis-reports.apis.html#module-cannabis-reports.apis.extracts>`_
-* `Flowers <https://laslabs.github.io/python-cannabis-reports/
-  cannabis-reports.apis.html#module-cannabis-reports.apis.flowers>`_
-* `Producers <https://laslabs.github.io/python-cannabis-reports/
-  cannabis-reports.apis.html#module-cannabis-reports.apis.producers>`_
-* `Products <https://laslabs.github.io/python-cannabis-reports/
-  cannabis-reports.apis.html#module-cannabis-reports.apis.products>`_
-* `Strains <https://laslabs.github.io/python-cannabis-reports/
-  cannabis-reports.apis.html#module-cannabis-reports.apis.strains>`_
+* `Dispensaries <https://laslabs.github.io/python-cannabis-reports/cannabis_reports.apis.html#module-cannabis_reports.apis.dispensaries>`_
+* `Edibles <https://laslabs.github.io/python-cannabis-reports/cannabis_reports.apis.html#module-cannabis_reports.apis.edibles>`_
+* `Extracts <https://laslabs.github.io/python-cannabis-reports/cannabis_reports.apis.html#module-cannabis_reports.apis.extracts>`_
+* `Flowers <https://laslabs.github.io/python-cannabis-reports/cannabis_reports.apis.html#module-cannabis_reports.apis.flowers>`_
+* `Producers <https://laslabs.github.io/python-cannabis-reports/cannabis_reports.apis.html#module-cannabis_reports.apis.producers>`_
+* `Products <https://laslabs.github.io/python-cannabis-reports/cannabis_reports.apis.html#module-cannabis_reports.apis.products>`_
+* `Strains <https://laslabs.github.io/python-cannabis-reports/cannabis_reports.apis.html#module-cannabis_reports.apis.strains>`_
 
 They can also be viewed from the ``__apis__`` property of ``CannabisReports``::
 
