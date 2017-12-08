@@ -24,7 +24,7 @@ class Flowers(AbstractItemEndpoint):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis flower you want the genetics from.
             sort (str): Snake cased field name to sort on. Prefix with a `-`
                 for descending.
@@ -44,7 +44,7 @@ class Flowers(AbstractItemEndpoint):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis flower you want the seed company from.
 
         Returns:
@@ -66,7 +66,7 @@ class Flowers(AbstractItemEndpoint):
         Args:
             session (requests.sessions.Session): Authenticated session.
             ucpc (str): `UCPC <https://developers.cannabisreports.com/
-                v1.0/docs/ucpc-universal-cannabis-product-code`_ for
+                v1.0/docs/ucpc-universal-cannabis-product-code>`_ for
                 the cannabis flower you want the genetics from.
 
         Returns:

@@ -12,6 +12,7 @@ python:
 env:
   global:
   - PROJECT="Cannabis Reports"
+  - INTERSPHINX="requests=http://docs.python-requests.org/en/latest, properties=https://propertiespy.readthedocs.io/en/latest"
   matrix:
   - TESTS="1"
   - DOCS="1"
