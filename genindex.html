@@ -6,13 +6,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Index &#8212; Cannabis Reports 0.0.0b50 documentation</title>
+    <title>Index &#8212; Cannabis Reports 0.0.0b62 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b50',
+        VERSION:     '0.0.0b62',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -117,6 +117,8 @@
 </li>
       </ul></li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_cannabis_reports.TestCannabisReports.API_KEY">API_KEY (cannabis_reports.tests.test_cannabis_reports.TestCannabisReports attribute)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.api_common.ApiCommon">ApiCommon (class in cannabis_reports.tests.api_common)</a>
 </li>
       <li><a href="cannabis_reports.models.html#cannabis_reports.models.Effect.appetite_gain">appetite_gain (cannabis_reports.models.Effect attribute)</a>
 
@@ -256,10 +258,10 @@
 </li>
       <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.review">cannabis_reports.models.review (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.seed_company">cannabis_reports.models.seed_company (module)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.strain">cannabis_reports.models.strain (module)</a>
 </li>
       <li><a href="cannabis_reports.models.html#module-cannabis_reports.models.user">cannabis_reports.models.user (module)</a>
@@ -267,6 +269,10 @@
       <li><a href="cannabis_reports.request_paginator.html#module-cannabis_reports.request_paginator">cannabis_reports.request_paginator (module)</a>
 </li>
       <li><a href="cannabis_reports.tests.html#module-cannabis_reports.tests">cannabis_reports.tests (module)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#module-cannabis_reports.tests.api_common">cannabis_reports.tests.api_common (module)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_strains">cannabis_reports.tests.test_apis_strains (module)</a>
 </li>
       <li><a href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_base_api">cannabis_reports.tests.test_base_api (module)</a>
 </li>
@@ -706,12 +712,16 @@
         <li><a href="cannabis_reports.models.html#cannabis_reports.models.dispensary.Dispensary.lat">(cannabis_reports.models.dispensary.Dispensary attribute)</a>
 </li>
       </ul></li>
-      <li><a href="cannabis_reports.html#cannabis_reports.base_model.LineageModel.lineage">lineage (cannabis_reports.base_model.LineageModel attribute)</a>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.api_common.ApiCommon.LIMIT_LIST">LIMIT_LIST (cannabis_reports.tests.api_common.ApiCommon attribute)</a>
 </li>
-      <li><a href="cannabis_reports.html#cannabis_reports.base_model.LineageModel">LineageModel (class in cannabis_reports.base_model)</a>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.api_common.ApiCommon.LIMIT_PAGE">LIMIT_PAGE (cannabis_reports.tests.api_common.ApiCommon attribute)</a>
+</li>
+      <li><a href="cannabis_reports.html#cannabis_reports.base_model.LineageModel.lineage">lineage (cannabis_reports.base_model.LineageModel attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="cannabis_reports.html#cannabis_reports.base_model.LineageModel">LineageModel (class in cannabis_reports.base_model)</a>
+</li>
       <li><a href="cannabis_reports.html#cannabis_reports.base_model.BaseModelWithLinks.link">link (cannabis_reports.base_model.BaseModelWithLinks attribute)</a>
 
       <ul>
@@ -1082,9 +1092,11 @@
       </ul></li>
       <li><a href="setup.html#module-setup">setup (module)</a>
 </li>
-      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.setUp">setUp() (cannabis_reports.tests.test_base_model.TestBaseModel method)</a>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.api_common.ApiCommon.setUp">setUp() (cannabis_reports.tests.api_common.ApiCommon method)</a>
 
       <ul>
+        <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.setUp">(cannabis_reports.tests.test_base_model.TestBaseModel method)</a>
+</li>
         <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_cannabis_reports.TestCannabisReports.setUp">(cannabis_reports.tests.test_cannabis_reports.TestCannabisReports method)</a>
 </li>
         <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_request_paginator.TestRequestPaginator.setUp">(cannabis_reports.tests.test_request_paginator.TestRequestPaginator method)</a>
@@ -1192,6 +1204,26 @@
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_cannabis_reports.TestCannabisReports.test_api_instance_attributes">test_api_instance_attributes() (cannabis_reports.tests.test_cannabis_reports.TestCannabisReports method)</a>
 </li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get">test_apis_strains_get() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_available">test_apis_strains_get_available() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_children">test_apis_strains_get_children() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_effects_flavors">test_apis_strains_get_effects_flavors() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_genetics">test_apis_strains_get_genetics() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_review">test_apis_strains_get_review() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_seed_company">test_apis_strains_get_seed_company() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_user">test_apis_strains_get_user() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_list">test_apis_strains_list() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_search">test_apis_strains_search() (cannabis_reports.tests.test_apis_strains.TestApisStrains method)</a>
+</li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_base_api_iterates_paginator">test_base_api_iterates_paginator() (cannabis_reports.tests.test_base_api.TestBaseApi method)</a>
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_request_paginator.TestRequestPaginator.test_call_get">test_call_get() (cannabis_reports.tests.test_request_paginator.TestRequestPaginator method)</a>
@@ -1248,6 +1280,8 @@
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_object">test_new_object() (cannabis_reports.tests.test_base_api.TestBaseApi method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator">test_new_paginator() (cannabis_reports.tests.test_base_api.TestBaseApi method)</a>
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_create">test_new_paginator_create() (cannabis_reports.tests.test_base_api.TestBaseApi method)</a>
@@ -1258,8 +1292,6 @@
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_singleton_out_type">test_new_paginator_singleton_out_type() (cannabis_reports.tests.test_base_api.TestBaseApi method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_parse_property_invalid_property">test_parse_property_invalid_property() (cannabis_reports.tests.test_base_model.TestBaseModel method)</a>
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_request_paginator.TestRequestPaginator.test_returns">test_returns() (cannabis_reports.tests.test_request_paginator.TestRequestPaginator method)</a>
@@ -1275,6 +1307,8 @@
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_to_api_list_string">test_to_api_list_string() (cannabis_reports.tests.test_base_model.TestBaseModel method)</a>
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestApi">TestApi (class in cannabis_reports.tests.test_base_api)</a>
+</li>
+      <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains">TestApisStrains (class in cannabis_reports.tests.test_apis_strains)</a>
 </li>
       <li><a href="cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi">TestBaseApi (class in cannabis_reports.tests.test_base_api)</a>
 </li>

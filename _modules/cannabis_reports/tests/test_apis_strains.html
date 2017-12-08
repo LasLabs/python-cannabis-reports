@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.tests.test_apis_strains &#8212; Cannabis Reports 0.0.0b62 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.0b62',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.tests.test_apis_strains</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">from</span> <span class="nn">.api_common</span> <span class="k">import</span> <span class="n">ApiCommon</span><span class="p">,</span> <span class="n">recorder</span>
+
+<span class="kn">from</span> <span class="nn">..models.menu_item</span> <span class="k">import</span> <span class="n">MenuItemSummary</span>
+<span class="kn">from</span> <span class="nn">..models.strain</span> <span class="k">import</span> <span class="n">Strain</span>
+<span class="kn">from</span> <span class="nn">..models.review</span> <span class="k">import</span> <span class="n">Review</span>
+
+
+<div class="viewcode-block" id="TestApisStrains"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains">[docs]</a><span class="k">class</span> <span class="nc">TestApisStrains</span><span class="p">(</span><span class="n">ApiCommon</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tests the Strains API endpoint.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_list"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_list">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should parse the response and return the proper object.&quot;&quot;&quot;</span>
+        <span class="n">result_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">strain</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_PAGE</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">strain</span><span class="p">,</span> <span class="n">Strain</span><span class="p">)</span>
+            <span class="n">result_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_LIST</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_PAGE</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the proper singleton.&quot;&quot;&quot;</span>
+        <span class="n">strain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;VUJCJ4TYMG000000000000000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">strain</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;Jack Herer&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get_user"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_user">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the proper user singleton.&quot;&quot;&quot;</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="s1">&#39;VUJCJ4TYMG000000000000000&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">nickname</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get_review"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_review">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get_review</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the reviews.&quot;&quot;&quot;</span>
+        <span class="n">reviews</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get_reviews</span><span class="p">(</span><span class="s1">&#39;VUJCJ4TYMG000000000000000&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">review</span> <span class="ow">in</span> <span class="n">reviews</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">review</span><span class="p">,</span> <span class="n">Review</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get_effects_flavors"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_effects_flavors">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get_effects_flavors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the effect &amp; flavor profile.&quot;&quot;&quot;</span>
+        <span class="n">effect_flavor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get_effects_flavors</span><span class="p">(</span>
+            <span class="s1">&#39;VUJCJ4TYMG000000000000000&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertGreater</span><span class="p">(</span><span class="n">effect_flavor</span><span class="o">.</span><span class="n">euphoria</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get_available"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_available">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get_available</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the menu items.&quot;&quot;&quot;</span>
+        <span class="n">available</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get_available</span><span class="p">(</span>
+            <span class="s1">&#39;VUJCJ4TYMG000000000000000&#39;</span><span class="p">,</span> <span class="mf">37.7749295</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.4194155</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">available</span> <span class="ow">in</span> <span class="n">available</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">available</span><span class="p">,</span> <span class="n">MenuItemSummary</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_search"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_search">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_search</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should parse the response and return the proper objects.&quot;&quot;&quot;</span>
+        <span class="n">result_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">strain</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_PAGE</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">strain</span><span class="p">,</span> <span class="n">Strain</span><span class="p">)</span>
+            <span class="n">result_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_LIST</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_PAGE</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get_seed_company"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_seed_company">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get_seed_company</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the seed company.&quot;&quot;&quot;</span>
+        <span class="n">seed_company</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get_seed_company</span><span class="p">(</span>
+            <span class="s1">&#39;VUJCJ4TYMG000000000000000&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">seed_company</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;Sensi Seeds&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get_genetics"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_genetics">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get_genetics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the parent strains.&quot;&quot;&quot;</span>
+        <span class="n">genetics</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get_genetics</span><span class="p">(</span><span class="s1">&#39;CYGU94JYKY000000000000000&#39;</span><span class="p">)</span>
+        <span class="n">found_parent</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">genetic</span> <span class="ow">in</span> <span class="n">genetics</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">genetic</span><span class="p">,</span> <span class="n">Strain</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">genetic</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Afghani No. 1&#39;</span><span class="p">:</span>
+                <span class="n">found_parent</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">found_parent</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestApisStrains.test_apis_strains_get_children"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get_children">[docs]</a>    <span class="nd">@recorder</span><span class="o">.</span><span class="n">use_cassette</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">test_apis_strains_get_children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the child strains.&quot;&quot;&quot;</span>
+        <span class="n">children</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">Strains</span><span class="o">.</span><span class="n">get_children</span><span class="p">(</span><span class="s1">&#39;VUJCJ4TYMG000000000000000&#39;</span><span class="p">,</span>
+                                                 <span class="n">limit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_PAGE</span><span class="p">)</span>
+        <span class="n">found_child</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">children</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">child</span><span class="p">,</span> <span class="n">Strain</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Jack Flash&#39;</span><span class="p">:</span>
+                <span class="n">found_child</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">found_child</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

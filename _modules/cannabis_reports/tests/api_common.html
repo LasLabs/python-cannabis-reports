@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.models.address &#8212; Cannabis Reports 0.0.0b62 documentation</title>
+    <title>cannabis_reports.tests.api_common &#8212; Cannabis Reports 0.0.0b62 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -38,28 +38,36 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <h1>Source code for cannabis_reports.models.address</h1><div class="highlight"><pre>
+  <h1>Source code for cannabis_reports.tests.api_common</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
 <span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
 
-<span class="kn">import</span> <span class="nn">properties</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
 
-<span class="kn">from</span> <span class="nn">..base_model</span> <span class="k">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="kn">from</span> <span class="nn">vcr</span> <span class="k">import</span> <span class="n">VCR</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">CannabisReports</span>
 
 
-<div class="viewcode-block" id="Address"><a class="viewcode-back" href="../../../cannabis_reports.models.html#cannabis_reports.models.address.Address">[docs]</a><span class="k">class</span> <span class="nc">Address</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Object containing address location information.&quot;&quot;&quot;</span>
+<span class="n">recorder</span> <span class="o">=</span> <span class="n">VCR</span><span class="p">(</span>
+    <span class="n">record_mode</span><span class="o">=</span><span class="s1">&#39;once&#39;</span><span class="p">,</span>
+    <span class="n">cassette_library_dir</span><span class="o">=</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s1">&#39;fixtures/cassettes&#39;</span><span class="p">),</span>
+    <span class="n">path_transformer</span><span class="o">=</span><span class="n">VCR</span><span class="o">.</span><span class="n">ensure_suffix</span><span class="p">(</span><span class="s1">&#39;.yml&#39;</span><span class="p">),</span>
+    <span class="n">filter_headers</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;X-API-Key&#39;</span><span class="p">],</span>
+<span class="p">)</span>
 
-    <span class="n">address_1</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Street address.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">address_2</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Additional street address line.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="nb">zip</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Zip Code.&#39;</span><span class="p">,</span>
-    <span class="p">)</span></div>
+
+<div class="viewcode-block" id="ApiCommon"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.api_common.ApiCommon">[docs]</a><span class="k">class</span> <span class="nc">ApiCommon</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="n">LIMIT_LIST</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">LIMIT_PAGE</span> <span class="o">=</span> <span class="mi">2</span>
+
+<div class="viewcode-block" id="ApiCommon.setUp"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.api_common.ApiCommon.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ApiCommon</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span class="n">CannabisReports</span><span class="p">()</span></div></div>
 </pre></div>
 
           </div>
