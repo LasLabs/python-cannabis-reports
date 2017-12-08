@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports package &#8212; Cannabis Reports 0.0.0b62 documentation</title>
+    <title>cannabis_reports package &#8212; Cannabis Reports 0.0.0b68 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b62',
+        VERSION:     '0.0.0b68',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -183,8 +183,7 @@ represents.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id8"><span class="problematic" id="id9">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> for
 the cannabis object you want information about.</li>
 </ul>
 </td>
@@ -271,7 +270,7 @@ object. It can use either camelCase keys or snake_case.</td>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>ucpc</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 </ul>
 <dl class="attribute">
@@ -353,11 +352,11 @@ a fully Objectified and Pythonified API response.</p>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>link</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>qr</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the QR code for this record., a unicode string</li>
-<li><strong>ucpc</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
+<li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
-<li><strong>url</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
+<li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
 <dl class="attribute">
 <dt id="cannabis_reports.base_model.BaseModelWithLinks.link">
@@ -413,10 +412,10 @@ when the strain was added.</p>
 high level information &amp; how to access the actual dataset.</div></blockquote>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>count</strong> (<code class="xref py py-class docutils literal"><span class="pre">Integer</span></code>): Total amount of reviews for this record., an integer</li>
+<li><strong>count</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Integer" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Integer</span></code></a>): Total amount of reviews for this record., an integer</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>link</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the detailed review information in the Cannabis Reports API., a unicode string</li>
-<li><strong>ucpc</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
+<li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the detailed review information in the Cannabis Reports API., a unicode string</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 </ul>
 <dl class="attribute">
@@ -440,13 +439,13 @@ high level information &amp; how to access the actual dataset.</div></blockquote
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>image</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lineage</strong> (<code class="xref py py-class docutils literal"><span class="pre">Property</span></code>): Countries of origin for the genetics for the strain. Object keys are the country name and the values are the two character country codes.</li>
-<li><strong>link</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>qr</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the QR code for this record., a unicode string</li>
-<li><strong>ucpc</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
+<li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
+<li><strong>lineage</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/property.html#properties.Property" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Property</span></code></a>): Countries of origin for the genetics for the strain. Object keys are the country name and the values are the two character country codes.</li>
+<li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
-<li><strong>url</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
+<li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
 <dl class="attribute">
 <dt id="cannabis_reports.base_model.LineageModel.lineage">
@@ -463,12 +462,12 @@ high level information &amp; how to access the actual dataset.</div></blockquote
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>image</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>link</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>qr</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the QR code for this record., a unicode string</li>
-<li><strong>ucpc</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
+<li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
+<li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
-<li><strong>url</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
+<li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
 <dl class="attribute">
 <dt id="cannabis_reports.base_model.LinksModelWithImage.image">
@@ -591,9 +590,9 @@ represents.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id10"><span class="problematic" id="id11">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis object you want information about.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p><a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> for
+the cannabis object you want information about.</p>
+</li>
 </ul>
 </td>
 </tr>
@@ -676,7 +675,7 @@ object. It can use either camelCase keys or snake_case.</td>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>ucpc</strong> (<code class="xref py py-class docutils literal"><span class="pre">String</span></code>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 </ul>
 <dl class="attribute">
@@ -771,7 +770,6 @@ all of the authenticated API objects.</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">strain</span><span class="o">.</span><span class="n">serialize</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>Attributes:</p>
 </dd></dl>
 
 </div>
