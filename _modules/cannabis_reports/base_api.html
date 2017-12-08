@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.base_api &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <title>cannabis_reports.base_api &#8212; Cannabis Reports 0.0.0b40 documentation</title>
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.0.0b24',
+        VERSION:     '0.0.0b40',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -65,6 +65,9 @@
 
     <span class="c1"># This should be replaced in child classes with the correct model.</span>
     <span class="n">__object__</span> <span class="o">=</span> <span class="n">BaseModel</span>
+
+    <span class="c1"># This should be replaced with the endpoint, such as ``strains``</span>
+    <span class="n">__endpoint__</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="c1"># This is set within new, after the object has been created.</span>
     <span class="n">paginator</span> <span class="o">=</span> <span class="kc">None</span>
@@ -136,7 +139,59 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            BaseModel: A model of the type declared in ``cls.__object__``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__object__</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__object__</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span></div>
+
+    <span class="c1"># Universal endpoints</span>
+
+<div class="viewcode-block" id="BaseApi.list"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseApi.list">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return all objects, with optional sorting.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            sort (str): Column to sort by. One of:</span>
+
+<span class="sd">                * ``created_at``</span>
+<span class="sd">                * ``updated_at``</span>
+<span class="sd">                * ``name``</span>
+
+<span class="sd">            descending (bool, optional): Set to True to put newest records</span>
+<span class="sd">                at the top.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=cls.__object__):</span>
+<span class="sd">                Objects iterator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">sort</span> <span class="o">=</span> <span class="s1">&#39;name&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sort</span> <span class="o">=</span> <span class="n">BaseModel</span><span class="o">.</span><span class="n">_to_camel_case</span><span class="p">(</span><span class="n">sort</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">descending</span><span class="p">:</span>
+            <span class="n">sort</span> <span class="o">=</span> <span class="s1">&#39;-</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">sort</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;sort&#39;</span><span class="p">:</span> <span class="n">sort</span><span class="p">},</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseApi.get"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseApi.get">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets an individual object based on the UCPC.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                the cannabis object you want information about.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            cls.__object__: The object that was found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
 </pre></div>
 
           </div>

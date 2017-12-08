@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports package &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <title>cannabis_reports package &#8212; Cannabis Reports 0.0.0b40 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b24',
+        VERSION:     '0.0.0b40',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -48,6 +48,12 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cannabis_reports.apis.html">cannabis_reports.apis package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis.abstract_item_endpoint">cannabis_reports.apis.abstract_item_endpoint module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis.edibles">cannabis_reports.apis.edibles module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis.extracts">cannabis_reports.apis.extracts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis.flowers">cannabis_reports.apis.flowers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis.producers">cannabis_reports.apis.producers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis.products">cannabis_reports.apis.products module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis.strains">cannabis_reports.apis.strains module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.apis.html#module-cannabis_reports.apis">Module contents</a></li>
 </ul>
@@ -164,6 +170,64 @@ represents.</p>
 <dt>
 <code class="descname">BASE_URI</code><em class="property"> = 'https://www.cannabisreports.com/api/v1.0'</em></dt>
 <dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.base_api.BaseApi.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.base_api.BaseApi.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an individual object based on the UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id8"><span class="problematic" id="id9">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis object you want information about.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The object that was found.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">cls.__object__</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.base_api.BaseApi.list">
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort=None</em>, <em>descending=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.base_api.BaseApi.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all objects, with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p>Column to sort by. One of:</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">created_at</span></code></li>
+<li><code class="docutils literal"><span class="pre">updated_at</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+</ul>
+</li>
+<li><strong>descending</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Set to True to put newest records
+at the top.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Objects iterator.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cls.__object__)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.base_api.BaseApi.new_object">
@@ -513,6 +577,64 @@ represents.</p>
 <dt>
 <code class="descname">BASE_URI</code><em class="property"> = 'https://www.cannabisreports.com/api/v1.0'</em></dt>
 <dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.BaseApi.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.BaseApi.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets an individual object based on the UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id10"><span class="problematic" id="id11">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis object you want information about.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The object that was found.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">cls.__object__</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.BaseApi.list">
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort=None</em>, <em>descending=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.BaseApi.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all objects, with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p>Column to sort by. One of:</p>
+<ul>
+<li><code class="docutils literal"><span class="pre">created_at</span></code></li>
+<li><code class="docutils literal"><span class="pre">updated_at</span></code></li>
+<li><code class="docutils literal"><span class="pre">name</span></code></li>
+</ul>
+</li>
+<li><strong>descending</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Set to True to put newest records
+at the top.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Objects iterator.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cls.__object__)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.BaseApi.new_object">

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b40 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b24',
+        VERSION:     '0.0.0b40',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -45,18 +45,19 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cannabis_reports.apis.strains">
-<span id="cannabis-reports-apis-strains-module"></span><h2>cannabis_reports.apis.strains module<a class="headerlink" href="#module-cannabis_reports.apis.strains" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cannabis_reports.apis.abstract_item_endpoint">
+<span id="cannabis-reports-apis-abstract-item-endpoint-module"></span><h2>cannabis_reports.apis.abstract_item_endpoint module<a class="headerlink" href="#module-cannabis_reports.apis.abstract_item_endpoint" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="cannabis_reports.apis.strains.Strains">
-<em class="property">class </em><code class="descclassname">cannabis_reports.apis.strains.</code><code class="descname">Strains</code><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains" title="Permalink to this definition">¶</a></dt>
+<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.abstract_item_endpoint.</code><code class="descname">AbstractItemEndpoint</code><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_api.BaseApi" title="cannabis_reports.base_api.BaseApi"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_api.BaseApi</span></code></a></p>
-<p>This represents the <code class="docutils literal"><span class="pre">Strains</span></code> Endpoint.</p>
-<p><a class="reference external" href="https://developers.cannabisreports.com/docs/strains">https://developers.cannabisreports.com/docs/strains</a></p>
+<p>This represents an abstract item endpoint.</p>
+<p>The Strains, Flowers, Rxtracts, Edibles, and Products APIs inherit from
+this.</p>
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.strains.Strains.get">
-<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an individual strain based on the UCPC.</p>
+<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available">
+<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information about the availability of the given UCPC.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -65,11 +66,201 @@
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id1"><span class="problematic" id="id2">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want information about.</li>
+the cannabis object you want the children from.</li>
+<li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Latitude for the center of your availability search.</li>
+<li><strong>lng</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Longitude for the center of your availability search.</li>
+<li><strong>radius</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Radius to search for in miles, max 25.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain that was found.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of child objects.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cls.__object__)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_effects_flavors">
+<em class="property">classmethod </em><code class="descname">get_effects_flavors</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_effects_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_effects_flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the average effects and flavors from reviews for this object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id3"><span class="problematic" id="id4">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis object you want the effect and flavor profile
+from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The effect and flavor</dt>
+<dd><p class="first last">profile for this object.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.EffectsFlavors" title="cannabis_reports.models.EffectsFlavors">cannabis_reports.models.EffectsFlavors</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_review">
+<em class="property">classmethod </em><code class="descname">get_review</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_review" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the reviews for a cannabis object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id5"><span class="problematic" id="id6">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis object you want the reviews from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Reviews iterator.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Review)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_user">
+<em class="property">classmethod </em><code class="descname">get_user</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the user who added the object to the database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id7"><span class="problematic" id="id8">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis object you want the user from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The user who added the object</dt>
+<dd><p class="first last">to the database.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.User" title="cannabis_reports.models.User">cannabis_reports.models.User</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort=None</em>, <em>path='search'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return search results for objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>query</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Search query to find objects in our system.
+Must be at least 2 characters.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">flowers</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Objects iterator.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cls.__object__)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.apis.edibles">
+<span id="cannabis-reports-apis-edibles-module"></span><h2>cannabis_reports.apis.edibles module<a class="headerlink" href="#module-cannabis_reports.apis.edibles" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.apis.edibles.Edibles">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.edibles.</code><code class="descname">Edibles</code><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.edibles.Edibles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Edibles</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/edibles">https://developers.cannabisreports.com/docs/edibles</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.edibles.Edibles.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.edibles.Edibles.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given edible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id9"><span class="problematic" id="id10">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis edible you want the seed company from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this edible.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.edibles.Edibles.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.edibles.Edibles.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a edible with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id11"><span class="problematic" id="id12">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis edible you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the edible.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
@@ -80,34 +271,465 @@ the cannabis strain you want information about.</li>
 </dd></dl>
 
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.strains.Strains.get_available">
-<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_available" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the child strains that this one has been bred into.</p>
+<dt id="cannabis_reports.apis.edibles.Edibles.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>edible_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.edibles.Edibles.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id3"><span class="problematic" id="id4">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id13"><span class="problematic" id="id14">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the children from.</li>
-<li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Latitude for the center of your availability search.</li>
-<li><strong>lng</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Longitude for the center of your availability search.</li>
-<li><strong>radius</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Radius to search for in miles, max 25.</li>
+the cannabis edible you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">edibles</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of child strains.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent edibles.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Edible)</p>
 </td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.apis.extracts">
+<span id="cannabis-reports-apis-extracts-module"></span><h2>cannabis_reports.apis.extracts module<a class="headerlink" href="#module-cannabis_reports.apis.extracts" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.apis.extracts.Extracts">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.extracts.</code><code class="descname">Extracts</code><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.extracts.Extracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Extracts</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/extracts">https://developers.cannabisreports.com/docs/extracts</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.extracts.Extracts.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.extracts.Extracts.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given extract.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id15"><span class="problematic" id="id16">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis extract you want the seed company from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this extract.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.extracts.Extracts.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.extracts.Extracts.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a extract with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id17"><span class="problematic" id="id18">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis extract you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the extract.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.extracts.Extracts.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>extract_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.extracts.Extracts.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id19"><span class="problematic" id="id20">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis extract you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">extracts</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent extracts.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Extract)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.apis.flowers">
+<span id="cannabis-reports-apis-flowers-module"></span><h2>cannabis_reports.apis.flowers module<a class="headerlink" href="#module-cannabis_reports.apis.flowers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.apis.flowers.Flowers">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.flowers.</code><code class="descname">Flowers</code><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.flowers.Flowers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Flowers</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/flowers">https://developers.cannabisreports.com/docs/flowers</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.flowers.Flowers.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.flowers.Flowers.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given flower.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id21"><span class="problematic" id="id22">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis flower you want the seed company from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this flower.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.flowers.Flowers.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.flowers.Flowers.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a flower with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id23"><span class="problematic" id="id24">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis flower you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the flower.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.flowers.Flowers.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>flower_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.flowers.Flowers.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id25"><span class="problematic" id="id26">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis flower you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">flowers</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent flowers.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Flower)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.apis.producers">
+<span id="cannabis-reports-apis-producers-module"></span><h2>cannabis_reports.apis.producers module<a class="headerlink" href="#module-cannabis_reports.apis.producers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.apis.producers.Producers">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.producers.</code><code class="descname">Producers</code><a class="reference internal" href="_modules/cannabis_reports/apis/producers.html#Producers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.producers.Producers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_api.BaseApi" title="cannabis_reports.base_api.BaseApi"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_api.BaseApi</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Producers</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/producers">https://developers.cannabisreports.com/docs/producers</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.producers.Producers.get_available">
+<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/producers.html#Producers.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.producers.Producers.get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get information about the availability of everything from a
+producer using latitude and longitude.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id27"><span class="problematic" id="id28">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis object you want the children from.</li>
+<li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Latitude for the center of your availability search.</li>
+<li><strong>lng</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Longitude for the center of your availability search.</li>
+<li><strong>radius</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Radius to search for in miles, max 25.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of child objects.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cls.__object__)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.producers.Producers.get_edibles">
+<em class="property">classmethod </em><code class="descname">get_edibles</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/producers.html#Producers.get_edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.producers.Producers.get_edibles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a paginated list of edibles for a producer with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id29"><span class="problematic" id="id30">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis producer you want the edibles for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The edibles for this producer.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Edible)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.producers.Producers.get_extracts">
+<em class="property">classmethod </em><code class="descname">get_extracts</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/producers.html#Producers.get_extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.producers.Producers.get_extracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a paginated list of extracts for a producer with the
+given UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id31"><span class="problematic" id="id32">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis producer you want the extracts for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The extracts for this producer.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Extract)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.producers.Producers.get_products">
+<em class="property">classmethod </em><code class="descname">get_products</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/producers.html#Producers.get_products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.producers.Producers.get_products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a paginated list of products for a producer with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id33"><span class="problematic" id="id34">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis producer you want the products for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The products for this producer.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Product)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.apis.products">
+<span id="cannabis-reports-apis-products-module"></span><h2>cannabis_reports.apis.products module<a class="headerlink" href="#module-cannabis_reports.apis.products" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.apis.products.Products">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.products.</code><code class="descname">Products</code><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.products.Products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Products</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/products">https://developers.cannabisreports.com/docs/products</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.products.Products.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.products.Products.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given product.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id35"><span class="problematic" id="id36">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis product you want the seed company from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this product.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.products.Products.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.products.Products.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a product with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id37"><span class="problematic" id="id38">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis product you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the product.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.products.Products.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>product_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.products.Products.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id39"><span class="problematic" id="id40">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis product you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">products</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent products.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Product)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.apis.strains">
+<span id="cannabis-reports-apis-strains-module"></span><h2>cannabis_reports.apis.strains module<a class="headerlink" href="#module-cannabis_reports.apis.strains" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.apis.strains.Strains">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.strains.</code><code class="descname">Strains</code><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Strains</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/strains">https://developers.cannabisreports.com/docs/strains</a></p>
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.strains.Strains.get_children">
 <em class="property">classmethod </em><code class="descname">get_children</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_children" title="Permalink to this definition">¶</a></dt>
@@ -118,7 +740,7 @@ the cannabis strain you want the children from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id5"><span class="problematic" id="id6">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id41"><span class="problematic" id="id42">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the children from.</li>
 </ul>
@@ -128,38 +750,6 @@ the cannabis strain you want the children from.</li>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.strains.Strains.get_effects_flavors">
-<em class="property">classmethod </em><code class="descname">get_effects_flavors</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_effects_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_effects_flavors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the average effects and flavors from reviews for this strain.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id7"><span class="problematic" id="id8">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the effect and flavor profile
-from.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>The effect and flavor</dt>
-<dd><p class="first last">profile for this strain.</p>
-</dd>
-</dl>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.EffectsFlavors" title="cannabis_reports.models.EffectsFlavors">cannabis_reports.models.EffectsFlavors</a></p>
 </td>
 </tr>
 </tbody>
@@ -177,7 +767,7 @@ with the given UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id9"><span class="problematic" id="id10">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id43"><span class="problematic" id="id44">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the genetics from.</li>
 </ul>
@@ -194,32 +784,6 @@ the cannabis strain you want the genetics from.</li>
 </dd></dl>
 
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.strains.Strains.get_review">
-<em class="property">classmethod </em><code class="descname">get_review</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_review" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the reviews for a cannabis strain.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id11"><span class="problematic" id="id12">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the reviews from.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Reviews iterator.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Review)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
 <dt id="cannabis_reports.apis.strains.Strains.get_seed_company">
 <em class="property">classmethod </em><code class="descname">get_seed_company</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_seed_company"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_seed_company" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the seed company that was responsible for a cannabis strain.</p>
@@ -229,14 +793,14 @@ the cannabis strain you want the reviews from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id13"><span class="problematic" id="id14">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id45"><span class="problematic" id="id46">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the seed company from.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>The seedd company that was</dt>
+<dt>The seed company that was</dt>
 <dd><p class="first last">responsible for this strain.</p>
 </dd>
 </dl>
@@ -250,122 +814,66 @@ the cannabis strain you want the seed company from.</li>
 </table>
 </dd></dl>
 
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.strains.Strains.get_user">
-<em class="property">classmethod </em><code class="descname">get_user</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the user who added the strain to the database.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id15"><span class="problematic" id="id16">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the user from.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>The user who added the strain</dt>
-<dd><p class="first last">to the database.</p>
-</dd>
-</dl>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.User" title="cannabis_reports.models.User">cannabis_reports.models.User</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.strains.Strains.list">
-<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort=None</em>, <em>descending=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return all strains, with optional sorting.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p>Column to sort by. One of:</p>
-<ul>
-<li><code class="docutils literal"><span class="pre">created_at</span></code></li>
-<li><code class="docutils literal"><span class="pre">updated_at</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-</ul>
-</li>
-<li><strong>descending</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Set to True to put newest records
-at the top.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Strains iterator.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.strains.Strains.search">
-<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.search" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return search results for strains.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>query</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Search query to find strains in our system.
-Must be at least 2 characters.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Strains iterator.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 <div class="section" id="module-cannabis_reports.apis">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cannabis_reports.apis" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="cannabis_reports.apis.Strains">
-<em class="property">class </em><code class="descclassname">cannabis_reports.apis.</code><code class="descname">Strains</code><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_api.BaseApi" title="cannabis_reports.base_api.BaseApi"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_api.BaseApi</span></code></a></p>
-<p>This represents the <code class="docutils literal"><span class="pre">Strains</span></code> Endpoint.</p>
-<p><a class="reference external" href="https://developers.cannabisreports.com/docs/strains">https://developers.cannabisreports.com/docs/strains</a></p>
+<dt id="cannabis_reports.apis.Edibles">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.</code><code class="descname">Edibles</code><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Edibles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Edibles</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/edibles">https://developers.cannabisreports.com/docs/edibles</a></p>
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.Strains.get">
-<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets an individual strain based on the UCPC.</p>
+<dt id="cannabis_reports.apis.Edibles.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Edibles.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given edible.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id17"><span class="problematic" id="id18">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id47"><span class="problematic" id="id48">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want information about.</li>
+the cannabis edible you want the seed company from.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain that was found.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this edible.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Edibles.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Edibles.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a edible with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id49"><span class="problematic" id="id50">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis edible you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the edible.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
@@ -376,34 +884,331 @@ the cannabis strain you want information about.</li>
 </dd></dl>
 
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.Strains.get_available">
-<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_available" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the child strains that this one has been bred into.</p>
+<dt id="cannabis_reports.apis.Edibles.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>edible_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/edibles.html#Edibles.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Edibles.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id19"><span class="problematic" id="id20">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id51"><span class="problematic" id="id52">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the children from.</li>
-<li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Latitude for the center of your availability search.</li>
-<li><strong>lng</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Longitude for the center of your availability search.</li>
-<li><strong>radius</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Radius to search for in miles, max 25.</li>
+the cannabis edible you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">edibles</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of child strains.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent edibles.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Edible)</p>
 </td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="cannabis_reports.apis.Extracts">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.</code><code class="descname">Extracts</code><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Extracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Extracts</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/extracts">https://developers.cannabisreports.com/docs/extracts</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Extracts.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Extracts.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given extract.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id53"><span class="problematic" id="id54">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis extract you want the seed company from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this extract.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Extracts.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Extracts.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a extract with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id55"><span class="problematic" id="id56">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis extract you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the extract.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Extracts.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>extract_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/extracts.html#Extracts.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Extracts.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id57"><span class="problematic" id="id58">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis extract you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">extracts</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent extracts.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Extract)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cannabis_reports.apis.Flowers">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.</code><code class="descname">Flowers</code><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Flowers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Flowers</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/flowers">https://developers.cannabisreports.com/docs/flowers</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Flowers.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Flowers.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given flower.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id59"><span class="problematic" id="id60">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis flower you want the seed company from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this flower.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Flowers.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Flowers.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a flower with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id61"><span class="problematic" id="id62">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis flower you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the flower.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Flowers.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>flower_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/flowers.html#Flowers.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Flowers.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id63"><span class="problematic" id="id64">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis flower you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">flowers</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent flowers.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Flower)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cannabis_reports.apis.Products">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.</code><code class="descname">Products</code><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Products" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Products</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/products">https://developers.cannabisreports.com/docs/products</a></p>
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Products.get_producer">
+<em class="property">classmethod </em><code class="descname">get_producer</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products.get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Products.get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the producer for a given product.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id65"><span class="problematic" id="id66">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis product you want the seed company from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The producer that was</dt>
+<dd><p class="first last">responsible for this product.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Products.get_strain">
+<em class="property">classmethod </em><code class="descname">get_strain</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products.get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Products.get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the information about a strain for a product with the given
+UCPC.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id67"><span class="problematic" id="id68">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis product you want the genetics from.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The strain for the product.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain">cannabis_reports.models.Strain</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="cannabis_reports.apis.Products.search">
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>product_type</em>, <em>sort=None</em>, <em>path='type'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/products.html#Products.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Products.search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets products for a given type with optional sorting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id69"><span class="problematic" id="id70">`UCPC &lt;https://developers.cannabisreports.com/
+v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
+the cannabis product you want the genetics from.</li>
+<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Snake cased field name to sort on. Prefix with a <cite>-</cite>
+for descending.</li>
+<li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
+<code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">products</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An iterator of parent products.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Product)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cannabis_reports.apis.Strains">
+<em class="property">class </em><code class="descclassname">cannabis_reports.apis.</code><code class="descname">Strains</code><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint" title="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint</span></code></a></p>
+<p>This represents the <code class="docutils literal"><span class="pre">Strains</span></code> Endpoint.</p>
+<p><a class="reference external" href="https://developers.cannabisreports.com/docs/strains">https://developers.cannabisreports.com/docs/strains</a></p>
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.Strains.get_children">
 <em class="property">classmethod </em><code class="descname">get_children</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_children" title="Permalink to this definition">¶</a></dt>
@@ -414,7 +1219,7 @@ the cannabis strain you want the children from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id21"><span class="problematic" id="id22">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id71"><span class="problematic" id="id72">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the children from.</li>
 </ul>
@@ -424,38 +1229,6 @@ the cannabis strain you want the children from.</li>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.Strains.get_effects_flavors">
-<em class="property">classmethod </em><code class="descname">get_effects_flavors</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_effects_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_effects_flavors" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the average effects and flavors from reviews for this strain.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id23"><span class="problematic" id="id24">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the effect and flavor profile
-from.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>The effect and flavor</dt>
-<dd><p class="first last">profile for this strain.</p>
-</dd>
-</dl>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.EffectsFlavors" title="cannabis_reports.models.EffectsFlavors">cannabis_reports.models.EffectsFlavors</a></p>
 </td>
 </tr>
 </tbody>
@@ -473,7 +1246,7 @@ with the given UCPC.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id25"><span class="problematic" id="id26">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id73"><span class="problematic" id="id74">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the genetics from.</li>
 </ul>
@@ -490,32 +1263,6 @@ the cannabis strain you want the genetics from.</li>
 </dd></dl>
 
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.Strains.get_review">
-<em class="property">classmethod </em><code class="descname">get_review</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_review" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the reviews for a cannabis strain.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id27"><span class="problematic" id="id28">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the reviews from.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Reviews iterator.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Review)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
 <dt id="cannabis_reports.apis.Strains.get_seed_company">
 <em class="property">classmethod </em><code class="descname">get_seed_company</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_seed_company"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_seed_company" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the seed company that was responsible for a cannabis strain.</p>
@@ -525,14 +1272,14 @@ the cannabis strain you want the reviews from.</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id29"><span class="problematic" id="id30">`UCPC &lt;https://developers.cannabisreports.com/
+<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id75"><span class="problematic" id="id76">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the seed company from.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>The seedd company that was</dt>
+<dt>The seed company that was</dt>
 <dd><p class="first last">responsible for this strain.</p>
 </dd>
 </dl>
@@ -540,94 +1287,6 @@ the cannabis strain you want the seed company from.</li>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.SeedCompany" title="cannabis_reports.models.SeedCompany">cannabis_reports.models.SeedCompany</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.Strains.get_user">
-<em class="property">classmethod </em><code class="descname">get_user</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_user" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the user who added the strain to the database.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id31"><span class="problematic" id="id32">`UCPC &lt;https://developers.cannabisreports.com/
-v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
-the cannabis strain you want the user from.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>The user who added the strain</dt>
-<dd><p class="first last">to the database.</p>
-</dd>
-</dl>
-</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.User" title="cannabis_reports.models.User">cannabis_reports.models.User</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.Strains.list">
-<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort=None</em>, <em>descending=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return all strains, with optional sorting.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>sort</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p>Column to sort by. One of:</p>
-<ul>
-<li><code class="docutils literal"><span class="pre">created_at</span></code></li>
-<li><code class="docutils literal"><span class="pre">updated_at</span></code></li>
-<li><code class="docutils literal"><span class="pre">name</span></code></li>
-</ul>
-</li>
-<li><strong>descending</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Set to True to put newest records
-at the top.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Strains iterator.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.Strains.search">
-<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.search" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return search results for strains.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>query</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Search query to find strains in our system.
-Must be at least 2 characters.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Strains iterator.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=cannabis_reports.models.Strain)</p>
 </td>
 </tr>
 </tbody>
@@ -680,6 +1339,12 @@ Must be at least 2 characters.</li>
 <li class="toctree-l2 current"><a class="reference internal" href="cannabis_reports.html#subpackages">Subpackages</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">cannabis_reports.apis package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis.abstract_item_endpoint">cannabis_reports.apis.abstract_item_endpoint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis.edibles">cannabis_reports.apis.edibles module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis.extracts">cannabis_reports.apis.extracts module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis.flowers">cannabis_reports.apis.flowers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis.producers">cannabis_reports.apis.producers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis.products">cannabis_reports.apis.products module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis.strains">cannabis_reports.apis.strains module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.apis">Module contents</a></li>
 </ul>

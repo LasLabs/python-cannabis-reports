@@ -4,6 +4,54 @@ cannabis\_reports\.apis package
 Submodules
 ----------
 
+cannabis\_reports\.apis\.abstract\_item\_endpoint module
+--------------------------------------------------------
+
+.. automodule:: cannabis_reports.apis.abstract_item_endpoint
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.apis\.edibles module
+---------------------------------------
+
+.. automodule:: cannabis_reports.apis.edibles
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.apis\.extracts module
+----------------------------------------
+
+.. automodule:: cannabis_reports.apis.extracts
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.apis\.flowers module
+---------------------------------------
+
+.. automodule:: cannabis_reports.apis.flowers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.apis\.producers module
+-----------------------------------------
+
+.. automodule:: cannabis_reports.apis.producers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.apis\.products module
+----------------------------------------
+
+.. automodule:: cannabis_reports.apis.products
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cannabis\_reports\.apis\.strains module
 ---------------------------------------
 

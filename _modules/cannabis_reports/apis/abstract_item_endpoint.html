@@ -1,0 +1,254 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.apis.abstract_item_endpoint &#8212; Cannabis Reports 0.0.0b40 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.0b40',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.apis.abstract_item_endpoint</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">BaseApi</span><span class="p">,</span> <span class="n">BaseModel</span>
+
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="k">import</span> <span class="n">CannabisReportsValidationException</span>
+
+<span class="kn">from</span> <span class="nn">..models.effects_flavors</span> <span class="k">import</span> <span class="n">EffectsFlavors</span>
+<span class="kn">from</span> <span class="nn">..models.menu_item</span> <span class="k">import</span> <span class="n">MenuItemSummary</span>
+<span class="kn">from</span> <span class="nn">..models.review</span> <span class="k">import</span> <span class="n">Review</span>
+<span class="kn">from</span> <span class="nn">..models.user</span> <span class="k">import</span> <span class="n">User</span>
+
+
+<div class="viewcode-block" id="AbstractItemEndpoint"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint">[docs]</a><span class="k">class</span> <span class="nc">AbstractItemEndpoint</span><span class="p">(</span><span class="n">BaseApi</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This represents an abstract item endpoint.</span>
+
+<span class="sd">    The Strains, Flowers, Rxtracts, Edibles, and Products APIs inherit from</span>
+<span class="sd">    this.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="AbstractItemEndpoint.get_user"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_user">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the user who added the object to the database.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                the cannabis object you want the user from.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            cannabis_reports.models.User: The user who added the object</span>
+<span class="sd">                to the database.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/user&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">User</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractItemEndpoint.get_review"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_review">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_review</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the reviews for a cannabis object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                the cannabis object you want the reviews from.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=cannabis_reports.models.Review):</span>
+<span class="sd">                Reviews iterator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/review&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_class</span><span class="o">=</span><span class="n">Review</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractItemEndpoint.get_effects_flavors"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_effects_flavors">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_effects_flavors</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the average effects and flavors from reviews for this object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                the cannabis object you want the effect and flavor profile</span>
+<span class="sd">                from.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            cannabis_reports.models.EffectsFlavors: The effect and flavor</span>
+<span class="sd">                profile for this object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/effectsFlavors&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_class</span><span class="o">=</span><span class="n">EffectsFlavors</span><span class="p">,</span>
+            <span class="n">singletone</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractItemEndpoint.get_available"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">get_available</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get information about the availability of the given UCPC.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
+<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code`_ for</span>
+<span class="sd">                the cannabis object you want the children from.</span>
+<span class="sd">            lat (float): Latitude for the center of your availability search.</span>
+<span class="sd">            lng (float): Longitude for the center of your availability search.</span>
+<span class="sd">            radius (int): Radius to search for in miles, max 25.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=cls.__object__):</span>
+<span class="sd">                An iterator of child objects.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">radius</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CannabisReportsValidationException</span><span class="p">(</span>
+                <span class="s1">&#39;The max search radius is 25.&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/availability/geo/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_class</span><span class="o">=</span><span class="n">MenuItemSummary</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="AbstractItemEndpoint.search"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return search results for objects.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            query (str): Search query to find objects in our system.</span>
+<span class="sd">                Must be at least 2 characters.</span>
+<span class="sd">            sort (str): Snake cased field name to sort on. Prefix with a `-`</span>
+<span class="sd">                for descending.</span>
+<span class="sd">            path (str): The path for the search (eg for ``strains`` it is</span>
+<span class="sd">                ``search`` and for ``flowers`` it is ``type``.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=cls.__object__):</span>
+<span class="sd">                Objects iterator.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">query</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CannabisReportsValidationException</span><span class="p">(</span>
+                <span class="s1">&#39;Search query must be at least 2 characters.&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">sort</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sort&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">BaseModel</span><span class="o">.</span><span class="n">_to_camel_case</span><span class="p">(</span><span class="n">sort</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">query</span><span class="p">),</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
