@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b44 documentation</title>
+    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b46 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b44',
+        VERSION:     '0.0.0b46',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -56,7 +56,7 @@
 this.</p>
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available">
-<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_available" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get information about the availability of the given UCPC.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -69,6 +69,7 @@ the cannabis object you want the children from.</li>
 <li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Latitude for the center of your availability search.</li>
 <li><strong>lng</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Longitude for the center of your availability search.</li>
 <li><strong>radius</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Radius to search for in miles, max 25.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -116,7 +117,7 @@ from.</p>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_reviews">
-<em class="property">classmethod </em><code class="descname">get_reviews</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_reviews"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_reviews" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_reviews</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.get_reviews"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_reviews" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the reviews for a cannabis object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -127,6 +128,7 @@ from.</p>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <p><a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> for
 the cannabis object you want the reviews from.</p>
 </li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -173,7 +175,7 @@ the cannabis object you want the user from.</p>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search">
-<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort=None</em>, <em>path='search'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort=None</em>, <em>path='search'</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return search results for objects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -187,6 +189,7 @@ Must be at least 2 characters.</li>
 for descending.</li>
 <li><strong>path</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – The path for the search (eg for <code class="docutils literal"><span class="pre">strains</span></code> it is
 <code class="docutils literal"><span class="pre">search</span></code> and for <code class="docutils literal"><span class="pre">flowers</span></code> it is <code class="docutils literal"><span class="pre">type</span></code>.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -731,7 +734,7 @@ for descending.</li>
 <p><a class="reference external" href="https://developers.cannabisreports.com/docs/strains">https://developers.cannabisreports.com/docs/strains</a></p>
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.strains.Strains.get_children">
-<em class="property">classmethod </em><code class="descname">get_children</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_children" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_children</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.get_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the child strains that this one has been bred into.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -742,6 +745,7 @@ for descending.</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id36"><span class="problematic" id="id37">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the children from.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -1210,7 +1214,7 @@ for descending.</li>
 <p><a class="reference external" href="https://developers.cannabisreports.com/docs/strains">https://developers.cannabisreports.com/docs/strains</a></p>
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.Strains.get_children">
-<em class="property">classmethod </em><code class="descname">get_children</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_children" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_children</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.get_children" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the child strains that this one has been bred into.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1221,6 +1225,7 @@ for descending.</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – <a href="#id66"><span class="problematic" id="id67">`UCPC &lt;https://developers.cannabisreports.com/
 v1.0/docs/ucpc-universal-cannabis-product-code`_</span></a> for
 the cannabis strain you want the children from.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
