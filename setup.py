@@ -80,6 +80,7 @@ if __name__ == "__main__":
         cmdclass={'test': Tests},
         install_requires=[
             'properties',
+            'pytz',
             'requests',
         ],
         setup_requires=[
@@ -87,6 +88,7 @@ if __name__ == "__main__":
         ],
         tests_require=[
             'mock',
+            'vcrpy',
         ],
         **setup_vals
     )

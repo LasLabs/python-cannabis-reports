@@ -12,7 +12,6 @@ python:
 env:
   global:
   - PROJECT="Cannabis Reports"
-  - DOCS_PY_VERSION="3.5"
   matrix:
   - TESTS="1"
   - DOCS="1"
@@ -29,10 +28,10 @@ deploy:
   provider: pypi
   user: laslabs
   password:
-    secure: d2p9xwrghL/SXRQmZLER2cmPjfgxoPMSan4FRmJYFfpvKpeG4o+7xEyfbDV3wN7mJvo4/hWcEdgK4CpwJxIGv2W7XD8bRBm3X/JGUACM+A6lKB1gyXg8ObVw3blZUR2rL+AEYrach7OBCrcFxCRfvnU5o5ApCLHC5jxj4DSRPABlMEJ6WcCkbm8PL+JroYxXF8pTkeuF9t0njEFb6mHWpDFUvk/t+Z3N15215PEA1Dg79G7TbteFmgLGRj9B/r/MDWPHFi7Kvrdkjo3OnGez573WXrgPQz/et/ztz4RgxCZOLAVTm9RrlLJJBCx8gRX6aQqAS7ZHDvquqZmiEwrnBzuIiVirf6H8jyQEgjf+2Ch6JeHftoAHNYTOvVCBO/ouHOD0wSsXA9ZA8juYame1vwjGMHV8J2S5A5gCTnsjjROx2xrjTo+sSeulRc+IHrv0jZi1rtBN+H3Kj9QGjnEMVLZ49CK3F+yYqc+c4LvAmttojk9ZTKNrtSc4bER9f9+l02RFrstfEFz7XfYuUrskfsRhNY81RnpquhHMlzoSIAwunBO4/beqtqkUvP8uwOWZXzT+aRypgh5HAfGhM5+SS9XkT+z3Ccl17OJrqijR4bM+kAKpM3ImNxUIfGBXGsYpMkUu2rJbsDBSj+y60ptO5xsNTJ08YB8TRwBYFa5kUiE=
+    secure: u45JOJrCYLXhUEacnNVSC+wdhYV/+nFUN1UdcCjBfupoL4FXCaHvpdkLqZeKk8Q6QO0fRfI6gJXHAABGDPhKkGgOqgWbWKZivfkHtGBkvzVFlWkXSjc9sQe7o6/mkE2rc14eXkr5ViTi9DAlaSbnN6qAydmLTcRZrH+az75pBObU1UXiONHA3LAViEnXcaKNRnsPcGnaSxLCi0WMmVFuAMvKfR46VhfZbJk1DcpDyO4JyKw6pr0P69aUtms5NT0phbg852hELFOXTL8r/Ufw5wF36SrE9/W43B0PNW+WXS7gxDC5z2rG2HkEUF3J3SJYQ9foFZ7d90KTD3kG2/oGltBIFYhXgch/Jo3cLbpTCAcqgH9VtuOvM6M6vWiYTtTiUhJ3xoh5xG+NU7h7liKzBUFV+WvcEQ2uT4AfdZR0Bba2ExkOYcA2dgLv33ofZllXrpDGl9gspcRXbsqkxCcCWYfVRnOh7o5L0Heyi0fFg/i7N7CHDCKr0P1OVTUP4DnsqJC9Jb7K851i32xTiTBYs2uGrFvuExdN2WD1Ah2WDeoUER5tvHDe7oIEiHEHkmXh3QjBprVYY1pyztbQMOL6lXMR6BB7oBSKq7KmKPCBVNuajeK2yTfXnJv3WkQLazznCU5pLyRREaiJnB7sV1zS8sp89yzri3TE8zqIf6k2TDg=
   skip_cleanup: false
   skip_upload_docs: true
   on:
-    repo: LasLabs/python-helpscout
+    repo: LasLabs/python-cannabis-reports
     branch: master
     tags: true
