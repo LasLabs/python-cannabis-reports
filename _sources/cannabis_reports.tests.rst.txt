@@ -1,0 +1,62 @@
+cannabis\_reports\.tests package
+================================
+
+Submodules
+----------
+
+cannabis\_reports\.tests\.api\_common module
+--------------------------------------------
+
+.. automodule:: cannabis_reports.tests.api_common
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_base\_api module
+------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_base_api
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_base\_model module
+--------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_base_model
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_cannabis\_reports module
+--------------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_cannabis_reports
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_exceptions module
+-------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_exceptions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_request\_paginator module
+---------------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_request_paginator
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: cannabis_reports.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:

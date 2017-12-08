@@ -1,0 +1,56 @@
+cannabis\_reports package
+=========================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    cannabis_reports.apis
+    cannabis_reports.models
+    cannabis_reports.request_paginator
+    cannabis_reports.tests
+
+Submodules
+----------
+
+cannabis\_reports\.auth\_proxy module
+-------------------------------------
+
+.. automodule:: cannabis_reports.auth_proxy
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.base\_api module
+-----------------------------------
+
+.. automodule:: cannabis_reports.base_api
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.base\_model module
+-------------------------------------
+
+.. automodule:: cannabis_reports.base_model
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.exceptions module
+------------------------------------
+
+.. automodule:: cannabis_reports.exceptions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: cannabis_reports
+    :members:
+    :undoc-members:
+    :show-inheritance:

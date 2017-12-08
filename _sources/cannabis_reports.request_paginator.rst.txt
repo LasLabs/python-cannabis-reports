@@ -1,0 +1,10 @@
+cannabis\_reports\.request\_paginator package
+=============================================
+
+Module contents
+---------------
+
+.. automodule:: cannabis_reports.request_paginator
+    :members:
+    :undoc-members:
+    :show-inheritance:

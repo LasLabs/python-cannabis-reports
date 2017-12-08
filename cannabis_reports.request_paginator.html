@@ -1,0 +1,296 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.request_paginator package &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cannabis_reports.tests package" href="cannabis_reports.tests.html" />
+    <link rel="prev" title="cannabis_reports.models package" href="cannabis_reports.models.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cannabis-reports-request-paginator-package">
+<h1>cannabis_reports.request_paginator package<a class="headerlink" href="#cannabis-reports-request-paginator-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-cannabis_reports.request_paginator">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cannabis_reports.request_paginator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.request_paginator.RequestPaginator">
+<em class="property">class </em><code class="descclassname">cannabis_reports.request_paginator.</code><code class="descname">RequestPaginator</code><span class="sig-paren">(</span><em>endpoint</em>, <em>data=None</em>, <em>output_type=&lt;type 'dict'&gt;</em>, <em>request_type='get'</em>, <em>session=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>RequestPaginator provides an iterator based upon an initial request.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.DELETE">
+<code class="descname">DELETE</code><em class="property"> = 'delete'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.DELETE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.GET">
+<code class="descname">GET</code><em class="property"> = 'get'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.GET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_CURRENT">
+<code class="descname">PAGE_CURRENT</code><em class="property"> = 'current_page'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_CURRENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_DATA_MULTI">
+<code class="descname">PAGE_DATA_MULTI</code><em class="property"> = 'data'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_DATA_MULTI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_SIZE">
+<code class="descname">PAGE_SIZE</code><em class="property"> = 50</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.PAGE_TOTAL">
+<code class="descname">PAGE_TOTAL</code><em class="property"> = 'total'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PAGE_TOTAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.POST">
+<code class="descname">POST</code><em class="property"> = 'post'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.POST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.PUT">
+<code class="descname">PUT</code><em class="property"> = 'put'</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.PUT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.SSL_VERIFY">
+<code class="descname">SSL_VERIFY</code><em class="property"> = True</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.SSL_VERIFY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.call">
+<code class="descname">call</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator.call"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic API caller. Return the JSON decoded result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a><em>, </em><em>optional</em>) – Either the request parameters or the JSON
+data, depending on the request type.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><code class="xref py py-exc docutils literal"><span class="pre">NotImplementedError</span></code> – In the event that an invalid request type was
+defined.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">JSON decoded respons.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">mixed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>json=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a DELETE request and return the JSON decoded result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>json</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a><em>, </em><em>optional</em>) – Object to encode and send in request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">JSON decoded response data.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">mixed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a POST request and return the JSON decoded result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>params</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a><em>, </em><em>optional</em>) – Mapping of parameters to send in request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">JSON decoded response data.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">mixed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.page_current">
+<code class="descname">page_current</code><em class="property"> = 0</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.page_current" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.page_total">
+<code class="descname">page_total</code><em class="property"> = 0</em><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.page_total" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>json=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a POST request and return the JSON decoded result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>json</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a><em>, </em><em>optional</em>) – Object to encode and send in request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">JSON decoded response data.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">mixed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.request_paginator.RequestPaginator.put">
+<code class="descname">put</code><span class="sig-paren">(</span><em>json=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/request_paginator.html#RequestPaginator.put"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.request_paginator.RequestPaginator.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a PUT request and return the JSON decoded result.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>json</strong> (<a class="reference external" href="https://docs.python.org/2/library/stdtypes.html#dict" title="(in Python v2.7)"><em>dict</em></a><em>, </em><em>optional</em>) – Object to encode and send in request.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">JSON decoded response data.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">mixed</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="cannabis_reports.html">cannabis_reports package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cannabis_reports.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cannabis_reports.apis.html">cannabis_reports.apis package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cannabis_reports.models.html">cannabis_reports.models package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">cannabis_reports.request_paginator package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.request_paginator">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cannabis_reports.tests.html">cannabis_reports.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.html#module-cannabis_reports.auth_proxy">cannabis_reports.auth_proxy module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.html#module-cannabis_reports.base_api">cannabis_reports.base_api module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.html#module-cannabis_reports.base_model">cannabis_reports.base_model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.html#module-cannabis_reports.exceptions">cannabis_reports.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.html#module-cannabis_reports">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+      |
+      <a href="_sources/cannabis_reports.request_paginator.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

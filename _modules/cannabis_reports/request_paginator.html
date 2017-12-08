@@ -1,0 +1,274 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.request_paginator &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.request_paginator</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="k">import</span> <span class="n">CannabisReportsRemoteException</span>
+
+
+<div class="viewcode-block" id="RequestPaginator"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator">[docs]</a><span class="k">class</span> <span class="nc">RequestPaginator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; RequestPaginator provides an iterator based upon an initial request.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Response attributes that mean things</span>
+    <span class="n">PAGE_TOTAL</span> <span class="o">=</span> <span class="s1">&#39;total&#39;</span>  <span class="c1"># Total number of pages</span>
+    <span class="n">PAGE_CURRENT</span> <span class="o">=</span> <span class="s1">&#39;current_page&#39;</span>  <span class="c1"># Current page number</span>
+    <span class="n">PAGE_DATA_MULTI</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>  <span class="c1"># Attribute if multiple results</span>
+
+    <span class="n">SSL_VERIFY</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Verify SSL</span>
+    <span class="n">PAGE_SIZE</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># Page size returned by CannabisReports</span>
+
+    <span class="c1"># HTTP operation constants</span>
+    <span class="n">DELETE</span> <span class="o">=</span> <span class="s1">&#39;delete&#39;</span>
+    <span class="n">GET</span> <span class="o">=</span> <span class="s1">&#39;get&#39;</span>
+    <span class="n">POST</span> <span class="o">=</span> <span class="s1">&#39;post&#39;</span>
+    <span class="n">PUT</span> <span class="o">=</span> <span class="s1">&#39;put&#39;</span>
+
+    <span class="c1"># Starting page ints</span>
+    <span class="n">page_current</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">page_total</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="nb">dict</span><span class="p">,</span>
+                 <span class="n">request_type</span><span class="o">=</span><span class="n">GET</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize the RequestPaginator object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            endpoint (str): URI endpoint to call.</span>
+<span class="sd">            session (requests.Session): The authenticated requests session.</span>
+<span class="sd">            data (dict): Data to be sent in the query string for the</span>
+<span class="sd">             Request.</span>
+<span class="sd">            output_type (type): Class type to output. Object will be</span>
+<span class="sd">             instantiated using the current row before output.</span>
+<span class="sd">            request_type (str): Type of request to send (``GET`` or ``POST``).</span>
+<span class="sd">            session (requests.Session, optional): An authenticated requests</span>
+<span class="sd">             session to use.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: In the event that an invalid request type was</span>
+<span class="sd">             defined.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span> <span class="o">=</span> <span class="n">endpoint</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_type</span> <span class="o">=</span> <span class="n">output_type</span>
+        <span class="k">if</span> <span class="n">request_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">PUT</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DELETE</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+                <span class="s1">&#39;The `</span><span class="si">%s</span><span class="s1">` request type is not implemented&#39;</span><span class="p">,</span> <span class="n">request_type</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_type</span> <span class="o">=</span> <span class="n">request_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">session</span> <span class="ow">or</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Provide an iterator for the remote request.</span>
+
+<span class="sd">        The result is returned as an instantiated `self.output_type`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">=</span> <span class="n">page</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span> <span class="o">=</span> <span class="n">page</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="ow">or</span> <span class="kc">None</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_type</span><span class="p">(</span><span class="o">**</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+
+<div class="viewcode-block" id="RequestPaginator.call"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.call">[docs]</a>    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generic API caller. Return the JSON decoded result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (dict, optional): Either the request parameters or the JSON</span>
+<span class="sd">             data, depending on the request type.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            NotImplementedError: In the event that an invalid request type was</span>
+<span class="sd">             defined.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mixed: JSON decoded respons.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_type</span><span class="p">)(</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RequestPaginator.delete"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send a DELETE request and return the JSON decoded result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            json (dict, optional): Object to encode and send in request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mixed: JSON decoded response data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RequestPaginator.get"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send a POST request and return the JSON decoded result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            params (dict, optional): Mapping of parameters to send in request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mixed: JSON decoded response data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RequestPaginator.post"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send a POST request and return the JSON decoded result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            json (dict, optional): Object to encode and send in request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mixed: JSON decoded response data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RequestPaginator.put"><a class="viewcode-back" href="../../cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator.put">[docs]</a>    <span class="k">def</span> <span class="nf">put</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send a PUT request and return the JSON decoded result.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            json (dict, optional): Object to encode and send in request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mixed: JSON decoded response data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">json</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Call the remote service and return the response data.&quot;&quot;&quot;</span>
+
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">,</span> <span class="n">method</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;verify&#39;</span><span class="p">):</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;verify&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">SSL_VERIFY</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="n">method</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">response_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="mi">200</span> <span class="ow">or</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">300</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="n">CannabisReportsRemoteException</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+
+        <span class="n">pagination</span> <span class="o">=</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pagination&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pagination</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">page_current</span> <span class="o">=</span> <span class="n">pagination</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PAGE_CURRENT</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">page_total</span> <span class="o">=</span> <span class="n">pagination</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">PAGE_TOTAL</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">PAGE_DATA_MULTI</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="c1"># No data was received, but the request was still a success.</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

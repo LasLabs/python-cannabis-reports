@@ -1,0 +1,404 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.base_model &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.base_model</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">properties</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pytz</span> <span class="k">import</span> <span class="n">timezone</span>
+
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="k">import</span> <span class="n">CannabisReportsValidationException</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># Identify lowerCamelCase strings.</span>
+<span class="c1"># https://stackoverflow.com/a/1176023/861399</span>
+<span class="n">REGEX_CAMEL_FIRST</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(.)([A-Z][a-z]+)&#39;</span><span class="p">)</span>
+<span class="n">REGEX_CAMEL_SECOND</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;([a-z0-9])([A-Z])&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="CustomDateTime"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.CustomDateTime">[docs]</a><span class="k">class</span> <span class="nc">CustomDateTime</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">DateTime</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Implementation of DateTime supporting the proper format:</span>
+
+<span class="sd">    Object containing two strings, &quot;dateTime&quot; and the &quot;timezone&quot;</span>
+<span class="sd">    when the strain was added.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">FORMAT_DT</span> <span class="o">=</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span>
+
+<div class="viewcode-block" id="CustomDateTime.to_json"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.CustomDateTime.to_json">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">to_json</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;datetime&#39;</span><span class="p">:</span> <span class="n">value</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">CustomDateTime</span><span class="o">.</span><span class="n">FORMAT_DT</span><span class="p">),</span>
+            <span class="s1">&#39;timezone&#39;</span><span class="p">:</span> <span class="n">value</span><span class="o">.</span><span class="n">tzinfo</span><span class="o">.</span><span class="n">zone</span><span class="p">,</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="CustomDateTime.from_json"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.CustomDateTime.from_json">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_json</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">tz</span> <span class="o">=</span> <span class="n">timezone</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;timezone&#39;</span><span class="p">])</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">],</span> <span class="n">CustomDateTime</span><span class="o">.</span><span class="n">FORMAT_DT</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tz</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="BaseModel"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseModel">[docs]</a><span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">HasProperties</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is the model that all other models inherit from.</span>
+
+<span class="sd">    It provides some convenience functions, and the standard ``id`` property.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ucpc</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;`UCPC &lt;https://developers.cannabisreports.com/v1.0/docs/&#39;</span>
+        <span class="s1">&#39;ucpc-universal-cannabis-product-code&gt;`_ code for this record.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">CustomDateTime</span><span class="p">(</span>
+        <span class="s1">&#39;Localized date and time when this record was created.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">updated_at</span> <span class="o">=</span> <span class="n">CustomDateTime</span><span class="p">(</span>
+        <span class="s1">&#39;Localized date and time when this record was modified.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<div class="viewcode-block" id="BaseModel.from_api"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseModel.from_api">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_api</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new instance from API arguments.</span>
+
+<span class="sd">        This will switch camelCase keys into snake_case for instantiation.</span>
+
+<span class="sd">        It will also identify any ``Instance`` or ``List`` properties, and</span>
+<span class="sd">        instantiate the proper objects using the values. The end result being</span>
+<span class="sd">        a fully Objectified and Pythonified API response.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            BaseModel: Instantiated model using the API values.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">vals</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_non_empty_vals</span><span class="p">({</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_to_snake_case</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">})</span>
+        <span class="n">remove</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">vals</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">vals</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_parse_property</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">CannabisReportsValidationException</span><span class="p">:</span>
+                <span class="n">remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="s1">&#39;Unexpected property received in API response&#39;</span><span class="p">,</span>
+                    <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">remove</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">vals</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">vals</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BaseModel.get"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseModel.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the field indicated by the key, if present.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">default</span></div>
+
+<div class="viewcode-block" id="BaseModel.to_api"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseModel.to_api">[docs]</a>    <span class="k">def</span> <span class="nf">to_api</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a dictionary to send to the API.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Mapping representing this object that can be sent to the</span>
+<span class="sd">             API.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">vals</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">attribute_type</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_props</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">prop</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
+            <span class="n">vals</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_to_camel_case</span><span class="p">(</span><span class="n">attribute</span><span class="p">)]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_to_api_value</span><span class="p">(</span>
+                <span class="n">attribute_type</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">vals</span></div>
+
+    <span class="k">def</span> <span class="nf">_to_api_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute_type</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a parsed value for the API.&quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute_type</span><span class="p">,</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">to_api</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">attribute_type</span><span class="p">,</span> <span class="n">properties</span><span class="o">.</span><span class="n">List</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_api_value_list</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">attribute_type</span><span class="o">.</span><span class="n">serialize</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_parse_api_value_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list field compatible with the API.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">v</span><span class="o">.</span><span class="n">to_api</span><span class="p">()</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+        <span class="c1"># Not models</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseModel.get_non_empty_vals"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseModel.get_non_empty_vals">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_non_empty_vals</span><span class="p">(</span><span class="n">mapping</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the mapping without any ``None`` values.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>
+        <span class="p">}</span></div>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_parse_property</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parse a property received from the API into an internal object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name (str): Name of the property on the object.</span>
+<span class="sd">            value (mixed): The unparsed API value.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            mixed: A value compatible with the internal models.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">prop</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">prop</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">CannabisReportsValidationException</span><span class="p">(</span>
+                <span class="s1">&#39;&quot;</span><span class="si">%s</span><span class="s1">&quot; is not a valid property for &quot;</span><span class="si">%s</span><span class="s1">&quot;.&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">name</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">prop</span><span class="o">.</span><span class="n">instance_class</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">properties</span><span class="o">.</span><span class="n">List</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_parse_property_list</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">prop</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_parse_property_list</span><span class="p">(</span><span class="n">prop</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Parse a list property and return a list of the results.&quot;&quot;&quot;</span>
+        <span class="n">attributes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">prop</span><span class="o">.</span><span class="n">prop</span><span class="o">.</span><span class="n">instance_class</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="n">v</span><span class="p">),</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="n">attributes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">attributes</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_to_snake_case</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a snake cased version of the input string.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            string (str): A camel cased string.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A snake cased string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sub_string</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\1_\2&#39;</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">REGEX_CAMEL_FIRST</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">sub_string</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">REGEX_CAMEL_SECOND</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">sub_string</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_to_camel_case</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a camel cased version of the input string.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            string (str): A snake cased string.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A camel cased string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">components</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="n">components</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">title</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">components</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the field indicated by the key, if present.</span>
+
+<span class="sd">        This is better than using ``getattr`` because it will not expose any</span>
+<span class="sd">        properties that are not meant to be fields for the object.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: In the event that the field doesn&#39;t exist.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__check_field</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the field indicated by the key, if present.</span>
+
+<span class="sd">        This is better than using ``getattr`` because it will not expose any</span>
+<span class="sd">        properties that are not meant to be fields for the object.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: In the event that the field doesn&#39;t exist.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__check_field</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__check_field</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Raises a KeyError if the field doesn&#39;t exist.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="s1">&#39;The field &quot;</span><span class="si">%s</span><span class="s1">&quot; does not exist on &quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="BaseModelWithLinks"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseModelWithLinks">[docs]</a><span class="k">class</span> <span class="nc">BaseModelWithLinks</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+
+    <span class="n">link</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the record in the Cannabis Reports API.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">qr</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the QR code for this record.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the record listing on the Cannabis Reports website.&#39;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LinksModelWithImage"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.LinksModelWithImage">[docs]</a><span class="k">class</span> <span class="nc">LinksModelWithImage</span><span class="p">(</span><span class="n">BaseModelWithLinks</span><span class="p">):</span>
+
+    <span class="n">image</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the full size image for this record on Cannabis Reports.&#39;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="LineageModel"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.LineageModel">[docs]</a><span class="k">class</span> <span class="nc">LineageModel</span><span class="p">(</span><span class="n">LinksModelWithImage</span><span class="p">):</span>
+
+    <span class="n">lineage</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Property</span><span class="p">(</span>
+        <span class="s1">&#39;Countries of origin for the genetics for the strain. Object keys &#39;</span>
+        <span class="s1">&#39;are the country name and the values are the two character country &#39;</span>
+        <span class="s1">&#39;codes.&#39;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GeneralOverview"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.GeneralOverview">[docs]</a><span class="k">class</span> <span class="nc">GeneralOverview</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Object that holds a general overview of other objects.</span>
+
+<span class="sd">    This is the object that is typically returned by the API, which holds the</span>
+<span class="sd">    high level information &amp; how to access the actual dataset.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span>
+        <span class="s1">&#39;Total amount of reviews for this record.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the detailed review information in the Cannabis Reports &#39;</span>
+        <span class="s1">&#39;API.&#39;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

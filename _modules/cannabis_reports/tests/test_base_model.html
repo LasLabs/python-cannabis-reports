@@ -1,0 +1,272 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.tests.test_base_model &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.tests.test_base_model</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">import</span> <span class="nn">properties</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">six</span> <span class="k">import</span> <span class="n">string_types</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="k">import</span> <span class="n">CannabisReportsValidationException</span>
+
+
+<div class="viewcode-block" id="TestModel"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestModel">[docs]</a><span class="k">class</span> <span class="nc">TestModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">a_key</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;A key&#39;</span><span class="p">)</span>
+    <span class="n">sub_instance</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
+        <span class="s1">&#39;Sub Instance&#39;</span><span class="p">,</span> <span class="n">instance_class</span><span class="o">=</span><span class="n">BaseModel</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">list</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+        <span class="s1">&#39;List&#39;</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span><span class="s1">&#39;List Instance&#39;</span><span class="p">,</span>
+                                         <span class="n">instance_class</span><span class="o">=</span><span class="n">BaseModel</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">list_string</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+        <span class="s1">&#39;List of Strings&#39;</span><span class="p">,</span> <span class="n">prop</span><span class="o">=</span><span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="s1">&#39;String&#39;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="n">not_a_field</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="TestBaseModel"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel">[docs]</a><span class="k">class</span> <span class="nc">TestBaseModel</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestBaseModel.setUp"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TestBaseModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;aKey&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;subInstance&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;1234&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;list&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;4321&#39;</span><span class="p">},</span>
+            <span class="p">],</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">internal_values</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;a_key&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">[</span><span class="s1">&#39;aKey&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;sub_instance&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">[</span><span class="s1">&#39;subInstance&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;list&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">],</span>
+        <span class="p">}</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.new_record"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.new_record">[docs]</a>    <span class="k">def</span> <span class="nf">new_record</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">TestModel</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_from_api_new_instance"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_from_api_new_instance">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_api_new_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return a new instance of the class.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">(),</span> <span class="n">TestModel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_from_api_camel_to_snake"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_from_api_camel_to_snake">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_api_camel_to_snake</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should call the init with snake cased keys.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">a_key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">[</span><span class="s1">&#39;aKey&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_from_api_sub_instance"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_from_api_sub_instance">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_api_sub_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should properly instantiate sub-instances.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">sub_instance</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_from_api_list"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_from_api_list">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_api_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should properly convert lists of instances.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">list</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">BaseModel</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_from_api_invalid_attribute"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_from_api_invalid_attribute">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_api_invalid_attribute</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should remove any invalid attributes.&quot;&quot;&quot;</span>
+        <span class="n">record</span> <span class="o">=</span> <span class="n">TestModel</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s1">&#39;no_exist&#39;</span><span class="p">:</span> <span class="s1">&#39;value&#39;</span><span class="p">})</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="n">record</span><span class="o">.</span><span class="n">no_exist</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_to_api_camel_case"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_to_api_camel_case">[docs]</a>    <span class="k">def</span> <span class="nf">test_to_api_camel_case</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should properly camel case the API args.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">to_api</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;aKey&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_values</span><span class="p">[</span><span class="s1">&#39;a_key&#39;</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_to_api_instance"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_to_api_instance">[docs]</a>    <span class="k">def</span> <span class="nf">test_to_api_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should properly convert sub-instances to dict.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">to_api</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;subInstance&#39;</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_to_api_list"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_to_api_list">[docs]</a>    <span class="k">def</span> <span class="nf">test_to_api_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should properly convert sub-instances within lists props.&quot;&quot;&quot;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">to_api</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;list&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_to_api_list_string"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_to_api_list_string">[docs]</a>    <span class="k">def</span> <span class="nf">test_to_api_list_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should properly handle naive lists.&quot;&quot;&quot;</span>
+        <span class="n">expect</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">[</span><span class="s1">&#39;list_string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">expect</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">to_api</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;listString&#39;</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;listString&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">string_types</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_get_non_empty_vals"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_get_non_empty_vals">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_non_empty_vals</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the dict without None and False.&quot;&quot;&quot;</span>
+        <span class="n">expect</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;good_int&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+            <span class="s1">&#39;bad_false&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;good_true&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="s1">&#39;bad_none&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">BaseModel</span><span class="o">.</span><span class="n">get_non_empty_vals</span><span class="p">(</span><span class="n">expect</span><span class="p">)</span>
+        <span class="k">del</span> <span class="n">expect</span><span class="p">[</span><span class="s1">&#39;bad_none&#39;</span><span class="p">],</span> <span class="n">expect</span><span class="p">[</span><span class="s1">&#39;bad_false&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertDictEqual</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">expect</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_parse_property_invalid_property"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_parse_property_invalid_property">[docs]</a>    <span class="k">def</span> <span class="nf">test_parse_property_invalid_property</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should raise an exception if property name is invalid.&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="n">CannabisReportsValidationException</span><span class="p">):</span>
+            <span class="n">BaseModel</span><span class="o">.</span><span class="n">_parse_property</span><span class="p">(</span><span class="s1">&#39;no exist&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_dict_lookup_exist"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_dict_lookup_exist">[docs]</a>    <span class="k">def</span> <span class="nf">test_dict_lookup_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the attribute value when it exists.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()[</span><span class="s1">&#39;a_key&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_values</span><span class="p">[</span><span class="s1">&#39;a_key&#39;</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_dict_lookup_no_exist"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_dict_lookup_no_exist">[docs]</a>    <span class="k">def</span> <span class="nf">test_dict_lookup_no_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should raise a KeyError when the attribute isn&#39;t a field.&quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()[</span><span class="s1">&#39;not_a_field&#39;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_dict_set_exist"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_dict_set_exist">[docs]</a>    <span class="k">def</span> <span class="nf">test_dict_set_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should set the attribute via the items.&quot;&quot;&quot;</span>
+        <span class="n">expect</span> <span class="o">=</span> <span class="s1">&#39;Test-Expect&#39;</span>
+        <span class="n">record</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span>
+        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;a_key&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">expect</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">a_key</span><span class="p">,</span> <span class="n">expect</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_dict_set_no_exist"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_dict_set_no_exist">[docs]</a>    <span class="k">def</span> <span class="nf">test_dict_set_no_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should raise a KeyError and not change the non-field.&quot;&quot;&quot;</span>
+        <span class="n">record</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">):</span>
+            <span class="n">record</span><span class="p">[</span><span class="s1">&#39;not_a_field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">not_a_field</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_get_exist"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_get_exist">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the attribute if it exists.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;a_key&#39;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">internal_values</span><span class="p">[</span><span class="s1">&#39;a_key&#39;</span><span class="p">],</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_get_no_exist"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_get_no_exist">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_no_exist</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the default if the attribute doesn&#39;t exist.&quot;&quot;&quot;</span>
+        <span class="n">expect</span> <span class="o">=</span> <span class="s1">&#39;Test&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;not_a_field&#39;</span><span class="p">,</span> <span class="n">expect</span><span class="p">),</span> <span class="n">expect</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseModel.test_from_api_list_no_model"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_model.TestBaseModel.test_from_api_list_no_model">[docs]</a>    <span class="k">def</span> <span class="nf">test_from_api_list_no_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Test ``from_api`` when there is a list of non-property objects.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">[</span><span class="s1">&#39;list_string&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;again&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_record</span><span class="p">()</span><span class="o">.</span><span class="n">list_string</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">test_values</span><span class="p">[</span><span class="s1">&#39;list_string&#39;</span><span class="p">])</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

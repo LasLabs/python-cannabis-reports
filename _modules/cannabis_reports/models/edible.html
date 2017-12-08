@@ -1,0 +1,205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.models.edible &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.models.edible</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">import</span> <span class="nn">properties</span>
+
+<span class="kn">from</span> <span class="nn">..base_model</span> <span class="k">import</span> <span class="n">GeneralOverview</span><span class="p">,</span> <span class="n">LinksModelWithImage</span>
+
+<span class="kn">from</span> <span class="nn">.producer</span> <span class="k">import</span> <span class="n">Producer</span>
+<span class="kn">from</span> <span class="nn">.strain</span> <span class="k">import</span> <span class="n">Strain</span>
+
+
+<div class="viewcode-block" id="Edible"><a class="viewcode-back" href="../../../cannabis_reports.models.html#cannabis_reports.models.edible.Edible">[docs]</a><span class="k">class</span> <span class="nc">Edible</span><span class="p">(</span><span class="n">LinksModelWithImage</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Cannabis edibles cover a wide variety of consumable products that</span>
+<span class="sd">    contain cannabis in various forms. From cotton candy, to tinctures,</span>
+<span class="sd">    to dog treats, and everything in between.</span>
+
+<span class="sd">    If it&#39;s a form of cannabis that is meant to be consumed, it is</span>
+<span class="sd">    categorized as an edible.</span>
+
+<span class="sd">    The main forms of edibles that Cannabis Reports recognizes are:</span>
+
+<span class="sd">    * `Baked Goods &lt;https://www.cannabisreports.com/edible-reports/</span>
+<span class="sd">      baked-good&gt;`_</span>
+<span class="sd">    * `Candy &lt;https://www.cannabisreports.com/edible-reports/candy&gt;`_</span>
+<span class="sd">    * `Treat &lt;https://www.cannabisreports.com/edible-reports/treat&gt;`_</span>
+<span class="sd">    * `Chocolate &lt;https://www.cannabisreports.com/edible-reports/chocolate&gt;`_</span>
+<span class="sd">    * `Snack &lt;https://www.cannabisreports.com/edible-reports/snack&gt;`_</span>
+<span class="sd">    * `Beverage &lt;https://www.cannabisreports.com/edible-reports/beverage&gt;`_</span>
+<span class="sd">    * `Pill &lt;https://www.cannabisreports.com/edible-reports/pill&gt;`_</span>
+<span class="sd">    * `Tincture &lt;https://www.cannabisreports.com/edible-reports/tincture&gt;`_</span>
+
+<span class="sd">    Cannabis Reports also supports &quot;Other&quot; types of edibles. Some examples</span>
+<span class="sd">    are:</span>
+
+<span class="sd">    * Butter</span>
+<span class="sd">    * Honey</span>
+<span class="sd">    * Breath Strips</span>
+<span class="sd">    * Tea</span>
+<span class="sd">    * Ice Cream</span>
+
+<span class="sd">    Producers measure the amount of cannabis in their edibles in a variety of</span>
+<span class="sd">    ways. We recognize 4 ways for measuring the cannabis contents:</span>
+
+<span class="sd">    * THC mg</span>
+<span class="sd">    * CBD mg</span>
+<span class="sd">    * Cannabis mg</span>
+<span class="sd">    * Hash Oil mg</span>
+
+<span class="sd">    More information about cannabis edibles can be found in the `FAQ</span>
+<span class="sd">    &lt;https://www.cannabisreports.com/faq/typesconsumption/</span>
+<span class="sd">    what-is-a-cannabis-edible&gt;`_.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Name of the edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">barcode</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the barcode for this edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">producer</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
+        <span class="s1">&#39;Information about the producer that created the edible.&#39;</span><span class="p">,</span>
+        <span class="n">instance_class</span><span class="o">=</span><span class="n">Producer</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Type of edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">strain</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
+        <span class="s1">&#39;Strain that this edible comes from.&#39;</span><span class="p">,</span>
+        <span class="n">instance_class</span><span class="o">=</span><span class="n">Strain</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">lab_test</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the PDF containing lab test information for this edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">thc</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Milligrams of `THC &lt;https://www.cannabisreports.com/faq/&#39;</span>
+        <span class="s1">&#39;cannabis-community/what-is-thc-tetrahydrocannabinol&gt;`_ in this &#39;</span>
+        <span class="s1">&#39;edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cbd</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Milligrams of `CBD &lt;https://www.cannabisreports.com/faq/&#39;</span>
+        <span class="s1">&#39;cannabis-community/what-is-cbd-cannabidiol&gt;`_ in this edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cannabis</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Milligrams of cannabis in this edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">hash_oil</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Milligrams of hash oil in this edible.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">reviews</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
+        <span class="s1">&#39;Object containing information on the reviews for the edible.&#39;</span><span class="p">,</span>
+        <span class="n">instance_class</span><span class="o">=</span><span class="n">GeneralOverview</span><span class="p">,</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

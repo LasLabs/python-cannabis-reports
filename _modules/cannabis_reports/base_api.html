@@ -1,0 +1,210 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.base_api &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.base_api</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">from</span> <span class="nn">.base_model</span> <span class="k">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">.request_paginator</span> <span class="k">import</span> <span class="n">RequestPaginator</span>
+
+
+<div class="viewcode-block" id="BaseApi"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseApi">[docs]</a><span class="k">class</span> <span class="nc">BaseApi</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This is the API interface object to be implemented by API adapters.</span>
+
+<span class="sd">    It acts as a collection for the API object that it represents, passing</span>
+<span class="sd">    through iteration to the API&#39;s request paginator.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        BASE_URI (str): CannabisReports API URI base.</span>
+<span class="sd">        paginator (RequestPaginator): Object to use for producing an iterator</span>
+<span class="sd">         representing multiple requests (API response pages). Created on init.</span>
+<span class="sd">        __object__ (cannabis_reports.models.BaseModel): Model object that API</span>
+<span class="sd">         represents.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">BASE_URI</span> <span class="o">=</span> <span class="s1">&#39;https://www.cannabisreports.com/api/v1.0&#39;</span>
+
+    <span class="c1"># This should be replaced in child classes with the correct model.</span>
+    <span class="n">__object__</span> <span class="o">=</span> <span class="n">BaseModel</span>
+
+    <span class="c1"># This is set within new, after the object has been created.</span>
+    <span class="n">paginator</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">request_type</span><span class="o">=</span><span class="n">RequestPaginator</span><span class="o">.</span><span class="n">GET</span><span class="p">,</span> <span class="n">singleton</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new API object.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            endpoint (str): The API endpoint that this represents.</span>
+<span class="sd">                ``BASE_URI`` will be prepended, with no slashes added.</span>
+<span class="sd">            data (dict, optional): Data to send with the request.</span>
+<span class="sd">            request_type (str, optional): Type of request (``GET or ``POST``).</span>
+<span class="sd">                Defaults to ``GET``.</span>
+<span class="sd">            singleton (bool, optional): Set this to ``True`` to assert that</span>
+<span class="sd">                there is not more than one result, and return the first result</span>
+<span class="sd">                (or ``None`` if there is no result).</span>
+<span class="sd">            session (requests.Session, optional): An authenticated requests</span>
+<span class="sd">                session to use.</span>
+<span class="sd">            out_type (BaseModel, optional): If set, this object will be used</span>
+<span class="sd">                for the creation of the models, instead of the one set in</span>
+<span class="sd">                ``cls.__object__``.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            CannabisReportsRemoteException: If ``singleton`` is ``True``, but</span>
+<span class="sd">                the remote API responds with more than one result.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            BaseApi: An instance of an API object, if ``singleton`` is</span>
+<span class="sd">                ``False``.</span>
+<span class="sd">            BaseModel: An instance of a Model, if ``singleton`` is</span>
+<span class="sd">                ``True`` and there are results.</span>
+<span class="sd">            None: If ``singleton`` is ``True`` and there are no results.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">out_type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">out_type</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__object__</span>
+        <span class="n">paginator</span> <span class="o">=</span> <span class="n">RequestPaginator</span><span class="p">(</span>
+            <span class="n">endpoint</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">BASE_URI</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">),</span>
+            <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+            <span class="n">output_type</span><span class="o">=</span><span class="n">out_type</span><span class="o">.</span><span class="n">from_api</span><span class="p">,</span>
+            <span class="n">request_type</span><span class="o">=</span><span class="n">request_type</span><span class="p">,</span>
+            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">singleton</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">paginator</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">paginator</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">result_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result_length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="k">return</span> <span class="n">out_type</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BaseApi</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+        <span class="n">obj</span><span class="o">.</span><span class="n">paginator</span> <span class="o">=</span> <span class="n">paginator</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pass through iteration to the API response.&quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">paginator</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">row</span>
+        <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+
+<div class="viewcode-block" id="BaseApi.new_object"><a class="viewcode-back" href="../../cannabis_reports.html#cannabis_reports.base_api.BaseApi.new_object">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">new_object</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a new object of the correct type from the data.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (dict): Data dictionary that should be converted to an</span>
+<span class="sd">                object. It can use either camelCase keys or snake_case.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            BaseModel: A model of the type declared in ``cls.__object__``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">__object__</span><span class="o">.</span><span class="n">from_api</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.models.extract &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.models.extract</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">import</span> <span class="nn">properties</span>
+
+<span class="kn">from</span> <span class="nn">..base_model</span> <span class="k">import</span> <span class="n">GeneralOverview</span><span class="p">,</span> <span class="n">LinksModelWithImage</span>
+
+<span class="kn">from</span> <span class="nn">.producer</span> <span class="k">import</span> <span class="n">Producer</span>
+<span class="kn">from</span> <span class="nn">.strain</span> <span class="k">import</span> <span class="n">Strain</span>
+
+
+<div class="viewcode-block" id="Extract"><a class="viewcode-back" href="../../../cannabis_reports.models.html#cannabis_reports.models.extract.Extract">[docs]</a><span class="k">class</span> <span class="nc">Extract</span><span class="p">(</span><span class="n">LinksModelWithImage</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Cannabis extracts are created from the flowers of the cannabis plant.</span>
+
+<span class="sd">     Various methods for creating cannabis extracts have been perfected over</span>
+<span class="sd">     thousands of years.</span>
+
+<span class="sd">    Cannabis Reports recognizes 10 main types of extracts:</span>
+
+<span class="sd">    * `Kief &lt;https://www.cannabisreports.com/extract-reports/kief&gt;`_</span>
+<span class="sd">    * `Hash &lt;https://www.cannabisreports.com/extract-reports/hash&gt;`_</span>
+<span class="sd">    * `Water-Hash &lt;https://www.cannabisreports.com/extract-reports/</span>
+<span class="sd">       water-hash&gt;`_</span>
+<span class="sd">    * `Oil &lt;https://www.cannabisreports.com/extract-reports/oil&gt;`_</span>
+<span class="sd">    * `Wax &lt;https://www.cannabisreports.com/extract-reports/wax&gt;`_</span>
+<span class="sd">    * `Crumble &lt;https://www.cannabisreports.com/extract-reports/crumble&gt;`_</span>
+<span class="sd">    * `Honeycomb &lt;https://www.cannabisreports.com/extract-reports/honeycomb&gt;`_</span>
+<span class="sd">    * `Shatter &lt;https://www.cannabisreports.com/extract-reports/shatter&gt;`_</span>
+<span class="sd">    * `Vaporizer-Disposable &lt;https://www.cannabisreports.com/extract-reports/</span>
+<span class="sd">      vaporizer-disposable&gt;`_</span>
+<span class="sd">    * `Vaporizer-Cartridge &lt;https://www.cannabisreports.com/extract-reports/</span>
+<span class="sd">      vaporizer-cartridge&gt;`_</span>
+
+<span class="sd">    Each extract is tied to a strain and the producer who created it. For more</span>
+<span class="sd">    information about cannabis extracts, check out the `FAQ</span>
+<span class="sd">    &lt;https://www.cannabisreports.com/faq/typesconsumption/</span>
+<span class="sd">    what-is-a-cannabis-extract&gt;`_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Name of the extract.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">barcode</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the barcode for this extract.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">producer</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
+        <span class="s1">&#39;Information about the producer that created the extract.&#39;</span><span class="p">,</span>
+        <span class="n">instance_class</span><span class="o">=</span><span class="n">Producer</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Type of extract.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">strain</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
+        <span class="s1">&#39;Strain that this extract comes from.&#39;</span><span class="p">,</span>
+        <span class="n">instance_class</span><span class="o">=</span><span class="n">Strain</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">lab_test</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Link to the PDF containing lab test information for this extract.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">thc</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Percentage of `THC &lt;https://www.cannabisreports.com/faq/&#39;</span>
+        <span class="s1">&#39;cannabis-community/what-is-thc-tetrahydrocannabinol&gt;`_ in this &#39;</span>
+        <span class="s1">&#39;extract.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">cbd</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+        <span class="s1">&#39;Percentage of `CBD &lt;https://www.cannabisreports.com/faq/&#39;</span>
+        <span class="s1">&#39;cannabis-community/what-is-cbd-cannabidiol&gt;`_ in this extract.&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">reviews</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
+        <span class="s1">&#39;Object containing information on the reviews for the extract.&#39;</span><span class="p">,</span>
+        <span class="n">instance_class</span><span class="o">=</span><span class="n">GeneralOverview</span><span class="p">,</span>
+    <span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>

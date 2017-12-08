@@ -1,0 +1,22 @@
+cannabis\_reports\.apis package
+===============================
+
+Submodules
+----------
+
+cannabis\_reports\.apis\.strains module
+---------------------------------------
+
+.. automodule:: cannabis_reports.apis.strains
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: cannabis_reports.apis
+    :members:
+    :undoc-members:
+    :show-inheritance:

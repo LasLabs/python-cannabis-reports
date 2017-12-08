@@ -1,0 +1,118 @@
+cannabis\_reports\.models package
+=================================
+
+Submodules
+----------
+
+cannabis\_reports\.models\.address module
+-----------------------------------------
+
+.. automodule:: cannabis_reports.models.address
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.dispensary module
+--------------------------------------------
+
+.. automodule:: cannabis_reports.models.dispensary
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.edible module
+----------------------------------------
+
+.. automodule:: cannabis_reports.models.edible
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.effects\_flavors module
+--------------------------------------------------
+
+.. automodule:: cannabis_reports.models.effects_flavors
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.extract module
+-----------------------------------------
+
+.. automodule:: cannabis_reports.models.extract
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.flower module
+----------------------------------------
+
+.. automodule:: cannabis_reports.models.flower
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.menu\_item module
+--------------------------------------------
+
+.. automodule:: cannabis_reports.models.menu_item
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.producer module
+------------------------------------------
+
+.. automodule:: cannabis_reports.models.producer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.product module
+-----------------------------------------
+
+.. automodule:: cannabis_reports.models.product
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.review module
+----------------------------------------
+
+.. automodule:: cannabis_reports.models.review
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.seed\_company module
+-----------------------------------------------
+
+.. automodule:: cannabis_reports.models.seed_company
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.strain module
+----------------------------------------
+
+.. automodule:: cannabis_reports.models.strain
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.models\.user module
+--------------------------------------
+
+.. automodule:: cannabis_reports.models.user
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: cannabis_reports.models
+    :members:
+    :undoc-members:
+    :show-inheritance:

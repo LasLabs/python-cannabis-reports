@@ -1,0 +1,22 @@
+.. python-cannabis-reports documentation master file, created by
+   sphinx-quickstart on Fri Dec  8 01:10:30 2017.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to python-cannabis-reports's documentation!
+===================================================
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Contents:
+
+   cannabis_reports
+   setup
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

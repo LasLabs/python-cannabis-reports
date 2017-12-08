@@ -1,0 +1,202 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>cannabis_reports.tests.test_base_api &#8212; Cannabis Reports 0.0.0b24 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0.0.0b24',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for cannabis_reports.tests.test_base_api</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
+<span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
+
+<span class="kn">import</span> <span class="nn">mock</span>
+<span class="kn">import</span> <span class="nn">unittest</span>
+
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">BaseApi</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">..request_paginator</span> <span class="k">import</span> <span class="n">RequestPaginator</span>
+
+
+<span class="n">PAGINATOR</span> <span class="o">=</span> <span class="s1">&#39;cannabis_reports.base_api.RequestPaginator&#39;</span>
+
+
+<div class="viewcode-block" id="TestApi"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestApi">[docs]</a><span class="k">class</span> <span class="nc">TestApi</span><span class="p">(</span><span class="n">BaseApi</span><span class="p">):</span>
+    <span class="n">__object__</span> <span class="o">=</span> <span class="n">BaseModel</span></div>
+
+
+<div class="viewcode-block" id="TestBaseApi"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi">[docs]</a><span class="k">class</span> <span class="nc">TestBaseApi</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="n">ENDPOINT</span> <span class="o">=</span> <span class="s1">&#39;/endpoint&#39;</span>
+    <span class="n">DATA</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">}</span>
+    <span class="n">REQUEST_TYPE</span> <span class="o">=</span> <span class="n">RequestPaginator</span><span class="o">.</span><span class="n">POST</span>
+
+<div class="viewcode-block" id="TestBaseApi.new_api"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.new_api">[docs]</a>    <span class="k">def</span> <span class="nf">new_api</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="n">ENDPOINT</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">DATA</span><span class="p">,</span> <span class="n">request_type</span><span class="o">=</span><span class="n">REQUEST_TYPE</span><span class="p">,</span>
+                <span class="n">singleton</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">TestApi</span><span class="p">(</span>
+            <span class="n">endpoint</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">request_type</span><span class="p">,</span> <span class="n">singleton</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">out_type</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_new"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new">[docs]</a>    <span class="k">def</span> <span class="nf">test_new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return a new TestApi instance.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(),</span> <span class="n">TestApi</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_new_paginator"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator">[docs]</a>    <span class="k">def</span> <span class="nf">test_new_paginator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return a new API object with a paginator.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">()</span><span class="o">.</span><span class="n">paginator</span><span class="p">,</span> <span class="n">RequestPaginator</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_new_paginator_create"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_create">[docs]</a>    <span class="k">def</span> <span class="nf">test_new_paginator_create</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should create the paginator with the proper args.&quot;&quot;&quot;</span>
+        <span class="n">session</span> <span class="o">=</span> <span class="s1">&#39;session&#39;</span>
+        <span class="k">with</span> <span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">object</span><span class="p">(</span><span class="n">RequestPaginator</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">init</span><span class="p">:</span>
+            <span class="n">init</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">)</span>
+            <span class="n">init</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span>
+                <span class="n">endpoint</span><span class="o">=</span><span class="s1">&#39;https://www.cannabisreports.com/api/&#39;</span>
+                         <span class="s1">&#39;v1.0</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">ENDPOINT</span><span class="p">,</span>
+                <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">DATA</span><span class="p">,</span>
+                <span class="n">output_type</span><span class="o">=</span><span class="n">TestApi</span><span class="o">.</span><span class="n">__object__</span><span class="o">.</span><span class="n">from_api</span><span class="p">,</span>
+                <span class="n">request_type</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">REQUEST_TYPE</span><span class="p">,</span>
+                <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_new_paginator_singleton"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_singleton">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">PAGINATOR</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_new_paginator_singleton</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paginator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the record if singleton and found.&quot;&quot;&quot;</span>
+        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;9876&#39;</span><span class="p">}]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(</span><span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">ucpc</span><span class="p">,</span> <span class="s1">&#39;9876&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_new_paginator_singleton_none"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_singleton_none">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">PAGINATOR</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_new_paginator_singleton_none</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paginator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return None if singleton and not found.&quot;&quot;&quot;</span>
+        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(</span><span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIs</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_base_api_iterates_paginator"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_base_api_iterates_paginator">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">PAGINATOR</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_base_api_iterates_paginator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paginator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should pass iteration to the paginator.&quot;&quot;&quot;</span>
+        <span class="n">expect</span> <span class="o">=</span> <span class="p">[</span><span class="n">BaseModel</span><span class="p">(</span><span class="n">ucpc</span><span class="o">=</span><span class="s1">&#39;1&#39;</span><span class="p">),</span> <span class="n">BaseModel</span><span class="p">(</span><span class="n">ucpc</span><span class="o">=</span><span class="s1">&#39;2&#39;</span><span class="p">)]</span>
+        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">expect</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">()):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">expect</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_new_paginator_singleton_out_type"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_paginator_singleton_out_type">[docs]</a>    <span class="nd">@mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">PAGINATOR</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_new_paginator_singleton_out_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paginator</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return an object of the correct type if defined.&quot;&quot;&quot;</span>
+        <span class="n">paginator</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="s1">&#39;9876&#39;</span><span class="p">}]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">new_api</span><span class="p">(</span><span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="n">mock</span><span class="o">.</span><span class="n">MagicMock</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">mock</span><span class="o">.</span><span class="n">MagicMock</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestBaseApi.test_new_object"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.test_base_api.TestBaseApi.test_new_object">[docs]</a>    <span class="k">def</span> <span class="nf">test_new_object</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the proper object.&quot;&quot;&quot;</span>
+        <span class="n">expect</span> <span class="o">=</span> <span class="s1">&#39;123&#39;</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">BaseApi</span><span class="o">.</span><span class="n">new_object</span><span class="p">({</span><span class="s1">&#39;ucpc&#39;</span><span class="p">:</span> <span class="n">expect</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">ucpc</span><span class="p">,</span> <span class="n">expect</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">Cannabis Reports</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=LasLabs&repo=python-cannabis-reports&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/LasLabs/python-cannabis-reports">
+    <img
+        alt="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+        src="https://secure.travis-ci.org/LasLabs/python-cannabis-reports.svg?branch=master"
+    />
+</a>
+</p>
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../cannabis_reports.html">cannabis_reports package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../setup.html">setup module</a></li>
+</ul>
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017 LasLabs Inc..
+      
+    </div>
+
+    
+    <a href="https://github.com/LasLabs/python-cannabis-reports" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
