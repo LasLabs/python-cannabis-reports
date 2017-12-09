@@ -1,0 +1,36 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/edibles/0000000000L6M7ENLJVX00000/effectsFlavors?page=1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA0yOWwqDMBBF93K/RaSx2mYzMtWpDmgMMdGKuPeireLv4dzHgoo8QS/gYJveCUHj
+        ESdJkiBC6Zi8jOJnaOSxUkptlNpOTH1FJnQvw8MAjecRJmvZi+eiJjHX1srNRdcH30AjPRreLhwz
+        f22wUm5AHYDJ+WbeQ1mW5ZvSBweN2xmZmP3+4f4DVgxDm9C2Ech8hPeJ03c8Ck8DdLquXwAAAP//
+        AwDupBs8CgEAAA==
+    headers:
+      CF-RAY: [3caa898f48f57850-LAX]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 19:58:07 GMT']
+      ETag: [W/"272e96353d2fc5c74b77d6601c9cc9a3-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=d15d4fee9e6dfaac0823ccced30b1ceb91512849487; expires=Sun,
+          09-Dec-18 19:58:07 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6ImJDMDJ3RVBHSGg2QlNhbUJHbERKUHc9PSIsInZhbHVlIjoiRlwvTlIzS2lPbThOZkgxZ1pTYldlaDVVdjh1eHp5c3dRVDM0VjNTZHNhbGo1Q0lRRVR4YVpvUU5PckYzcTVUWHRXVVIyZDlJRHF2dHYxUW5UalA1cmNBPT0iLCJtYWMiOiI0MTZiNDhmNDgxNTM2ZTRhYWQwZGE3ZWJlY2Q0ZTE0ZjI4ODRmNjZmMDFhOGU3Mjc3NmJiZTk0ODEyNzY1ZTNlIn0%3D;
+          expires=Sat, 09-Dec-2017 21:58:07 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['11']
+      X-RateLimit-Reset: ['1512850045']
+    status: {code: 200, message: OK}
+version: 1

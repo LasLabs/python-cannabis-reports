@@ -115,7 +115,8 @@ class AbstractItemEndpoint(BaseApi):
         )
 
     @classmethod
-    def search(cls, session, query, sort=None, path='type', limit=None):
+    def search(cls, session, query, sort='created_at', path='type',
+               limit=None):
         """Return search results for objects.
 
         Args:
@@ -136,9 +137,9 @@ class AbstractItemEndpoint(BaseApi):
             raise CannabisReportsValidationException(
                 'Search query must be at least 2 characters.',
             )
-        data = {}
-        if sort is not None:
-            data['sort'] = BaseModel._to_camel_case(sort)
+        data = {
+            sort: BaseModel._to_camel_case(sort)
+        }
         return cls(
             '/%s/%s/%s' % (cls.__endpoint__, path, query),
             session=session,

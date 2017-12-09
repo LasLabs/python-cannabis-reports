@@ -37,8 +37,11 @@ class CustomDateTime(properties.DateTime):
 
     @staticmethod
     def from_json(value, **kwargs):
-        tz = timezone(value['timezone'])
-        dt = datetime.strptime(value['datetime'], CustomDateTime.FORMAT_DT)
+        try:
+            tz = timezone(value['timezone'])
+            dt = datetime.strptime(value['datetime'], CustomDateTime.FORMAT_DT)
+        except AttributeError:
+            return
         return tz.localize(dt)
 
 
@@ -88,7 +91,7 @@ class BaseModel(properties.HasProperties):
                 )
         for attr in remove:
             del vals[attr]
-        return cls(**vals)
+        return cls(**cls.get_non_empty_vals(vals))
 
     def get(self, key, default=None):
         """Return the field indicated by the key, if present."""
@@ -161,6 +164,9 @@ class BaseModel(properties.HasProperties):
                     name, cls,
                 ),
             )
+
+        if not value:
+            return None
 
         if isinstance(prop, properties.Instance):
             return prop.instance_class.from_api(**value)

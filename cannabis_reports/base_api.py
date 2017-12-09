@@ -105,7 +105,7 @@ class BaseApi(object):
     # Universal endpoints
 
     @classmethod
-    def list(cls, session, sort=None, descending=False, limit=None):
+    def list(cls, session, sort='created_at', descending=False, limit=None):
         """Return all objects, with optional sorting.
 
         Args:
@@ -124,10 +124,7 @@ class BaseApi(object):
             RequestPaginator(output_type=cls.__object__):
                 Objects iterator.
         """
-        if sort is None:
-            sort = 'name'
-        else:
-            sort = BaseModel._to_camel_case(sort)
+        sort = BaseModel._to_camel_case(sort)
         if descending:
             sort = '-%s' % sort
         return cls(

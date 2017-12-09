@@ -1,0 +1,41 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/edibles/4KXM32V9YFC3G2EUNWP400000/strain?page=1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7xSXWvbMBT9K+Y+25Flp06tN5OSPJSxQNeuK4IhS3Ki1ZFcSU7oQv77kLOWLLSj
+        DDI9Svd83aMdCOYZkB1otpZAYK5sG91w0/toasyjkg5i6HnHgcD4+v5Tnt2V32bpnwdiaJV+BAIr
+        7ztHKKJou92OONOa1cpZ2Rnr3YibNUWsUxRt8CilyHnLlHYU/Y35yX6M90CW/L6jiA/2k4atVftM
+        0VLZNnEhWHJ4cRQ92YQbIUduswwpbXsmJYhBrdlSfox+GHVH26kpavq2/V7XWTGpM3xZprmQomBN
+        k4oxb7DkhSwxllmW4onMRz+6kMdJKaZm3TH9fFTwodVoNpg96TZ94/xzt1KKhA/yw67fF9jHsJRa
+        esXdi08HBGY4oii66m3NdLQwyhkdLj7Po+verU6c54v5w9cT4jBd3t/dTuZXWbX4b1+Wotc0+0FE
+        Ds3voGqWK6aV80wDgWoGMdyY3q+iqrGKMyDwUAUIX6lWWKkDhpteeyC4nJzR76vgPgYrN0pu3bH2
+        xRmlX+RCbCuZl6LyQVswL70aPmyW4nGSXiS4iHBBxhnJLyGG8PjT6DBw+2Ua8H0n3sMXSZonaR5l
+        OcHl2/j9/hcAAAD//wMAqEM+FQsFAAA=
+    headers:
+      CF-RAY: [3caa5d605e8320d2-LAX]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 19:27:57 GMT']
+      ETag: [W/"9174e03897f52c3c490c5a116b40c1ad-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=dac5420e8d06808c9f2c6c28e45f77bc41512847677; expires=Sun,
+          09-Dec-18 19:27:57 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6Ikhvek53SjErZmt3ODBvVThLOTg2OGc9PSIsInZhbHVlIjoibDMrajdoUGxVRUxUTjhkZ0dHSnNscUg5TkFzVnJrNmZOdnJBUkwxTDUramRIekwzdytUN2N0bWx0YkdJUnR3OHE3ZVE1K1ZVdDdKRTE4XC9uXC93TjJkZz09IiwibWFjIjoiZGNkZmQ2NGFhMWM0NjViMjljZmNhNTUxMmQzMTNmY2M4OGVkYzQyMjk5NmIzYzc5NDY5OTgwMDI3NjExMWEwOCJ9;
+          expires=Sat, 09-Dec-2017 21:27:57 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['21']
+      X-RateLimit-Reset: ['1512848483']
+    status: {code: 200, message: OK}
+version: 1

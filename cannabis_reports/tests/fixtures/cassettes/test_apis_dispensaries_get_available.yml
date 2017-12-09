@@ -1,0 +1,26 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/dispensaries/ca/san-francisco/grass-roots/availability/geo/37.7749295/-122.4194155/10?page=1
+  response:
+    body: {string: '{"message":"404 Not Found","status_code":404}'}
+    headers:
+      CF-RAY: [3cab2c416f9d5f51-LAS]
+      Cache-Control: [no-cache]
+      Connection: [keep-alive]
+      Content-Length: ['45']
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 21:49:11 GMT']
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=d529da6c1c30ea30392b1f419b5cd94e71512856151; expires=Sun,
+          09-Dec-18 21:49:11 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6IjE4MEVmVkRGMG00RWF5aGtPSWJtZWc9PSIsInZhbHVlIjoiTTZKS3lXNmdnMjB1dmFnZzl4UVJPbWhGZVZHcjM0SUJOOUkxbklBY285TVhFeENPWXJMZHNoNm9TaWpHSnZQaGtxNDZKa1VqSDMrQnZRM3Jzakl6Zmc9PSIsIm1hYyI6ImVmYWMxMzI3YjVjMzEzMWY3MzFkZDE0YzRkYTAzMmE4OTFjYmNmZGM3MjhiYjQxMWUzNGFiODMwYmY5OTQ3NzAifQ%3D%3D;
+          expires=Sat, 09-Dec-2017 23:49:11 GMT; Max-Age=7200; path=/']
+    status: {code: 404, message: Not Found}
+version: 1

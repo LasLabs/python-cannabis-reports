@@ -1,0 +1,108 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/edibles/type/chocolate?created_at=createdAt&page=1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+yaa2/bNhSG/4rAr5MikpKoCzAMibtm6OA0a5N5aVUUFEnb7GRJpegmXeH/PsjX
+        Oq3tRLHkAnU+hbL4vjxH5zw4hvUFcKopiN5+ARkdCRCBqz86p8YvRufsmXFGlRGPMUSO4cHuOTDB
+        mBUMRAAu/144/nn3zT9/XXSnS2CCVGb/gggMtS7KKLZj+/b29oTRLKOJLJUocqXLE5aPYpsWMrY/
+        oRMY24LLJBVlbG9T/qgepjsTs+bXYvujsljORWwzmkprkKc8tvWQUYsl3Eqosjw4GgATJFRV99Uz
+        mW/eaTJWaT2DHbpyRAcPPPr01vKrpAex3R+n6fuAkxD5AeU0oEGSuI5AKEHCJ9SDjDLfFw4hocdO
+        PhSVZaFyPmZCgWhZPB2aSuM8T/nGWlkt69bKwvbbavlKe2IC/bmojsSGOctTqgUwQakVlRmI3r4z
+        QUqTK1FqEPVpWgoT6CFb/s8SDiLgnZBZbhcnWn4+pOXwpUyXayU+SXFbVolg+TjTIIKNNUJsL9wm
+        JmBKUC34qa6sOdVCy+lzwBARCxILEQPDCDrRNN3Vh//lWXXD9VWn2j8u+Jb9oQUDA/mRAyMv+M7+
+        ibl88Od5zlVeGJZxnn+QRidneTbWxlkqy9KwDATn1X+/Jvzw4k/3hfP31at98+Nb5SfzYyS4ZDIT
+        VpLfxfZgFrI1yD9Ii80CtpIqYGsR7n6I8mjb2ox5tNNTqMPn1OEuF1AETGDIBfUIhw7yQ06x6yUi
+        8PqJ3ychxclm6nTnxzbO8ruNRdYQeO5r1wQPWGR0ip4Fhg7KnXsN9FjuID9yvQgFB+UO3oYd/+bV
+        M78R7Kwpt4cdfBDq4Lagg4/M2S9z8A+JnFXz1EGOG+GwLeS8vhVCG6/HSSpHwnitFb1NhFKfdw48
+        4bXTw42QZ025IfKUVdhWOQvbKpdhtzL27DTfM4d2+j0FR3COI9gP+8KDyHEoc0I3gAzivoDUwYz5
+        gnGv7/kkYfA4Ah2AR6uWqsMjHDn+D8CjrYPQTeeyd90IjtaU28YRPiCNcLswwkcW/Qyj0aqd6qAI
+        RU5r38a6MtPWhRwMtdGlA8l2jkTXxOk8a4RBa8oNMWhUhZtV4VqjKtxWRqGNpnumzkafp+CmP8dN
+        PyCCcMQRITj0fS+gwkUsIQnkjhtSRgmiUHB8HH0OwJtV69TgjUMiFx2QN1tHHtLr3fQawc2aclu4
+        wQegDW4HNvjImp9htFm1TT3UQK8t1HTyciSZ0VGfS01T41xmA6F2zjenzunFm0aAs6bcEHDYNGaL
+        zWK2BtOYWxlytjvvGT7bzfbyE7sjfEJciFHAXd/vI4IpRQlGwgsodnzmE+EGwfHHrkMwaNVJdRjk
+        RG54aAZtnXl6N88vm0HQmnKrCMKHIhBuEUD4yJ+fYQRadVEd/KDIa/jb1qUoCqGqAd24pFpL8b3H
+        //ym5//uYtLd+wuB3yo/mTSFyguhrGXxlLFdLIO0ikWQ+6HLA81qE+WB+jUoMmuoMraz/P302kmR
+        baDD5fQQRmd5iI010hAi7mvXH1F+METcK//HIcKrXgN0SeS5TSDinQlGonqL+Aso6EBmVMs8q1Y6
+        1zQFUeD45iIjCJqgEOp9Ma3CasXGSolML66Ys13TZQmiwJ2lcJrVTNzp+rms6iC2l2XwW+XwKwaT
+        yWTyPwAAAP//AwBBxsoXBy0AAA==
+    headers:
+      CF-RAY: [3caa4144da235f51-LAS]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 19:08:46 GMT']
+      ETag: [W/"6287bba375011156f9e09980f1accee1-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=dabb0a11ddf50a64fe4d3b3d571c0b1d71512846526; expires=Sun,
+          09-Dec-18 19:08:46 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6IjNIcHRsbHc4UTR3OWdtMGVjMHdueGc9PSIsInZhbHVlIjoiOHpNdXlLRkNkWG8rNTFISXVXSDR1XC9Xd3EzQzhmRVwvTVVhSWhpYWZtWVY4bU1UeUlSM2FCdFB0NDBpRjRsXC9hQ29uZ3RyTm5EVUFDYkV2T2dpMERkUmc9PSIsIm1hYyI6IjE3YWE1ZWQ4YjE1MDYyZDM4ZDI3MzU1ZWVjZWU4Y2E2YTM0ZDY1ZDlhYzQ2YzMwM2E5ODdjMTRiYTk1ZDUzYTgifQ%3D%3D;
+          expires=Sat, 09-Dec-2017 21:08:46 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['22']
+      X-RateLimit-Reset: ['1512847425']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Cookie: [__cfduid=dabb0a11ddf50a64fe4d3b3d571c0b1d71512846526; XSRF-TOKEN=eyJpdiI6IjNIcHRsbHc4UTR3OWdtMGVjMHdueGc9PSIsInZhbHVlIjoiOHpNdXlLRkNkWG8rNTFISXVXSDR1XC9Xd3EzQzhmRVwvTVVhSWhpYWZtWVY4bU1UeUlSM2FCdFB0NDBpRjRsXC9hQ29uZ3RyTm5EVUFDYkV2T2dpMERkUmc9PSIsIm1hYyI6IjE3YWE1ZWQ4YjE1MDYyZDM4ZDI3MzU1ZWVjZWU4Y2E2YTM0ZDY1ZDlhYzQ2YzMwM2E5ODdjMTRiYTk1ZDUzYTgifQ%3D%3D]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/edibles/type/chocolate?created_at=createdAt&page=2
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+yaa2/bNhSG/4rAD8MGSBGpGyUBw5DaSbumzro2bTdURUHxkmjRrRLdbCv83wfJ
+        d9dOUllMuiD+Rsk8L1/qnAeHgr4ARiQB4fsvICcZByH4NWfj9JznUhsl6aU2uChokRLJtQGpSMZT
+        7UkieQ10MKYlBSGAi9/x8dHb50dHz0/ftkOggzTJL0EILqQs6zAyI/Pq6uqAkjwncVJXvCwqWR/Q
+        IotMUiaR+RkdwMjkLIlTXkfmdZE/VbeLOw1mzK5F5qfKoAXjkZkV41ySJDcyzhKa5Dwyk7lzI0vS
+        S4POnRt06tyIZ85jUjVBuq1gNnm/FYyrtJv6PqJJRs5vabr9a73yLO3IFOM0/WgH2I8dBiknDgrs
+        2OZ27LnMY5wLTlAAHQ8Sh6GDv8pzoIOyKtiY8gqEi/wczRxoo5mDnam4HHZNxbn818m4EnuiA/lP
+        2SxtsXVAB7WsSJKD8P0HHaQkPuO1BKEgac11IC+a1fowayzSmC1uzNezuHBB6ovfknQxrvjnhF/V
+        zXbQZh9ACJVVWWTO1SY6oBUnkrND2UgzIrlM2qdhQeQZ0DOQq6EghG5o20AHzc1/i7z5w5uzQTN/
+        XLJr5gcG9DWEQxuGrr9l/kRf4qmqeJ3Uslm9NkpyqQ2K4jLh2g/aoOIkuwFPw5M/X71Rgqe1yErw
+        tOLcyJJcGrR1bjTPJrsDON1Ov1c03U5yHzDhGZiwhyDhBGPPwsiyLUyxwxm1bYZcTOzAiwNkOx59
+        BNM9gWlZX13A5ITIVQymnFbTta/2TAUt8rFsobQzHf44Ho6eKWHSWmQ1LdPc9GrfMDXdlqfabulm
+        8X4bpZv19kFRMENREPhcOB4lAvvYt12fcGxj6FHH5kJ4JCCWw5HlPaLonlC0LKsuKLJC6KtF0Yic
+        54lIaHOIe82J9pqkkjNtSKrV89y1THo5wkdPlTBpLbIKJmVL90bNiVG37g1GqtXDjWo4fdMq+qTU
+        Nwnvgysxw5UQNrcD6rvEd2nAmGthhKDlMktAG2IBY+x7yLUecXVPuFpWXBdcwdAJ1OJqg0uDJ0Pt
+        Cam25cDRs1fO8dvR4cmrvtH0deQe0CRJZG7UHY2ZEbfm+iLPtSJ7gOXauPtwg864QTHEgedzQbBw
+        mMNtR9jCtSC1PEEFERRZloBefB03JNmZJopQsRm7IyrmdGhIATxnio17RcVGBXwrKiAKId5e6n12
+        NhuvpG9AxbPhmxe/K0HFWuSeULH5+lUJKnaK7ImKnXEfUfEwUbGsgG6osPGddhWvL8dpWu9MgdPh
+        SfBOCSnWIqtpKuq5N4U9xUKj35ZiEXYfTJAZJkhMKQ4QZci1BIY+I1YMUeAin7AYCk4shD1BxIPE
+        BEDf3eljI/+7cMILHXSnLcUNnDg7fHf0Ugkn1iKr6SiUcGKXRr/9xCMnHjonlvnfjRMwuFNOHKZZ
+        kbPm9KH9aEOYnf+0Mx+GJ4OnthJmrEVWwwzS+mx6eaO1qZYeW9T65cgWgQ5EmRZZHZl58bG9dlDm
+        D5AU8x36zkixzPoupHBD5NwpKc4KITi/FSlOB96Jo+YUshpZDSlk6/OuSLFFrV9SbBF4JMX/jBTL
+        rO9CCid0lXwz8kEHGW8+uv0CSnKe5EQmRd6MZCFJCkLfxvp8RxDUQcmrj2Wbec2IjquK53J2xdKn
+        s9phDULfmW5hu6tl47kY1933s0mGyFzkwi+Nys/NgSznf8uew9pgMplM/gMAAP//AwA7M0iQkSwA
+        AA==
+    headers:
+      CF-RAY: [3caa4146da605f51-LAS]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 19:08:46 GMT']
+      ETag: [W/"ad25c2bf6d9e462ef71821232e102a4a-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['XSRF-TOKEN=eyJpdiI6IlZMNGhiRExOU010WXcrMUZlT0l6SVE9PSIsInZhbHVlIjoieUZKc3RaYlJORU5XanNUYVdFQjhxVGhXa205cGhWK0ZqWVVxSUxZVVVcL2V1aStROTh3dWI5UVNBQWFva05Kb2xHVSt2aWluU0IwWFVtWW9BbXFRS1h3PT0iLCJtYWMiOiIwNDgyNmE1ZGM1ZTNkNGY2NDE5ZDUzYThkNGJlMTk2Yzc4NmFmNDQ4NTY2MGU0NjgzYTMxOTZlOWQ1MWI2ZGU5In0%3D;
+          expires=Sat, 09-Dec-2017 21:08:46 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['21']
+      X-RateLimit-Reset: ['1512847425']
+    status: {code: 200, message: OK}
+version: 1

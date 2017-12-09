@@ -16,6 +16,9 @@ class Producer(LinksModelWithImage):
     what-is-a-cannabis-producer>`_.
     """
 
+    name = properties.String(
+        'The name of the producer.',
+    )
     reviews = properties.Instance(
         'The number of reviews for all of the strains available from this '
         'seed Producer.',
