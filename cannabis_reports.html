@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports package &#8212; Cannabis Reports 0.0.0b75 documentation</title>
+    <title>cannabis_reports package &#8212; Cannabis Reports 0.0.0b87 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b75',
+        VERSION:     '0.0.0b87',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -87,6 +87,14 @@
 <li class="toctree-l1"><a class="reference internal" href="cannabis_reports.tests.html">cannabis_reports.tests package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.api_common">cannabis_reports.tests.api_common module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.api_entity">cannabis_reports.tests.api_entity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.api_product">cannabis_reports.tests.api_product module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_dispensaries">cannabis_reports.tests.test_apis_dispensaries module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_edibles">cannabis_reports.tests.test_apis_edibles module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_extracts">cannabis_reports.tests.test_apis_extracts module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_flowers">cannabis_reports.tests.test_apis_flowers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_producer">cannabis_reports.tests.test_apis_producer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_products">cannabis_reports.tests.test_apis_products module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_apis_strains">cannabis_reports.tests.test_apis_strains module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_base_api">cannabis_reports.tests.test_base_api module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cannabis_reports.tests.html#module-cannabis_reports.tests.test_base_model">cannabis_reports.tests.test_base_model module</a></li>
@@ -203,7 +211,7 @@ the cannabis object you want information about.</li>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.base_api.BaseApi.list">
-<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort=None</em>, <em>descending=False</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.base_api.BaseApi.list" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort='created_at'</em>, <em>descending=False</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.base_api.BaseApi.list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all objects, with optional sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -611,7 +619,7 @@ the cannabis object you want information about.</p>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.BaseApi.list">
-<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort=None</em>, <em>descending=False</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.BaseApi.list" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">list</code><span class="sig-paren">(</span><em>session</em>, <em>sort='created_at'</em>, <em>descending=False</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/base_api.html#BaseApi.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.BaseApi.list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return all objects, with optional sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

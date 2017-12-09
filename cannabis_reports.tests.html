@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.tests package &#8212; Cannabis Reports 0.0.0b75 documentation</title>
+    <title>cannabis_reports.tests package &#8212; Cannabis Reports 0.0.0b87 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b75',
+        VERSION:     '0.0.0b87',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -61,10 +61,454 @@
 <code class="descname">LIMIT_PAGE</code><em class="property"> = 2</em><a class="headerlink" href="#cannabis_reports.tests.api_common.ApiCommon.LIMIT_PAGE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="attribute">
+<dt id="cannabis_reports.tests.api_common.ApiCommon.UID">
+<code class="descname">UID</code><em class="property"> = None</em><a class="headerlink" href="#cannabis_reports.tests.api_common.ApiCommon.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.tests.api_common.ApiCommon.endpoint">
+<code class="descname">endpoint</code><em class="property"> = None</em><a class="headerlink" href="#cannabis_reports.tests.api_common.ApiCommon.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cannabis_reports.tests.api_common.ApiCommon.setUp">
 <code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/api_common.html#ApiCommon.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.api_common.ApiCommon.setUp" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.api_entity">
+<span id="cannabis-reports-tests-api-entity-module"></span><h2>cannabis_reports.tests.api_entity module<a class="headerlink" href="#module-cannabis_reports.tests.api_entity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.api_entity.ApiEntityAbstract">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.api_entity.</code><code class="descname">ApiEntityAbstract</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/api_entity.html#ApiEntityAbstract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.api_entity.ApiEntityAbstract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_common.ApiCommon" title="cannabis_reports.tests.api_common.ApiCommon"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_common.ApiCommon</span></code></a></p>
+<p>Tests the AbstractEntityEndpoint API endpoints.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.api_product">
+<span id="cannabis-reports-tests-api-product-module"></span><h2>cannabis_reports.tests.api_product module<a class="headerlink" href="#module-cannabis_reports.tests.api_product" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.api_product.ApiProductAbstract">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.api_product.</code><code class="descname">ApiProductAbstract</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/api_product.html#ApiProductAbstract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.api_product.ApiProductAbstract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_common.ApiCommon" title="cannabis_reports.tests.api_common.ApiCommon"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_common.ApiCommon</span></code></a></p>
+<p>Tests the AbstractProductEndpoint API endpoints.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.test_apis_dispensaries">
+<span id="cannabis-reports-tests-test-apis-dispensaries-module"></span><h2>cannabis_reports.tests.test_apis_dispensaries module<a class="headerlink" href="#module-cannabis_reports.tests.test_apis_dispensaries" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.test_apis_dispensaries.</code><code class="descname">TestApisDispensaries</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_entity.ApiEntityAbstract" title="cannabis_reports.tests.api_entity.ApiEntityAbstract"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_entity.ApiEntityAbstract</span></code></a></p>
+<p>Tests the Dispensaries API endpoint.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.UID">
+<code class="descname">UID</code><em class="property"> = 'ca/san-francisco/grass-roots'</em><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get">
+<code class="descname">test_apis_dispensaries_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.test_apis_dispensaries_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should not be implemented.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_available">
+<code class="descname">test_apis_dispensaries_get_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.test_apis_dispensaries_get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should not be implemented for this endpoint.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_edibles">
+<code class="descname">test_apis_dispensaries_get_edibles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.test_apis_dispensaries_get_edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_edibles" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the edibles for a dispensary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_extracts">
+<code class="descname">test_apis_dispensaries_get_extracts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.test_apis_dispensaries_get_extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_extracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the extracts for a dispensary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_products">
+<code class="descname">test_apis_dispensaries_get_products</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.test_apis_dispensaries_get_products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_products" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the products for a dispensary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_strains">
+<code class="descname">test_apis_dispensaries_get_strains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.test_apis_dispensaries_get_strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_get_strains" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the strains for a dispensary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_list">
+<code class="descname">test_apis_dispensaries_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_dispensaries.html#TestApisDispensaries.test_apis_dispensaries_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_dispensaries.TestApisDispensaries.test_apis_dispensaries_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.test_apis_edibles">
+<span id="cannabis-reports-tests-test-apis-edibles-module"></span><h2>cannabis_reports.tests.test_apis_edibles module<a class="headerlink" href="#module-cannabis_reports.tests.test_apis_edibles" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.test_apis_edibles.</code><code class="descname">TestApisEdibles</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_product.ApiProductAbstract" title="cannabis_reports.tests.api_product.ApiProductAbstract"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_product.ApiProductAbstract</span></code></a></p>
+<p>Tests the Edibles API endpoint.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.UID">
+<code class="descname">UID</code><em class="property"> = '4KXM32V9YFC3G2EUNWP400000'</em><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get">
+<code class="descname">test_apis_edibles_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_available">
+<code class="descname">test_apis_edibles_get_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the menu items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_effects_flavors">
+<code class="descname">test_apis_edibles_get_effects_flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_get_effects_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_effects_flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the effect &amp; flavor profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_producer">
+<code class="descname">test_apis_edibles_get_producer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_review">
+<code class="descname">test_apis_edibles_get_review</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_review" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the reviews.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_strain">
+<code class="descname">test_apis_edibles_get_strain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the strain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_user">
+<code class="descname">test_apis_edibles_get_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper user singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_list">
+<code class="descname">test_apis_edibles_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_search">
+<code class="descname">test_apis_edibles_search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_edibles.html#TestApisEdibles.test_apis_edibles_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_edibles.TestApisEdibles.test_apis_edibles_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.test_apis_extracts">
+<span id="cannabis-reports-tests-test-apis-extracts-module"></span><h2>cannabis_reports.tests.test_apis_extracts module<a class="headerlink" href="#module-cannabis_reports.tests.test_apis_extracts" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.test_apis_extracts.</code><code class="descname">TestApisExtracts</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_product.ApiProductAbstract" title="cannabis_reports.tests.api_product.ApiProductAbstract"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_product.ApiProductAbstract</span></code></a></p>
+<p>Tests the Extracts API endpoint.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.UID">
+<code class="descname">UID</code><em class="property"> = 'QLG39RN2AFPMR6WLTPLW00000'</em><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get">
+<code class="descname">test_apis_extracts_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_available">
+<code class="descname">test_apis_extracts_get_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the menu items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_effects_flavors">
+<code class="descname">test_apis_extracts_get_effects_flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_get_effects_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_effects_flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the effect &amp; flavor profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_producer">
+<code class="descname">test_apis_extracts_get_producer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_review">
+<code class="descname">test_apis_extracts_get_review</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_review" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the reviews.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_strain">
+<code class="descname">test_apis_extracts_get_strain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the strain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_user">
+<code class="descname">test_apis_extracts_get_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper user singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_list">
+<code class="descname">test_apis_extracts_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_search">
+<code class="descname">test_apis_extracts_search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_extracts.html#TestApisExtracts.test_apis_extracts_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_extracts.TestApisExtracts.test_apis_extracts_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.test_apis_flowers">
+<span id="cannabis-reports-tests-test-apis-flowers-module"></span><h2>cannabis_reports.tests.test_apis_flowers module<a class="headerlink" href="#module-cannabis_reports.tests.test_apis_flowers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.test_apis_flowers.</code><code class="descname">TestApisFlowers</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_product.ApiProductAbstract" title="cannabis_reports.tests.api_product.ApiProductAbstract"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_product.ApiProductAbstract</span></code></a></p>
+<p>Tests the Flowers API endpoint.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.UID">
+<code class="descname">UID</code><em class="property"> = 'AHZ7H4N6467FVUDY3DAY00000'</em><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get">
+<code class="descname">test_apis_flowers_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_available">
+<code class="descname">test_apis_flowers_get_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the menu items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_effects_flavors">
+<code class="descname">test_apis_flowers_get_effects_flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_get_effects_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_effects_flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the effect &amp; flavor profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_producer">
+<code class="descname">test_apis_flowers_get_producer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_review">
+<code class="descname">test_apis_flowers_get_review</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_review" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the reviews.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_strain">
+<code class="descname">test_apis_flowers_get_strain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the strain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_user">
+<code class="descname">test_apis_flowers_get_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper user singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_list">
+<code class="descname">test_apis_flowers_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_search">
+<code class="descname">test_apis_flowers_search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_flowers.html#TestApisFlowers.test_apis_flowers_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_flowers.TestApisFlowers.test_apis_flowers_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper objects.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.test_apis_producer">
+<span id="cannabis-reports-tests-test-apis-producer-module"></span><h2>cannabis_reports.tests.test_apis_producer module<a class="headerlink" href="#module-cannabis_reports.tests.test_apis_producer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.test_apis_producer.</code><code class="descname">TestApisProducers</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_entity.ApiEntityAbstract" title="cannabis_reports.tests.api_entity.ApiEntityAbstract"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_entity.ApiEntityAbstract</span></code></a></p>
+<p>Tests the Producers API endpoint.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.UID">
+<code class="descname">UID</code><em class="property"> = '0000000000L6M7E0000000000'</em><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get">
+<code class="descname">test_apis_producers_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers.test_apis_producers_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_available">
+<code class="descname">test_apis_producers_get_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers.test_apis_producers_get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the availables for a producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_edibles">
+<code class="descname">test_apis_producers_get_edibles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers.test_apis_producers_get_edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_edibles" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the edibles for a producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_extracts">
+<code class="descname">test_apis_producers_get_extracts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers.test_apis_producers_get_extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_extracts" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the extracts for a producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_products">
+<code class="descname">test_apis_producers_get_products</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers.test_apis_producers_get_products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_get_products" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the products for a producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_list">
+<code class="descname">test_apis_producers_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_producer.html#TestApisProducers.test_apis_producers_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_producer.TestApisProducers.test_apis_producers_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper object.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cannabis_reports.tests.test_apis_products">
+<span id="cannabis-reports-tests-test-apis-products-module"></span><h2>cannabis_reports.tests.test_apis_products module<a class="headerlink" href="#module-cannabis_reports.tests.test_apis_products" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts">
+<em class="property">class </em><code class="descclassname">cannabis_reports.tests.test_apis_products.</code><code class="descname">TestApisProducts</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_product.ApiProductAbstract" title="cannabis_reports.tests.api_product.ApiProductAbstract"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_product.ApiProductAbstract</span></code></a></p>
+<p>Tests the Products API endpoint.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.UID">
+<code class="descname">UID</code><em class="property"> = '9XVU7NK3PEGLAJ372X4F00000'</em><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get">
+<code class="descname">test_apis_products_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_available">
+<code class="descname">test_apis_products_get_available</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the menu items.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_effects_flavors">
+<code class="descname">test_apis_products_get_effects_flavors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_get_effects_flavors"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_effects_flavors" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the effect &amp; flavor profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_producer">
+<code class="descname">test_apis_products_get_producer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_get_producer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the producer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_review">
+<code class="descname">test_apis_products_get_review</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_get_review"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_review" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the reviews.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_strain">
+<code class="descname">test_apis_products_get_strain</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_get_strain"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the strain.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_user">
+<code class="descname">test_apis_products_get_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should return the proper user singleton.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_list">
+<code class="descname">test_apis_products_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_search">
+<code class="descname">test_apis_products_search</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_products.html#TestApisProducts.test_apis_products_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_products.TestApisProducts.test_apis_products_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>It should parse the response and return the proper objects.</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -74,8 +518,18 @@
 <dl class="class">
 <dt id="cannabis_reports.tests.test_apis_strains.TestApisStrains">
 <em class="property">class </em><code class="descclassname">cannabis_reports.tests.test_apis_strains.</code><code class="descname">TestApisStrains</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_strains.html#TestApisStrains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_strains.TestApisStrains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_common.ApiCommon" title="cannabis_reports.tests.api_common.ApiCommon"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_common.ApiCommon</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.tests.api_product.ApiProductAbstract" title="cannabis_reports.tests.api_product.ApiProductAbstract"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.tests.api_product.ApiProductAbstract</span></code></a></p>
 <p>Tests the Strains API endpoint.</p>
+<dl class="attribute">
+<dt id="cannabis_reports.tests.test_apis_strains.TestApisStrains.UID">
+<code class="descname">UID</code><em class="property"> = 'VUJCJ4TYMG000000000000000'</em><a class="headerlink" href="#cannabis_reports.tests.test_apis_strains.TestApisStrains.UID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cannabis_reports.tests.test_apis_strains.TestApisStrains.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_strains.html#TestApisStrains.setUp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_strains.TestApisStrains.setUp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="method">
 <dt id="cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get">
 <code class="descname">test_apis_strains_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/tests/test_apis_strains.html#TestApisStrains.test_apis_strains_get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.tests.test_apis_strains.TestApisStrains.test_apis_strains_get" title="Permalink to this definition">¶</a></dt>
@@ -591,6 +1045,14 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">cannabis_reports.tests package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.api_common">cannabis_reports.tests.api_common module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.api_entity">cannabis_reports.tests.api_entity module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.api_product">cannabis_reports.tests.api_product module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_apis_dispensaries">cannabis_reports.tests.test_apis_dispensaries module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_apis_edibles">cannabis_reports.tests.test_apis_edibles module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_apis_extracts">cannabis_reports.tests.test_apis_extracts module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_apis_flowers">cannabis_reports.tests.test_apis_flowers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_apis_producer">cannabis_reports.tests.test_apis_producer module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_apis_products">cannabis_reports.tests.test_apis_products module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_apis_strains">cannabis_reports.tests.test_apis_strains module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_base_api">cannabis_reports.tests.test_base_api module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.tests.test_base_model">cannabis_reports.tests.test_base_model module</a></li>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.models package &#8212; Cannabis Reports 0.0.0b75 documentation</title>
+    <title>cannabis_reports.models package &#8212; Cannabis Reports 0.0.0b87 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b75',
+        VERSION:     '0.0.0b87',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -628,7 +628,7 @@ of weight for THC and CBD.</p>
 <li><strong>price_half_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one half ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_quarter</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one quarter ounce of this item. This is not set for edibles and products., a float</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “extract”, “edible”, “product”</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “flower”, “extract”, “edible”, “product”</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 </ul>
@@ -712,7 +712,7 @@ of weight for THC and CBD.</p>
 <li><strong>price_half_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one half ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_quarter</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one quarter ounce of this item. This is not set for edibles and products., a float</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “extract”, “edible”, “product”</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “flower”, “extract”, “edible”, “product”</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 </ul>
@@ -745,6 +745,7 @@ Reports FAQ</a>.</p>
 <li><strong>extracts</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Information on all of the extracts that this producer makes., an instance of GeneralOverview</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): The name of the producer., a unicode string</li>
 <li><strong>products</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Information on all of the products that this producer makes., an instance of GeneralOverview</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
 <li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): The number of reviews for all of the strains available from this seed Producer., an instance of GeneralOverview</li>
@@ -762,6 +763,12 @@ Reports FAQ</a>.</p>
 <dt id="cannabis_reports.models.producer.Producer.extracts">
 <code class="descname">extracts</code><a class="headerlink" href="#cannabis_reports.models.producer.Producer.extracts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Information on all of the extracts that this producer makes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.producer.Producer.name">
+<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.producer.Producer.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the producer.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -1518,7 +1525,7 @@ of weight for THC and CBD.</p>
 <li><strong>price_half_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one half ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_quarter</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one quarter ounce of this item. This is not set for edibles and products., a float</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “extract”, “edible”, “product”</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “flower”, “extract”, “edible”, “product”</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 </ul>
@@ -1602,7 +1609,7 @@ of weight for THC and CBD.</p>
 <li><strong>price_half_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one half ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_ounce</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one ounce of this item. This is not set for edibles and products., a float</li>
 <li><strong>price_quarter</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.Float" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">Float</span></code></a>): Price for one quarter ounce of this item. This is not set for edibles and products., a float</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “extract”, “edible”, “product”</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/other.html#properties.StringChoice" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">StringChoice</span></code></a>): Type of item., any of “strain”, “flower”, “extract”, “edible”, “product”</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 </ul>
@@ -1632,6 +1639,7 @@ Reports FAQ</a>.</p>
 <li><strong>extracts</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Information on all of the extracts that this producer makes., an instance of GeneralOverview</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): The name of the producer., a unicode string</li>
 <li><strong>products</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Information on all of the products that this producer makes., an instance of GeneralOverview</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
 <li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): The number of reviews for all of the strains available from this seed Producer., an instance of GeneralOverview</li>
@@ -1649,6 +1657,12 @@ Reports FAQ</a>.</p>
 <dt id="cannabis_reports.models.Producer.extracts">
 <code class="descname">extracts</code><a class="headerlink" href="#cannabis_reports.models.Producer.extracts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Information on all of the extracts that this producer makes.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.Producer.name">
+<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.Producer.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the producer.</p>
 </dd></dl>
 
 <dl class="attribute">

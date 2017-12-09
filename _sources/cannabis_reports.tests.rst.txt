@@ -12,6 +12,70 @@ cannabis\_reports\.tests\.api\_common module
     :undoc-members:
     :show-inheritance:
 
+cannabis\_reports\.tests\.api\_entity module
+--------------------------------------------
+
+.. automodule:: cannabis_reports.tests.api_entity
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.api\_product module
+---------------------------------------------
+
+.. automodule:: cannabis_reports.tests.api_product
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_apis\_dispensaries module
+---------------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_apis_dispensaries
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_apis\_edibles module
+----------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_apis_edibles
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_apis\_extracts module
+-----------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_apis_extracts
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_apis\_flowers module
+----------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_apis_flowers
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_apis\_producer module
+-----------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_apis_producer
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.tests\.test\_apis\_products module
+-----------------------------------------------------
+
+.. automodule:: cannabis_reports.tests.test_apis_products
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cannabis\_reports\.tests\.test\_apis\_strains module
 ----------------------------------------------------
 

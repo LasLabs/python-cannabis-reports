@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.abstract_product_endpoint &#8212; Cannabis Reports 0.0.0b75 documentation</title>
+    <title>cannabis_reports.apis.abstract_product_endpoint &#8212; Cannabis Reports 0.0.0b87 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b75',
+        VERSION:     '0.0.0b87',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -46,6 +46,7 @@
 <span class="kn">from</span> <span class="nn">.abstract_item_endpoint</span> <span class="k">import</span> <span class="n">AbstractItemEndpoint</span>
 
 <span class="kn">from</span> <span class="nn">..models.producer</span> <span class="k">import</span> <span class="n">Producer</span>
+<span class="kn">from</span> <span class="nn">..models.strain</span> <span class="k">import</span> <span class="n">Strain</span>
 
 
 <div class="viewcode-block" id="AbstractProductEndpoint"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_product_endpoint.AbstractProductEndpoint">[docs]</a><span class="k">class</span> <span class="nc">AbstractProductEndpoint</span><span class="p">(</span><span class="n">AbstractItemEndpoint</span><span class="p">):</span>
@@ -92,6 +93,8 @@
         <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
             <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/strain&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
             <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
+            <span class="n">out_type</span><span class="o">=</span><span class="n">Strain</span><span class="p">,</span>
+            <span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span></div></div>
 </pre></div>
 

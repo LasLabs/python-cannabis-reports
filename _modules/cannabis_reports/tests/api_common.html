@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.tests.api_common &#8212; Cannabis Reports 0.0.0b75 documentation</title>
+    <title>cannabis_reports.tests.api_common &#8212; Cannabis Reports 0.0.0b87 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b75',
+        VERSION:     '0.0.0b87',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -65,9 +65,27 @@
     <span class="n">LIMIT_LIST</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="n">LIMIT_PAGE</span> <span class="o">=</span> <span class="mi">2</span>
 
+    <span class="c1"># Subclasses must define this, such as ``self.api.Edibles``</span>
+    <span class="n">endpoint</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="c1"># Subclasses must define this, typically a UCPC</span>
+    <span class="n">UID</span> <span class="o">=</span> <span class="kc">None</span>
+
 <div class="viewcode-block" id="ApiCommon.setUp"><a class="viewcode-back" href="../../../cannabis_reports.tests.html#cannabis_reports.tests.api_common.ApiCommon.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ApiCommon</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span class="n">CannabisReports</span><span class="p">()</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">api</span> <span class="o">=</span> <span class="n">CannabisReports</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">_test_apis_objects_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expect_class</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should parse the response and return the proper object.&quot;&quot;&quot;</span>
+        <span class="n">result_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">limit</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_PAGE</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expect_class</span><span class="p">)</span>
+            <span class="n">result_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result_count</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_LIST</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">LIMIT_PAGE</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_test_apis_objects_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">expect_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;It should return the proper singleton.&quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">UID</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">expect_name</span><span class="p">)</span></div>
 </pre></div>
 
           </div>

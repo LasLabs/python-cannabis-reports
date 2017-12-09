@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b75 documentation</title>
+    <title>cannabis_reports.apis package &#8212; Cannabis Reports 0.0.0b87 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b75',
+        VERSION:     '0.0.0b87',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -55,7 +55,7 @@
 <p>The Dispensaries and Producers API inherit from this.</p>
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_available">
-<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em>, <em>path_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_available" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>lat</em>, <em>lng</em>, <em>radius=10</em>, <em>path_prefix=None</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_available" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get information about the availability of everything from a
 producer using latitude and longitude.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -72,6 +72,7 @@ the cannabis object you want the children from.</li>
 <li><strong>path_prefix</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) – A URI path to prefix with, which
 is useful for dispensary hierarchies. This will override
 the endpoint prefix, so it should include it if necessary.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -87,7 +88,7 @@ the endpoint prefix, so it should include it if necessary.</li>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_edibles">
-<em class="property">classmethod </em><code class="descname">get_edibles</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>path_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_edibles" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_edibles</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>path_prefix=None</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_edibles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a paginated list of edibles for a producer with the given
 UCPC.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -102,6 +103,7 @@ the cannabis producer you want the edibles for.</p>
 <li><strong>path_prefix</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) – A URI path to prefix with, which
 is useful for dispensary hierarchies. This will override
 the endpoint prefix, so it should include it if necessary.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -117,7 +119,7 @@ the endpoint prefix, so it should include it if necessary.</li>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_extracts">
-<em class="property">classmethod </em><code class="descname">get_extracts</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>path_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_extracts" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_extracts</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>path_prefix=None</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_extracts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a paginated list of extracts for a producer with the
 given UCPC.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -132,6 +134,7 @@ the cannabis producer you want the extracts for.</p>
 <li><strong>path_prefix</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) – A URI path to prefix with, which
 is useful for dispensary hierarchies. This will override
 the endpoint prefix, so it should include it if necessary.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -147,7 +150,7 @@ the endpoint prefix, so it should include it if necessary.</li>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_products">
-<em class="property">classmethod </em><code class="descname">get_products</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>path_prefix=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_products" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_products</code><span class="sig-paren">(</span><em>session</em>, <em>ucpc</em>, <em>path_prefix=None</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_entity_endpoint.html#AbstractEntityEndpoint.get_products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint.get_products" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a paginated list of products for a producer with the given
 UCPC.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -162,6 +165,7 @@ the cannabis producer you want the products for.</p>
 <li><strong>path_prefix</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) – A URI path to prefix with, which
 is useful for dispensary hierarchies. This will override
 the endpoint prefix, so it should include it if necessary.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -308,7 +312,7 @@ the cannabis object you want the user from.</p>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search">
-<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort=None</em>, <em>path='type'</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort='created_at'</em>, <em>path='type'</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/abstract_item_endpoint.html#AbstractItemEndpoint.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return search results for objects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -413,125 +417,17 @@ the cannabis product you want the strain from.</p>
 <dl class="class">
 <dt id="cannabis_reports.apis.dispensaries.Dispensaries">
 <em class="property">class </em><code class="descclassname">cannabis_reports.apis.dispensaries.</code><code class="descname">Dispensaries</code><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_api.BaseApi" title="cannabis_reports.base_api.BaseApi"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_api.BaseApi</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint" title="cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint</span></code></a></p>
 <p>This represents the <code class="docutils literal"><span class="pre">Dispensaries</span></code> Endpoint.</p>
 <p><a class="reference external" href="https://developers.cannabisreports.com/docs/dispensaries">https://developers.cannabisreports.com/docs/dispensaries</a></p>
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.dispensaries.Dispensaries.get">
-<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get" title="Permalink to this definition">¶</a></dt>
+<dt id="cannabis_reports.apis.dispensaries.Dispensaries.get_available">
+<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get_available" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.dispensaries.Dispensaries.get_by_slug">
-<em class="property">classmethod </em><code class="descname">get_by_slug</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_by_slug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get_by_slug" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets information about an individual dispensary based on the
-state, city, and slug</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.dispensary.Dispensary" title="cannabis_reports.models.dispensary.Dispensary">Dispensary</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.dispensaries.Dispensaries.get_edibles">
-<em class="property">classmethod </em><code class="descname">get_edibles</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get_edibles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a paginated list of edibles for a dispensary with the given
-slug.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The edibles for this dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Edible)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.dispensaries.Dispensaries.get_extracts">
-<em class="property">classmethod </em><code class="descname">get_extracts</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get_extracts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a paginated list of extracts for a dispensary with the
-given slug.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The extracts for this dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Extract)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.dispensaries.Dispensaries.get_products">
-<em class="property">classmethod </em><code class="descname">get_products</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get_products" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a paginated list of products for a dispensary with the given
-slug.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The products for this dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Product)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
 <dt id="cannabis_reports.apis.dispensaries.Dispensaries.get_strains">
-<em class="property">classmethod </em><code class="descname">get_strains</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get_strains" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_strains</code><span class="sig-paren">(</span><em>session</em>, <em>slug</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.dispensaries.Dispensaries.get_strains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a paginated list of strains for a dispensary with the
 given slug.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -540,9 +436,9 @@ given slug.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
+<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary (includes
+city/state slug).</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -709,7 +605,7 @@ the cannabis strain you want the seed company from.</p>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.strains.Strains.search">
-<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort=None</em>, <em>path='search'</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.search" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort='name'</em>, <em>path='search'</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.strains.Strains.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets products for a given strain with optional sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -744,125 +640,17 @@ for descending.</li>
 <dl class="class">
 <dt id="cannabis_reports.apis.Dispensaries">
 <em class="property">class </em><code class="descclassname">cannabis_reports.apis.</code><code class="descname">Dispensaries</code><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_api.BaseApi" title="cannabis_reports.base_api.BaseApi"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_api.BaseApi</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint" title="cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.apis.abstract_entity_endpoint.AbstractEntityEndpoint</span></code></a></p>
 <p>This represents the <code class="docutils literal"><span class="pre">Dispensaries</span></code> Endpoint.</p>
 <p><a class="reference external" href="https://developers.cannabisreports.com/docs/dispensaries">https://developers.cannabisreports.com/docs/dispensaries</a></p>
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.Dispensaries.get">
-<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>session</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get" title="Permalink to this definition">¶</a></dt>
+<dt id="cannabis_reports.apis.Dispensaries.get_available">
+<em class="property">classmethod </em><code class="descname">get_available</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_available"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get_available" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="classmethod">
-<dt id="cannabis_reports.apis.Dispensaries.get_by_slug">
-<em class="property">classmethod </em><code class="descname">get_by_slug</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_by_slug"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get_by_slug" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets information about an individual dispensary based on the
-state, city, and slug</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.models.html#cannabis_reports.models.dispensary.Dispensary" title="cannabis_reports.models.dispensary.Dispensary">Dispensary</a></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.Dispensaries.get_edibles">
-<em class="property">classmethod </em><code class="descname">get_edibles</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_edibles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get_edibles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a paginated list of edibles for a dispensary with the given
-slug.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The edibles for this dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Edible)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.Dispensaries.get_extracts">
-<em class="property">classmethod </em><code class="descname">get_extracts</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_extracts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get_extracts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a paginated list of extracts for a dispensary with the
-given slug.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The extracts for this dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Extract)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="cannabis_reports.apis.Dispensaries.get_products">
-<em class="property">classmethod </em><code class="descname">get_products</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_products"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get_products" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a paginated list of products for a dispensary with the given
-slug.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The products for this dispensary.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="cannabis_reports.request_paginator.html#cannabis_reports.request_paginator.RequestPaginator" title="cannabis_reports.request_paginator.RequestPaginator">RequestPaginator</a>(output_type=Product)</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="classmethod">
 <dt id="cannabis_reports.apis.Dispensaries.get_strains">
-<em class="property">classmethod </em><code class="descname">get_strains</code><span class="sig-paren">(</span><em>session</em>, <em>state</em>, <em>city</em>, <em>slug</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get_strains" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">get_strains</code><span class="sig-paren">(</span><em>session</em>, <em>slug</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/dispensaries.html#Dispensaries.get_strains"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Dispensaries.get_strains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets a paginated list of strains for a dispensary with the
 given slug.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -871,9 +659,9 @@ given slug.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>session</strong> (<em>requests.sessions.Session</em>) – Authenticated session.</li>
-<li><strong>city</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – City the dispensary is in.</li>
-<li><strong>state</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Two character state for the dispensary.</li>
-<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary.</li>
+<li><strong>slug</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a>) – Slug for the name of the dispensary (includes
+city/state slug).</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Stop after iterating this many pages.</li>
 </ul>
 </td>
 </tr>
@@ -1022,7 +810,7 @@ the cannabis strain you want the seed company from.</p>
 
 <dl class="classmethod">
 <dt id="cannabis_reports.apis.Strains.search">
-<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort=None</em>, <em>path='search'</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.search" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="descname">search</code><span class="sig-paren">(</span><em>session</em>, <em>query</em>, <em>sort='name'</em>, <em>path='search'</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/apis/strains.html#Strains.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.apis.Strains.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets products for a given strain with optional sorting.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
