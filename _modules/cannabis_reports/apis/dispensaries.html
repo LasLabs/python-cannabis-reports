@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.dispensaries &#8212; Cannabis Reports 0.0.0b68 documentation</title>
+    <title>cannabis_reports.apis.dispensaries &#8212; Cannabis Reports 0.0.0b75 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b68',
+        VERSION:     '0.0.0b75',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -46,9 +46,6 @@
 <span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">BaseApi</span>
 
 <span class="kn">from</span> <span class="nn">..models.dispensary</span> <span class="k">import</span> <span class="n">Dispensary</span>
-<span class="kn">from</span> <span class="nn">..models.edible</span> <span class="k">import</span> <span class="n">Edible</span>
-<span class="kn">from</span> <span class="nn">..models.extract</span> <span class="k">import</span> <span class="n">Extract</span>
-<span class="kn">from</span> <span class="nn">..models.product</span> <span class="k">import</span> <span class="n">Product</span>
 <span class="kn">from</span> <span class="nn">..models.strain</span> <span class="k">import</span> <span class="n">Strain</span>
 
 
@@ -124,12 +121,8 @@
 <span class="sd">            RequestPaginator(output_type=Extract):</span>
 <span class="sd">                The extracts for this dispensary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/extracts&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">Extract</span><span class="p">,</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Dispensaries</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">get_extracts</span><span class="p">(</span>
+            <span class="n">session</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">),</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Dispensaries.get_edibles"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_edibles">[docs]</a>    <span class="nd">@classmethod</span>
@@ -147,12 +140,8 @@
 <span class="sd">            RequestPaginator(output_type=Edible):</span>
 <span class="sd">                The edibles for this dispensary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/edibles&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">Edible</span><span class="p">,</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Dispensaries</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">get_edibles</span><span class="p">(</span>
+            <span class="n">session</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">),</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Dispensaries.get_products"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.dispensaries.Dispensaries.get_products">[docs]</a>    <span class="nd">@classmethod</span>
@@ -170,12 +159,8 @@
 <span class="sd">            RequestPaginator(output_type=Product):</span>
 <span class="sd">                The products for this dispensary.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/products&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">Product</span><span class="p">,</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Dispensaries</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">get_products</span><span class="p">(</span>
+            <span class="n">session</span><span class="p">,</span> <span class="n">slug</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">),</span>
         <span class="p">)</span></div></div>
 </pre></div>
 

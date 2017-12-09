@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.strains &#8212; Cannabis Reports 0.0.0b68 documentation</title>
+    <title>cannabis_reports.apis.strains &#8212; Cannabis Reports 0.0.0b75 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b68',
+        VERSION:     '0.0.0b75',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -57,6 +57,25 @@
 
     <span class="n">__object__</span> <span class="o">=</span> <span class="n">Strain</span>
     <span class="n">__endpoint__</span> <span class="o">=</span> <span class="s1">&#39;strains&#39;</span>
+
+<div class="viewcode-block" id="Strains.search"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.strains.Strains.search">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Gets products for a given strain with optional sorting.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
+<span class="sd">            query (str): The search query.</span>
+<span class="sd">            sort (str): Snake cased field name to sort on. Prefix with a `-`</span>
+<span class="sd">                for descending.</span>
+<span class="sd">            path (str): The path for the search (eg for ``strains`` it is</span>
+<span class="sd">                ``search`` and for ``extracts`` it is ``type``.</span>
+<span class="sd">            limit (int, optional): Stop after iterating this many pages.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            RequestPaginator(output_type=cannabis_reports.models.Extract):</span>
+<span class="sd">                An iterator of parent extracts.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Strains</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">sort</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">limit</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="Strains.get_seed_company"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.strains.Strains.get_seed_company">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">get_seed_company</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>

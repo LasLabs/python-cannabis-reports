@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.producers &#8212; Cannabis Reports 0.0.0b68 documentation</title>
+    <title>cannabis_reports.apis.producers &#8212; Cannabis Reports 0.0.0b75 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b68',
+        VERSION:     '0.0.0b75',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -43,118 +43,19 @@
 <span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
 <span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
 
-<span class="kn">from</span> <span class="nn">..</span> <span class="k">import</span> <span class="n">BaseApi</span>
-
-<span class="kn">from</span> <span class="nn">..exceptions</span> <span class="k">import</span> <span class="n">CannabisReportsValidationException</span>
-
-<span class="kn">from</span> <span class="nn">..models.edible</span> <span class="k">import</span> <span class="n">Edible</span>
-<span class="kn">from</span> <span class="nn">..models.extract</span> <span class="k">import</span> <span class="n">Extract</span>
-<span class="kn">from</span> <span class="nn">..models.menu_item</span> <span class="k">import</span> <span class="n">MenuItemSummary</span>
 <span class="kn">from</span> <span class="nn">..models.producer</span> <span class="k">import</span> <span class="n">Producer</span>
-<span class="kn">from</span> <span class="nn">..models.product</span> <span class="k">import</span> <span class="n">Product</span>
+
+<span class="kn">from</span> <span class="nn">.abstract_entity_endpoint</span> <span class="k">import</span> <span class="n">AbstractEntityEndpoint</span>
 
 
-<div class="viewcode-block" id="Producers"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers">[docs]</a><span class="k">class</span> <span class="nc">Producers</span><span class="p">(</span><span class="n">BaseApi</span><span class="p">):</span>
+<div class="viewcode-block" id="Producers"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers">[docs]</a><span class="k">class</span> <span class="nc">Producers</span><span class="p">(</span><span class="n">AbstractEntityEndpoint</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This represents the ``Producers`` Endpoint.</span>
 
 <span class="sd">    https://developers.cannabisreports.com/docs/producers</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">__object__</span> <span class="o">=</span> <span class="n">Producer</span>
-    <span class="n">__endpoint__</span> <span class="o">=</span> <span class="s1">&#39;producers&#39;</span>
-
-<div class="viewcode-block" id="Producers.get_extracts"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_extracts">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_extracts</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets a paginated list of extracts for a producer with the</span>
-<span class="sd">        given UCPC.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
-<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
-<span class="sd">                the cannabis producer you want the extracts for.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            RequestPaginator(output_type=Extract):</span>
-<span class="sd">                The extracts for this producer.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/extracts&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">Extract</span><span class="p">,</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="Producers.get_edibles"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_edibles">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_edibles</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets a paginated list of edibles for a producer with the given</span>
-<span class="sd">        UCPC.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
-<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
-<span class="sd">                the cannabis producer you want the edibles for.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            RequestPaginator(output_type=Edible):</span>
-<span class="sd">                The edibles for this producer.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/edibles&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">Edible</span><span class="p">,</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="Producers.get_products"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_products">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_products</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets a paginated list of products for a producer with the given</span>
-<span class="sd">        UCPC.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
-<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
-<span class="sd">                the cannabis producer you want the products for.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            RequestPaginator(output_type=Product):</span>
-<span class="sd">                The products for this producer.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/products&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">),</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">Product</span><span class="p">,</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="Producers.get_available"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.producers.Producers.get_available">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_available</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get information about the availability of everything from a</span>
-<span class="sd">        producer using latitude and longitude.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
-<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
-<span class="sd">                the cannabis object you want the children from.</span>
-<span class="sd">            lat (float): Latitude for the center of your availability search.</span>
-<span class="sd">            lng (float): Longitude for the center of your availability search.</span>
-<span class="sd">            radius (int): Radius to search for in miles, max 25.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            RequestPaginator(output_type=cls.__object__):</span>
-<span class="sd">                An iterator of child objects.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">radius</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">CannabisReportsValidationException</span><span class="p">(</span>
-                <span class="s1">&#39;The max search radius is 25.&#39;</span><span class="p">,</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/availability/geo/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">/</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                <span class="bp">cls</span><span class="o">.</span><span class="n">__endpoint__</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lng</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span>
-            <span class="p">),</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">MenuItemSummary</span><span class="p">,</span>
-        <span class="p">)</span></div></div>
+    <span class="n">__endpoint__</span> <span class="o">=</span> <span class="s1">&#39;producers&#39;</span></div>
 </pre></div>
 
           </div>

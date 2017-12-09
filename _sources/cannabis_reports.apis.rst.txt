@@ -4,10 +4,26 @@ cannabis\_reports\.apis package
 Submodules
 ----------
 
+cannabis\_reports\.apis\.abstract\_entity\_endpoint module
+----------------------------------------------------------
+
+.. automodule:: cannabis_reports.apis.abstract_entity_endpoint
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cannabis\_reports\.apis\.abstract\_item\_endpoint module
 --------------------------------------------------------
 
 .. automodule:: cannabis_reports.apis.abstract_item_endpoint
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cannabis\_reports\.apis\.abstract\_product\_endpoint module
+-----------------------------------------------------------
+
+.. automodule:: cannabis_reports.apis.abstract_product_endpoint
     :members:
     :undoc-members:
     :show-inheritance:

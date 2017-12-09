@@ -4,6 +4,14 @@ cannabis\_reports\.models package
 Submodules
 ----------
 
+cannabis\_reports\.models\.abstract\_item module
+------------------------------------------------
+
+.. automodule:: cannabis_reports.models.abstract_item
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 cannabis\_reports\.models\.address module
 -----------------------------------------
 

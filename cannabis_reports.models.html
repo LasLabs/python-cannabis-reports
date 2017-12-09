@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.models package &#8212; Cannabis Reports 0.0.0b68 documentation</title>
+    <title>cannabis_reports.models package &#8212; Cannabis Reports 0.0.0b75 documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '0.0.0b68',
+        VERSION:     '0.0.0b75',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -44,6 +44,103 @@
 <h1>cannabis_reports.models package<a class="headerlink" href="#cannabis-reports-models-package" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cannabis_reports.models.abstract_item">
+<span id="cannabis-reports-models-abstract-item-module"></span><h2>cannabis_reports.models.abstract_item module<a class="headerlink" href="#module-cannabis_reports.models.abstract_item" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem">
+<em class="property">class </em><code class="descclassname">cannabis_reports.models.abstract_item.</code><code class="descname">AbstractItem</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/abstract_item.html#AbstractItem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<p>Represents the base attributes for a saleable cannabis item.</p>
+<p><strong>Required Properties:</strong></p>
+<ul class="simple">
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
+<li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
+<li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
+<li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
+<li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
+<li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
+<li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
+<li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
+</ul>
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.barcode">
+<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.barcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Link to the barcode for this item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.cannabis">
+<code class="descname">cannabis</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.cannabis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Milligrams of cannabis in this item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.cbd">
+<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.cbd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.hash_oil">
+<code class="descname">hash_oil</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.hash_oil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Milligrams of hash oil in this item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.lab_test">
+<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.lab_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Link to the PDF containing lab test information for this item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.name">
+<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.producer">
+<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.producer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about the producer that created the item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.reviews">
+<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.reviews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Object containing information on the reviews for the item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.strain">
+<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.strain" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strain that this item comes from.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.thc">
+<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.thc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amount of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cannabis_reports.models.abstract_item.AbstractItem.type">
+<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.abstract_item.AbstractItem.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of item.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-cannabis_reports.models.address">
 <span id="cannabis-reports-models-address-module"></span><h2>cannabis_reports.models.address module<a class="headerlink" href="#module-cannabis_reports.models.address" title="Permalink to this headline">¶</a></h2>
@@ -197,7 +294,7 @@ Reports FAQ</a>.</p>
 <dl class="class">
 <dt id="cannabis_reports.models.edible.Edible">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.edible.</code><code class="descname">Edible</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/edible.html#Edible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.edible.Edible" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <dl class="docutils">
 <dt>Cannabis edibles cover a wide variety of consumable products that</dt>
 <dd><p class="first">contain cannabis in various forms. From cotton candy, to tinctures,
@@ -237,91 +334,25 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 </dl>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this edible., a unicode string</li>
-<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this edible., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this edible., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this edible., a unicode string</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this edible., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the edible., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the edible., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the edible., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this edible comes from., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this edible., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of edible., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.cannabis">
-<code class="descname">cannabis</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.cannabis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of cannabis in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.hash_oil">
-<code class="descname">hash_oil</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.hash_oil" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of hash oil in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that this edible comes from.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.edible.Edible.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.edible.Edible.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of edible.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -476,7 +507,7 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 <dl class="class">
 <dt id="cannabis_reports.models.extract.Extract">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.extract.</code><code class="descname">Extract</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/extract.html#Extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.extract.Extract" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <p>Cannabis extracts are created from the flowers of the cannabis plant.</p>
 <blockquote>
 <div><blockquote>
@@ -487,7 +518,7 @@ thousands of years.</div></blockquote>
 <li><a class="reference external" href="https://www.cannabisreports.com/extract-reports/kief">Kief</a></li>
 <li><a class="reference external" href="https://www.cannabisreports.com/extract-reports/hash">Hash</a></li>
 <li><dl class="first docutils">
-<dt><a href="#id8"><span class="problematic" id="id9">`</span></a>Water-Hash &lt;<a class="reference external" href="https://www.cannabisreports.com/extract-reports/">https://www.cannabisreports.com/extract-reports/</a></dt>
+<dt><a href="#id11"><span class="problematic" id="id12">`</span></a>Water-Hash &lt;<a class="reference external" href="https://www.cannabisreports.com/extract-reports/">https://www.cannabisreports.com/extract-reports/</a></dt>
 <dd>water-hash&gt;`_</dd>
 </dl>
 </li>
@@ -504,77 +535,25 @@ information about cannabis extracts, check out the <a class="reference external"
 </div></blockquote>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this extract., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this extract., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this extract., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the extract., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the extract., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the extract., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this extract comes from., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this extract., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of extract., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that this extract comes from.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.extract.Extract.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.extract.Extract.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of extract.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -583,7 +562,7 @@ information about cannabis extracts, check out the <a class="reference external"
 <dl class="class">
 <dt id="cannabis_reports.models.flower.Flower">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.flower.</code><code class="descname">Flower</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/flower.html#Flower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.flower.Flower" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <dl class="docutils">
 <dt>Cannabis flowers are distinct products that can be found on retailer</dt>
 <dd><p class="first">menus.</p>
@@ -608,77 +587,25 @@ of weight for THC and CBD.</p>
 </dl>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this flower., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this flower., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this flower., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the flower., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the flower., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the flower., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that was used for this flower., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this flower., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of cannabis flower., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that was used for this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.flower.Flower.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.flower.Flower.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of cannabis flower.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -857,7 +784,7 @@ Reports FAQ</a>.</p>
 <dl class="class">
 <dt id="cannabis_reports.models.product.Product">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.product.</code><code class="descname">Product</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/product.html#Product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.product.Product" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <dl class="docutils">
 <dt>Cannabis products cover a wide variety of additional products that</dt>
 <dd><p class="first">contain cannabis.</p>
@@ -890,91 +817,25 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 </dl>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this product., a unicode string</li>
-<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this product., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this product., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this product., a unicode string</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this product., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the product., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the product., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.producer.Producer" title="cannabis_reports.models.producer.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the product., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this product comes from., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this product., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of product., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.product.Product.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.cannabis">
-<code class="descname">cannabis</code><a class="headerlink" href="#cannabis_reports.models.product.Product.cannabis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of cannabis in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.product.Product.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.hash_oil">
-<code class="descname">hash_oil</code><a class="headerlink" href="#cannabis_reports.models.product.Product.hash_oil" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of hash oil in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.product.Product.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.product.Product.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.product.Product.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.product.Product.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.product.Product.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that this product comes from.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.product.Product.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.product.Product.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.product.Product.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of product.</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -1335,7 +1196,7 @@ Reports FAQ</a>.</p>
 <dl class="class">
 <dt id="cannabis_reports.models.Edible">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.</code><code class="descname">Edible</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/edible.html#Edible"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.Edible" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <dl class="docutils">
 <dt>Cannabis edibles cover a wide variety of consumable products that</dt>
 <dd><p class="first">contain cannabis in various forms. From cotton candy, to tinctures,
@@ -1375,91 +1236,25 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 </dl>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this edible., a unicode string</li>
-<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this edible., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this edible., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this edible., a unicode string</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this edible., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the edible., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the edible., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the edible., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this edible comes from., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this edible., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of edible., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.Edible.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.cannabis">
-<code class="descname">cannabis</code><a class="headerlink" href="#cannabis_reports.models.Edible.cannabis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of cannabis in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.Edible.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.hash_oil">
-<code class="descname">hash_oil</code><a class="headerlink" href="#cannabis_reports.models.Edible.hash_oil" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of hash oil in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.Edible.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.Edible.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.Edible.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.Edible.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.Edible.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that this edible comes from.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.Edible.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this edible.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Edible.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.Edible.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of edible.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -1608,7 +1403,7 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 <dl class="class">
 <dt id="cannabis_reports.models.Extract">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.</code><code class="descname">Extract</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/extract.html#Extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.Extract" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <p>Cannabis extracts are created from the flowers of the cannabis plant.</p>
 <blockquote>
 <div><blockquote>
@@ -1619,7 +1414,7 @@ thousands of years.</div></blockquote>
 <li><a class="reference external" href="https://www.cannabisreports.com/extract-reports/kief">Kief</a></li>
 <li><a class="reference external" href="https://www.cannabisreports.com/extract-reports/hash">Hash</a></li>
 <li><dl class="first docutils">
-<dt><a href="#id59"><span class="problematic" id="id60">`</span></a>Water-Hash &lt;<a class="reference external" href="https://www.cannabisreports.com/extract-reports/">https://www.cannabisreports.com/extract-reports/</a></dt>
+<dt><a href="#id54"><span class="problematic" id="id55">`</span></a>Water-Hash &lt;<a class="reference external" href="https://www.cannabisreports.com/extract-reports/">https://www.cannabisreports.com/extract-reports/</a></dt>
 <dd>water-hash&gt;`_</dd>
 </dl>
 </li>
@@ -1636,83 +1431,31 @@ information about cannabis extracts, check out the <a class="reference external"
 </div></blockquote>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this extract., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this extract., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this extract., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the extract., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the extract., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the extract., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this extract comes from., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this extract., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of extract., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.Extract.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.Extract.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.Extract.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.Extract.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.Extract.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.Extract.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.Extract.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that this extract comes from.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.Extract.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this extract.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Extract.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.Extract.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of extract.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
 <dt id="cannabis_reports.models.Flower">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.</code><code class="descname">Flower</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/flower.html#Flower"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.Flower" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <dl class="docutils">
 <dt>Cannabis flowers are distinct products that can be found on retailer</dt>
 <dd><p class="first">menus.</p>
@@ -1737,77 +1480,25 @@ of weight for THC and CBD.</p>
 </dl>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this flower., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this flower., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this flower., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the flower., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the flower., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the flower., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that was used for this flower., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Percentage of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this flower., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of cannabis flower., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.Flower.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.Flower.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.Flower.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.Flower.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.Flower.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.Flower.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.Flower.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that was used for this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.Flower.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Percentage of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this flower.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Flower.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.Flower.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of cannabis flower.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -1977,7 +1668,7 @@ Reports FAQ</a>.</p>
 <dl class="class">
 <dt id="cannabis_reports.models.Product">
 <em class="property">class </em><code class="descclassname">cannabis_reports.models.</code><code class="descname">Product</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cannabis_reports/models/product.html#Product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cannabis_reports.models.Product" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.LinksModelWithImage" title="cannabis_reports.base_model.LinksModelWithImage"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.base_model.LinksModelWithImage</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#cannabis_reports.models.abstract_item.AbstractItem" title="cannabis_reports.models.abstract_item.AbstractItem"><code class="xref py py-class docutils literal"><span class="pre">cannabis_reports.models.abstract_item.AbstractItem</span></code></a></p>
 <dl class="docutils">
 <dt>Cannabis products cover a wide variety of additional products that</dt>
 <dd><p class="first">contain cannabis.</p>
@@ -2010,91 +1701,25 @@ ways. We recognize 4 ways for measuring the cannabis contents:</p>
 </dl>
 <p><strong>Required Properties:</strong></p>
 <ul class="simple">
-<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this product., a unicode string</li>
-<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this product., a unicode string</li>
-<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this product., a unicode string</li>
+<li><strong>barcode</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the barcode for this item., a unicode string</li>
+<li><strong>cannabis</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of cannabis in this item., a unicode string</li>
+<li><strong>cbd</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this item., a unicode string</li>
 <li><strong>created_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was created., a datetime object</li>
-<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this product., a unicode string</li>
+<li><strong>hash_oil</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of hash oil in this item., a unicode string</li>
 <li><strong>image</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the full size image for this record on Cannabis Reports., a unicode string</li>
-<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this product., a unicode string</li>
+<li><strong>lab_test</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the PDF containing lab test information for this item., a unicode string</li>
 <li><strong>link</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record in the Cannabis Reports API., a unicode string</li>
-<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the product., a unicode string</li>
-<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the product., an instance of Producer</li>
+<li><strong>name</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Name of the item., a unicode string</li>
+<li><strong>producer</strong> (<a class="reference internal" href="#cannabis_reports.models.Producer" title="cannabis_reports.models.Producer"><code class="xref py py-class docutils literal"><span class="pre">Producer</span></code></a>): Information about the producer that created the item., an instance of Producer</li>
 <li><strong>qr</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the QR code for this record., a unicode string</li>
-<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the product., an instance of GeneralOverview</li>
-<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this product comes from., an instance of Strain</li>
-<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Milligrams of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this product., a unicode string</li>
-<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of product., a unicode string</li>
+<li><strong>reviews</strong> (<a class="reference internal" href="cannabis_reports.html#cannabis_reports.base_model.GeneralOverview" title="cannabis_reports.base_model.GeneralOverview"><code class="xref py py-class docutils literal"><span class="pre">GeneralOverview</span></code></a>): Object containing information on the reviews for the item., an instance of GeneralOverview</li>
+<li><strong>strain</strong> (<a class="reference internal" href="#cannabis_reports.models.Strain" title="cannabis_reports.models.Strain"><code class="xref py py-class docutils literal"><span class="pre">Strain</span></code></a>): Strain that this item comes from., an instance of Strain</li>
+<li><strong>thc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Amount of <a class="reference external" href="https://www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this item., a unicode string</li>
+<li><strong>type</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Type of item., a unicode string</li>
 <li><strong>ucpc</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): <a class="reference external" href="https://developers.cannabisreports.com/v1.0/docs/ucpc-universal-cannabis-product-code">UCPC</a> code for this record., a unicode string</li>
 <li><strong>updated_at</strong> (<code class="xref py py-class docutils literal"><span class="pre">CustomDateTime</span></code>): Localized date and time when this record was modified., a datetime object</li>
 <li><strong>url</strong> (<a class="reference external" href="https://propertiespy.readthedocs.io/en/latest/content/primitive.html#properties.String" title="(in properties v0.3.3)"><code class="xref py py-class docutils literal"><span class="pre">String</span></code></a>): Link to the record listing on the Cannabis Reports website., a unicode string</li>
 </ul>
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.barcode">
-<code class="descname">barcode</code><a class="headerlink" href="#cannabis_reports.models.Product.barcode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the barcode for this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.cannabis">
-<code class="descname">cannabis</code><a class="headerlink" href="#cannabis_reports.models.Product.cannabis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of cannabis in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.cbd">
-<code class="descname">cbd</code><a class="headerlink" href="#cannabis_reports.models.Product.cbd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-cbd-cannabidiol">CBD</a> in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.hash_oil">
-<code class="descname">hash_oil</code><a class="headerlink" href="#cannabis_reports.models.Product.hash_oil" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of hash oil in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.lab_test">
-<code class="descname">lab_test</code><a class="headerlink" href="#cannabis_reports.models.Product.lab_test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Link to the PDF containing lab test information for this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.name">
-<code class="descname">name</code><a class="headerlink" href="#cannabis_reports.models.Product.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of the product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.producer">
-<code class="descname">producer</code><a class="headerlink" href="#cannabis_reports.models.Product.producer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Information about the producer that created the product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.reviews">
-<code class="descname">reviews</code><a class="headerlink" href="#cannabis_reports.models.Product.reviews" title="Permalink to this definition">¶</a></dt>
-<dd><p>Object containing information on the reviews for the product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.strain">
-<code class="descname">strain</code><a class="headerlink" href="#cannabis_reports.models.Product.strain" title="Permalink to this definition">¶</a></dt>
-<dd><p>Strain that this product comes from.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.thc">
-<code class="descname">thc</code><a class="headerlink" href="#cannabis_reports.models.Product.thc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Milligrams of <a class="reference external" href="https--//www.cannabisreports.com/faq/cannabis-community/what-is-thc-tetrahydrocannabinol">THC</a> in this product.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="cannabis_reports.models.Product.type">
-<code class="descname">type</code><a class="headerlink" href="#cannabis_reports.models.Product.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Type of product.</p>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="class">
@@ -2341,6 +1966,7 @@ well, to ensure they are all properly represented.</p>
 <li class="toctree-l3"><a class="reference internal" href="cannabis_reports.apis.html">cannabis_reports.apis package</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">cannabis_reports.models package</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.models.abstract_item">cannabis_reports.models.abstract_item module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.models.address">cannabis_reports.models.address module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.models.dispensary">cannabis_reports.models.dispensary module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#module-cannabis_reports.models.edible">cannabis_reports.models.edible module</a></li>

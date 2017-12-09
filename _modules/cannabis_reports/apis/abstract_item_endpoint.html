@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.abstract_item_endpoint &#8212; Cannabis Reports 0.0.0b68 documentation</title>
+    <title>cannabis_reports.apis.abstract_item_endpoint &#8212; Cannabis Reports 0.0.0b75 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b68',
+        VERSION:     '0.0.0b75',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -56,8 +56,7 @@
 <div class="viewcode-block" id="AbstractItemEndpoint"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint">[docs]</a><span class="k">class</span> <span class="nc">AbstractItemEndpoint</span><span class="p">(</span><span class="n">BaseApi</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This represents an abstract item endpoint.</span>
 
-<span class="sd">    The Strains, Flowers, Extracts, Edibles, and Products APIs inherit from</span>
-<span class="sd">    this.</span>
+<span class="sd">    The Strains API and AbstractProductEndpoint inherit from this.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="AbstractItemEndpoint.get_user"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.get_user">[docs]</a>    <span class="nd">@classmethod</span>
@@ -157,7 +156,7 @@
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="AbstractItemEndpoint.search"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.abstract_item_endpoint.AbstractItemEndpoint.search">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;search&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;type&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return search results for objects.</span>
 
 <span class="sd">        Args:</span>

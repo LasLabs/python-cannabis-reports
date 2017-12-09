@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.apis.edibles &#8212; Cannabis Reports 0.0.0b68 documentation</title>
+    <title>cannabis_reports.apis.edibles &#8212; Cannabis Reports 0.0.0b75 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b68',
+        VERSION:     '0.0.0b75',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -43,80 +43,19 @@
 <span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
 <span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
 
-<span class="kn">from</span> <span class="nn">.abstract_item_endpoint</span> <span class="k">import</span> <span class="n">AbstractItemEndpoint</span>
+<span class="kn">from</span> <span class="nn">.abstract_product_endpoint</span> <span class="k">import</span> <span class="n">AbstractProductEndpoint</span>
 
 <span class="kn">from</span> <span class="nn">..models.edible</span> <span class="k">import</span> <span class="n">Edible</span>
-<span class="kn">from</span> <span class="nn">..models.producer</span> <span class="k">import</span> <span class="n">Producer</span>
 
 
-<div class="viewcode-block" id="Edibles"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.edibles.Edibles">[docs]</a><span class="k">class</span> <span class="nc">Edibles</span><span class="p">(</span><span class="n">AbstractItemEndpoint</span><span class="p">):</span>
+<div class="viewcode-block" id="Edibles"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.edibles.Edibles">[docs]</a><span class="k">class</span> <span class="nc">Edibles</span><span class="p">(</span><span class="n">AbstractProductEndpoint</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This represents the ``Edibles`` Endpoint.</span>
 
 <span class="sd">    https://developers.cannabisreports.com/docs/edibles</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">__object__</span> <span class="o">=</span> <span class="n">Edible</span>
-    <span class="n">__endpoint__</span> <span class="o">=</span> <span class="s1">&#39;edibles&#39;</span>
-
-<div class="viewcode-block" id="Edibles.search"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.edibles.Edibles.search">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">edible_type</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="s1">&#39;type&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets products for a given type with optional sorting.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
-<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
-<span class="sd">                the cannabis edible you want the genetics from.</span>
-<span class="sd">            sort (str): Snake cased field name to sort on. Prefix with a `-`</span>
-<span class="sd">                for descending.</span>
-<span class="sd">            path (str): The path for the search (eg for ``strains`` it is</span>
-<span class="sd">                ``search`` and for ``edibles`` it is ``type``.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            RequestPaginator(output_type=cannabis_reports.models.Edible):</span>
-<span class="sd">                An iterator of parent edibles.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">Edibles</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">edible_type</span><span class="p">,</span> <span class="n">sort</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="Edibles.get_producer"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.edibles.Edibles.get_producer">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_producer</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets the producer for a given edible.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
-<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
-<span class="sd">                the cannabis edible you want the seed company from.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            cannabis_reports.models.SeedCompany: The producer that was</span>
-<span class="sd">                responsible for this edible.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/edibles/</span><span class="si">%s</span><span class="s1">/producer&#39;</span> <span class="o">%</span> <span class="n">ucpc</span><span class="p">,</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-            <span class="n">out_type</span><span class="o">=</span><span class="n">Producer</span><span class="p">,</span>
-            <span class="n">singleton</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="p">)</span></div>
-
-<div class="viewcode-block" id="Edibles.get_strain"><a class="viewcode-back" href="../../../cannabis_reports.apis.html#cannabis_reports.apis.edibles.Edibles.get_strain">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">get_strain</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">ucpc</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets the information about a strain for a edible with the given</span>
-<span class="sd">        UCPC.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            session (requests.sessions.Session): Authenticated session.</span>
-<span class="sd">            ucpc (str): `UCPC &lt;https://developers.cannabisreports.com/</span>
-<span class="sd">                v1.0/docs/ucpc-universal-cannabis-product-code&gt;`_ for</span>
-<span class="sd">                the cannabis edible you want the genetics from.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            cannabis_reports.models.Strain: The strain for the edible.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
-            <span class="s1">&#39;/edibles/</span><span class="si">%s</span><span class="s1">/strain&#39;</span> <span class="o">%</span> <span class="n">ucpc</span><span class="p">,</span>
-            <span class="n">session</span><span class="o">=</span><span class="n">session</span><span class="p">,</span>
-        <span class="p">)</span></div></div>
+    <span class="n">__endpoint__</span> <span class="o">=</span> <span class="s1">&#39;edibles&#39;</span></div>
 </pre></div>
 
           </div>

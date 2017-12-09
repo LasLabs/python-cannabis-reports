@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>cannabis_reports.models.flower &#8212; Cannabis Reports 0.0.0b68 documentation</title>
+    <title>cannabis_reports.models.flower &#8212; Cannabis Reports 0.0.0b75 documentation</title>
     <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../../',
-        VERSION:     '0.0.0b68',
+        VERSION:     '0.0.0b75',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -43,15 +43,10 @@
 <span class="c1"># Copyright 2017-TODAY LasLabs Inc.</span>
 <span class="c1"># License MIT (https://opensource.org/licenses/MIT).</span>
 
-<span class="kn">import</span> <span class="nn">properties</span>
-
-<span class="kn">from</span> <span class="nn">..base_model</span> <span class="k">import</span> <span class="n">GeneralOverview</span><span class="p">,</span> <span class="n">LinksModelWithImage</span>
-
-<span class="kn">from</span> <span class="nn">.producer</span> <span class="k">import</span> <span class="n">Producer</span>
-<span class="kn">from</span> <span class="nn">.strain</span> <span class="k">import</span> <span class="n">Strain</span>
+<span class="kn">from</span> <span class="nn">.abstract_item</span> <span class="k">import</span> <span class="n">AbstractItem</span>
 
 
-<div class="viewcode-block" id="Flower"><a class="viewcode-back" href="../../../cannabis_reports.models.html#cannabis_reports.models.flower.Flower">[docs]</a><span class="k">class</span> <span class="nc">Flower</span><span class="p">(</span><span class="n">LinksModelWithImage</span><span class="p">):</span>
+<div class="viewcode-block" id="Flower"><a class="viewcode-back" href="../../../cannabis_reports.models.html#cannabis_reports.models.flower.Flower">[docs]</a><span class="k">class</span> <span class="nc">Flower</span><span class="p">(</span><span class="n">AbstractItem</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Cannabis flowers are distinct products that can be found on retailer</span>
 <span class="sd">    menus.</span>
 
@@ -74,41 +69,7 @@
 <span class="sd">    Producers measure the cannabinoid content of their flowers in many ways.</span>
 <span class="sd">    Currently, Cannabis Reports allows producers to display the percentage</span>
 <span class="sd">    of weight for THC and CBD.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="n">name</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Name of the flower.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">barcode</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Link to the barcode for this flower.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">producer</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
-        <span class="s1">&#39;Information about the producer that created the flower.&#39;</span><span class="p">,</span>
-        <span class="n">instance_class</span><span class="o">=</span><span class="n">Producer</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="nb">type</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Type of cannabis flower.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">strain</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
-        <span class="s1">&#39;Strain that was used for this flower.&#39;</span><span class="p">,</span>
-        <span class="n">instance_class</span><span class="o">=</span><span class="n">Strain</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">lab_test</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Link to the PDF containing lab test information for this flower.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">thc</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Percentage of `THC &lt;https://www.cannabisreports.com/faq/&#39;</span>
-        <span class="s1">&#39;cannabis-community/what-is-thc-tetrahydrocannabinol&gt;`_ in this &#39;</span>
-        <span class="s1">&#39;flower.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">cbd</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
-        <span class="s1">&#39;Percentage of `CBD &lt;https://www.cannabisreports.com/faq/&#39;</span>
-        <span class="s1">&#39;cannabis-community/what-is-cbd-cannabidiol&gt;`_ in this flower.&#39;</span><span class="p">,</span>
-    <span class="p">)</span>
-    <span class="n">reviews</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">Instance</span><span class="p">(</span>
-        <span class="s1">&#39;Object containing information on the reviews for the flower.&#39;</span><span class="p">,</span>
-        <span class="n">instance_class</span><span class="o">=</span><span class="n">GeneralOverview</span><span class="p">,</span>
-    <span class="p">)</span></div>
+<span class="sd">    &quot;&quot;&quot;</span></div>
 </pre></div>
 
           </div>
