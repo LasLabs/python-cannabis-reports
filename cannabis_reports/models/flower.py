@@ -2,15 +2,10 @@
 # Copyright 2017-TODAY LasLabs Inc.
 # License MIT (https://opensource.org/licenses/MIT).
 
-import properties
-
-from ..base_model import GeneralOverview, LinksModelWithImage
-
-from .producer import Producer
-from .strain import Strain
+from .abstract_item import AbstractItem
 
 
-class Flower(LinksModelWithImage):
+class Flower(AbstractItem):
     """Cannabis flowers are distinct products that can be found on retailer
     menus.
 
@@ -34,37 +29,3 @@ class Flower(LinksModelWithImage):
     Currently, Cannabis Reports allows producers to display the percentage
     of weight for THC and CBD.
     """
-
-    name = properties.String(
-        'Name of the flower.',
-    )
-    barcode = properties.String(
-        'Link to the barcode for this flower.',
-    )
-    producer = properties.Instance(
-        'Information about the producer that created the flower.',
-        instance_class=Producer,
-    )
-    type = properties.String(
-        'Type of cannabis flower.',
-    )
-    strain = properties.Instance(
-        'Strain that was used for this flower.',
-        instance_class=Strain,
-    )
-    lab_test = properties.String(
-        'Link to the PDF containing lab test information for this flower.',
-    )
-    thc = properties.String(
-        'Percentage of `THC <https://www.cannabisreports.com/faq/'
-        'cannabis-community/what-is-thc-tetrahydrocannabinol>`_ in this '
-        'flower.',
-    )
-    cbd = properties.String(
-        'Percentage of `CBD <https://www.cannabisreports.com/faq/'
-        'cannabis-community/what-is-cbd-cannabidiol>`_ in this flower.',
-    )
-    reviews = properties.Instance(
-        'Object containing information on the reviews for the flower.',
-        instance_class=GeneralOverview,
-    )

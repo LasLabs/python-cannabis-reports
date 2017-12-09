@@ -18,6 +18,25 @@ class Strains(AbstractItemEndpoint):
     __endpoint__ = 'strains'
 
     @classmethod
+    def search(cls, session, query, sort=None, path='search', limit=None):
+        """Gets products for a given strain with optional sorting.
+
+        Args:
+            session (requests.sessions.Session): Authenticated session.
+            query (str): The search query.
+            sort (str): Snake cased field name to sort on. Prefix with a `-`
+                for descending.
+            path (str): The path for the search (eg for ``strains`` it is
+                ``search`` and for ``extracts`` it is ``type``.
+            limit (int, optional): Stop after iterating this many pages.
+
+        Returns:
+            RequestPaginator(output_type=cannabis_reports.models.Extract):
+                An iterator of parent extracts.
+        """
+        return super(Strains, cls).search(session, query, sort, path, limit)
+
+    @classmethod
     def get_seed_company(cls, session, ucpc):
         """Get the seed company that was responsible for a cannabis strain.
 

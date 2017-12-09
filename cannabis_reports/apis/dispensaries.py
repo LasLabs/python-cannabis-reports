@@ -5,9 +5,6 @@
 from .. import BaseApi
 
 from ..models.dispensary import Dispensary
-from ..models.edible import Edible
-from ..models.extract import Extract
-from ..models.product import Product
 from ..models.strain import Strain
 
 
@@ -83,12 +80,8 @@ class Dispensaries(BaseApi):
             RequestPaginator(output_type=Extract):
                 The extracts for this dispensary.
         """
-        return cls(
-            '/%s/%s/%s/%s/extracts' % (
-                cls.__endpoint__, state, city, slug,
-            ),
-            session=session,
-            out_type=Extract,
+        return super(Dispensaries, cls).get_extracts(
+            session, slug, '%s/%s/%s' % (cls.__endpoint__, state, city),
         )
 
     @classmethod
@@ -106,12 +99,8 @@ class Dispensaries(BaseApi):
             RequestPaginator(output_type=Edible):
                 The edibles for this dispensary.
         """
-        return cls(
-            '/%s/%s/%s/%s/edibles' % (
-                cls.__endpoint__, state, city, slug,
-            ),
-            session=session,
-            out_type=Edible,
+        return super(Dispensaries, cls).get_edibles(
+            session, slug, '%s/%s/%s' % (cls.__endpoint__, state, city),
         )
 
     @classmethod
@@ -129,10 +118,6 @@ class Dispensaries(BaseApi):
             RequestPaginator(output_type=Product):
                 The products for this dispensary.
         """
-        return cls(
-            '/%s/%s/%s/%s/products' % (
-                cls.__endpoint__, state, city, slug,
-            ),
-            session=session,
-            out_type=Product,
+        return super(Dispensaries, cls).get_products(
+            session, slug, '%s/%s/%s' % (cls.__endpoint__, state, city),
         )

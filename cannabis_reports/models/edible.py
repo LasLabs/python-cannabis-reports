@@ -2,15 +2,10 @@
 # Copyright 2017-TODAY LasLabs Inc.
 # License MIT (https://opensource.org/licenses/MIT).
 
-import properties
-
-from ..base_model import GeneralOverview, LinksModelWithImage
-
-from .producer import Producer
-from .strain import Strain
+from .abstract_item import AbstractItem
 
 
-class Edible(LinksModelWithImage):
+class Edible(AbstractItem):
     """Cannabis edibles cover a wide variety of consumable products that
     contain cannabis in various forms. From cotton candy, to tinctures,
     to dog treats, and everything in between.
@@ -51,43 +46,3 @@ class Edible(LinksModelWithImage):
     <https://www.cannabisreports.com/faq/typesconsumption/
     what-is-a-cannabis-edible>`_.
     """
-
-    name = properties.String(
-        'Name of the edible.',
-    )
-    barcode = properties.String(
-        'Link to the barcode for this edible.',
-    )
-    producer = properties.Instance(
-        'Information about the producer that created the edible.',
-        instance_class=Producer,
-    )
-    type = properties.String(
-        'Type of edible.',
-    )
-    strain = properties.Instance(
-        'Strain that this edible comes from.',
-        instance_class=Strain,
-    )
-    lab_test = properties.String(
-        'Link to the PDF containing lab test information for this edible.',
-    )
-    thc = properties.String(
-        'Milligrams of `THC <https://www.cannabisreports.com/faq/'
-        'cannabis-community/what-is-thc-tetrahydrocannabinol>`_ in this '
-        'edible.',
-    )
-    cbd = properties.String(
-        'Milligrams of `CBD <https://www.cannabisreports.com/faq/'
-        'cannabis-community/what-is-cbd-cannabidiol>`_ in this edible.',
-    )
-    cannabis = properties.String(
-        'Milligrams of cannabis in this edible.',
-    )
-    hash_oil = properties.String(
-        'Milligrams of hash oil in this edible.',
-    )
-    reviews = properties.Instance(
-        'Object containing information on the reviews for the edible.',
-        instance_class=GeneralOverview,
-    )

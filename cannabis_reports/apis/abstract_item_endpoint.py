@@ -15,8 +15,7 @@ from ..models.user import User
 class AbstractItemEndpoint(BaseApi):
     """This represents an abstract item endpoint.
 
-    The Strains, Flowers, Extracts, Edibles, and Products APIs inherit from
-    this.
+    The Strains API and AbstractProductEndpoint inherit from this.
     """
 
     @classmethod
@@ -116,7 +115,7 @@ class AbstractItemEndpoint(BaseApi):
         )
 
     @classmethod
-    def search(cls, session, query, sort=None, path='search', limit=None):
+    def search(cls, session, query, sort=None, path='type', limit=None):
         """Return search results for objects.
 
         Args:
