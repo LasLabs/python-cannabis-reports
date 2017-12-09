@@ -5,6 +5,7 @@
 from .abstract_item_endpoint import AbstractItemEndpoint
 
 from ..models.producer import Producer
+from ..models.strain import Strain
 
 
 class AbstractProductEndpoint(AbstractItemEndpoint):
@@ -51,4 +52,6 @@ class AbstractProductEndpoint(AbstractItemEndpoint):
         return cls(
             '/%s/%s/strain' % (cls.__endpoint__, ucpc),
             session=session,
+            out_type=Strain,
+            singleton=True,
         )

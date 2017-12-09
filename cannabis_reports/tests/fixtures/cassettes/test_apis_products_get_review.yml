@@ -1,0 +1,40 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/products/0000000000C6FZLK664400000/reviews?page=1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA9xUy47bMAz8lYJnb/SwvbJ1K/YXtqfVIqAtJlbXlgVZTpoG/vfCKZK2hwIB0lNv
+        nBGHQ0ADnsFiQtBvZ+id/wANXUph0oYZdjweNy16j42bIoUxpmnTjoNhGJxhB7HhhkU6ODpOhhW2
+        REuilA02edMIanlRCiqsrQuZK4UNbzjVFWQwx/4+n9twyUVpGM8NE+p+K8O+Nm0c2w9KCTKgOXRj
+        dAjaz32fQRsJkzu4dLoyAZ3fRuod7a4UhkDJJdru0fmbEvvB+T1okJAB+m+Ofg2ZgmtvgDCm7oZ2
+        cf7NbRrneK1tPG2HcU7dH8uR/ZxAn9cvouQGWg25KJ94/iTUJ861lLpYV1gfv49+bfjy+gJLBnOw
+        D+iX7NE41LZ5VkrVVaFohxwrJetK7kqZW4VVI4SQ8hkL+w/icK+VYVNHfX/6T6OQ65w/EoW/6Jf3
+        DAZaT8QZAu6dx+RGv6I0JuxBywzacfbpUgWK24B7Ai14Bu0cI/l0ZbKfkgucLnjN2AT67X1Zlh8A
+        AAD//wMAUsMW4YoEAAA=
+    headers:
+      CF-RAY: [3caaa11f3ba120d8-LAX]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 20:14:12 GMT']
+      ETag: [W/"07ce5f32087aa40cc4b1ded01db9d935-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=d62cb420a7bc9b438cab5048e3a1294971512850452; expires=Sun,
+          09-Dec-18 20:14:12 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6IngyOFJOWVZialwvcTQ0RVRTQmlraGpRPT0iLCJ2YWx1ZSI6IkxIZXNId05URlJYeEwwSnFcL0EyM3ZhU1FGcXNjYzN1d3NNckxEU1lyU2w0d2NMd2hDT09MeGFrOHRkMTRYWW5DeXJ4bHBhUGhUaHp0XC9WK3FabE9qVVE9PSIsIm1hYyI6ImRiN2RiMTRhNjMwZTk4MmJmYjBmYWEzNzE3ZDRiMWQzMjljNjg2ZTM4NDQ2MWM0OWQ3YWI2NDg5MWRhODFjYWQifQ%3D%3D;
+          expires=Sat, 09-Dec-2017 22:14:12 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['5']
+      X-RateLimit-Reset: ['1512851037']
+    status: {code: 200, message: OK}
+version: 1

@@ -17,7 +17,7 @@ class MenuItem(BaseModel):
     )
     type = properties.StringChoice(
         'Type of item.',
-        choices=['strain', 'extract', 'edible', 'product'],
+        choices=['strain', 'flower', 'extract', 'edible', 'product'],
     )
     item = properties.Property(
         'The strain, extract, edible, or product.',

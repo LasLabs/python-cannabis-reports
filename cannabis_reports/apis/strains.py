@@ -18,7 +18,7 @@ class Strains(AbstractItemEndpoint):
     __endpoint__ = 'strains'
 
     @classmethod
-    def search(cls, session, query, sort=None, path='search', limit=None):
+    def search(cls, session, query, sort='name', path='search', limit=None):
         """Gets products for a given strain with optional sorting.
 
         Args:

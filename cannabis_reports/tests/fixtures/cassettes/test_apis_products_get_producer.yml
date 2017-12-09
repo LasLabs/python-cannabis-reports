@@ -1,0 +1,38 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/products/9XVU7NK3PEGLAJ372X4F00000/producer?page=1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7yTXUvDMBSG/8o412nT9HPN3RARxEu9C0ianM5ov5amqzj636VzTgSVgWy5S855
+        n4eTkB1o6STwHTSyRuBwXaOVle6BwKA6BRyC47q5W91GX1sgUJnmBTg8Odf1XFBBx3H0lWwaWZje
+        Ytda1/uqrQWVnRF0y/xA0M62elBoe0H/Ym/saeRPnHc4FRQPMwi6sZ5qNc7D2Oq/OCBgarnG0zj7
+        1n7PK02FgqaClkNVPaZFlqdxUpQyS2SSxloyvYxDnchSF+EywjIpsjwP/eduDQQsbg2O/fxEqh0a
+        Bzw4470L+umbCOCrs1K5y7mPwlmuTVHhBd0H30TgI/Bt7jg7q/xonAgoi9KhXrlZr6VDZ/Y/MwxY
+        4gWRx9IFW3KW8DgHAnPxrW3mhof7qzk/dPr3PAu9IF4EAWcRD+Mf8tP0DgAA//8DACrA2CATBAAA
+    headers:
+      CF-RAY: [3caaa11c6ceb791e-LAX]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 20:14:12 GMT']
+      ETag: [W/"1e67289d2d795dbd2759f218941e1833-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=d7ec7153073e6ea61105e1607d1b1421e1512850451; expires=Sun,
+          09-Dec-18 20:14:11 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6IjRTSlB2SDdFWTVSeDBobDluUmlvakE9PSIsInZhbHVlIjoiWEZhaU5UaXkxUlFRRERUZTRNYVE3WWZ4YTlEYnloN1lvYkZcLzlMdWExYWF6N1c0M0xFRExxbmdrQW16cDhFMmFOTmkxUWFiYUtBR2ZBQlVUd1JEejRnPT0iLCJtYWMiOiI2MDE0MjhmMTE1YjllYTVjOTg5ZjgwNDMyZjFiMWEwMDNiZDI3NDJmZDI1NTcxNGU2ZWU4ODY2YmYwNzIwNzIzIn0%3D;
+          expires=Sat, 09-Dec-2017 22:14:12 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['6']
+      X-RateLimit-Reset: ['1512851037']
+    status: {code: 200, message: OK}
+version: 1

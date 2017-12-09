@@ -19,7 +19,7 @@ class AbstractEntityEndpoint(BaseApi):
     """
 
     @classmethod
-    def get_extracts(cls, session, ucpc, path_prefix=None):
+    def get_extracts(cls, session, ucpc, path_prefix=None, limit=None):
         """Gets a paginated list of extracts for a producer with the
         given UCPC.
 
@@ -31,6 +31,7 @@ class AbstractEntityEndpoint(BaseApi):
             path_prefix (str, optional): A URI path to prefix with, which
                 is useful for dispensary hierarchies. This will override
                 the endpoint prefix, so it should include it if necessary.
+            limit (int, optional): Stop after iterating this many pages.
 
         Returns:
             RequestPaginator(output_type=Extract):
@@ -40,10 +41,11 @@ class AbstractEntityEndpoint(BaseApi):
             '/%s/%s/extracts' % (path_prefix or cls.__endpoint__, ucpc),
             session=session,
             out_type=Extract,
+            iteration_limit=limit,
         )
 
     @classmethod
-    def get_edibles(cls, session, ucpc, path_prefix=None):
+    def get_edibles(cls, session, ucpc, path_prefix=None, limit=None):
         """Gets a paginated list of edibles for a producer with the given
         UCPC.
 
@@ -55,6 +57,7 @@ class AbstractEntityEndpoint(BaseApi):
             path_prefix (str, optional): A URI path to prefix with, which
                 is useful for dispensary hierarchies. This will override
                 the endpoint prefix, so it should include it if necessary.
+            limit (int, optional): Stop after iterating this many pages.
 
         Returns:
             RequestPaginator(output_type=Edible):
@@ -64,10 +67,11 @@ class AbstractEntityEndpoint(BaseApi):
             '/%s/%s/edibles' % (path_prefix or cls.__endpoint__, ucpc),
             session=session,
             out_type=Edible,
+            iteration_limit=None,
         )
 
     @classmethod
-    def get_products(cls, session, ucpc, path_prefix=None):
+    def get_products(cls, session, ucpc, path_prefix=None, limit=None):
         """Gets a paginated list of products for a producer with the given
         UCPC.
 
@@ -79,6 +83,7 @@ class AbstractEntityEndpoint(BaseApi):
             path_prefix (str, optional): A URI path to prefix with, which
                 is useful for dispensary hierarchies. This will override
                 the endpoint prefix, so it should include it if necessary.
+            limit (int, optional): Stop after iterating this many pages.
 
         Returns:
             RequestPaginator(output_type=Product):
@@ -88,11 +93,12 @@ class AbstractEntityEndpoint(BaseApi):
             '/%s/%s/products' % (path_prefix or cls.__endpoint__, ucpc),
             session=session,
             out_type=Product,
+            iteration_limit=None,
         )
 
     @classmethod
     def get_available(cls, session, ucpc, lat, lng, radius=10,
-                      path_prefix=None):
+                      path_prefix=None, limit=None):
         """Get information about the availability of everything from a
         producer using latitude and longitude.
 
@@ -107,6 +113,7 @@ class AbstractEntityEndpoint(BaseApi):
             path_prefix (str, optional): A URI path to prefix with, which
                 is useful for dispensary hierarchies. This will override
                 the endpoint prefix, so it should include it if necessary.
+            limit (int, optional): Stop after iterating this many pages.
 
         Returns:
             RequestPaginator(output_type=cls.__object__):
@@ -122,4 +129,5 @@ class AbstractEntityEndpoint(BaseApi):
             ),
             session=session,
             out_type=MenuItemSummary,
+            iteration_limit=limit,
         )

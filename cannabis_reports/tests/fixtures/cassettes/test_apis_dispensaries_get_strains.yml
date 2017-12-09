@@ -1,0 +1,130 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/dispensaries/ca/san-francisco/grass-roots/strains?page=1
+  response:
+    body:
+      string: !!binary |
+        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
+        vD8AAA==
+    headers:
+      CF-RAY: [3cab2d31fdb05f3f-LAS]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 21:49:50 GMT']
+      ETag: [W/"1802b5fe3906cd3f8ab5033e1f264b97-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=de057738b392490961ec498b1b4511d2a1512856189; expires=Sun,
+          09-Dec-18 21:49:49 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6IlRPOVpTcGNHM00xQm9UY3h1RFhSUkE9PSIsInZhbHVlIjoiUGZOTkJ0d0dRY2FrWWlyZVFBQ3c0QjFQOG41OEM3SXNcL0N6cmoxTGczb2t5d2VIWGhIbDJPVXBTMmRmMnc4NWlcL3p5NXFIbStcL0JFXC9zQUtPdHNXcU5RPT0iLCJtYWMiOiIxNDI3NjNjOTQ3MTA1NjhiZTYxYmY0NWI2ZjhkMWM4MzI0YzcwODc2YzlmNjBmZWViZGRmMzgxYWYwNzgxZjdhIn0%3D;
+          expires=Sat, 09-Dec-2017 23:49:50 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['16']
+      X-RateLimit-Reset: ['1512857051']
+    status: {code: 200, message: OK}
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Cookie: [__cfduid=de057738b392490961ec498b1b4511d2a1512856189; XSRF-TOKEN=eyJpdiI6IlRPOVpTcGNHM00xQm9UY3h1RFhSUkE9PSIsInZhbHVlIjoiUGZOTkJ0d0dRY2FrWWlyZVFBQ3c0QjFQOG41OEM3SXNcL0N6cmoxTGczb2t5d2VIWGhIbDJPVXBTMmRmMnc4NWlcL3p5NXFIbStcL0JFXC9zQUtPdHNXcU5RPT0iLCJtYWMiOiIxNDI3NjNjOTQ3MTA1NjhiZTYxYmY0NWI2ZjhkMWM4MzI0YzcwODc2YzlmNjBmZWViZGRmMzgxYWYwNzgxZjdhIn0%3D]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/dispensaries/ca/san-francisco/grass-roots/strains?page=2
+  response:
+    body:
+      string: !!binary |
+        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
+        AwCfsJ/xWUAAAA==
+    headers:
+      CF-RAY: [3cab2d34dde85f3f-LAS]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 21:49:50 GMT']
+      ETag: [W/"3a712052f6ad587ff9b548b1968ba0cc-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['XSRF-TOKEN=eyJpdiI6IkM3Y1FFQ1IwUEdjT2NrZ3lMWFRRK3c9PSIsInZhbHVlIjoiTnZZWk81azJibUdrVVNIcGpyNWM0M0M5aGw5XC9Wd3F0MUxZcjZvSTFVZThqWWJwelVvNVNyUVIrZDJsVEJsNVVZcTJ6K0VpWEozOU5TUjdGcnhjSjdRPT0iLCJtYWMiOiI0ZGIwMjViOGQyNjNlOWNhZjU3MGI0MjMxMWU1ODkxYTZlODVjNmIzZGFkNzY1NWYwY2E4OWQwYzJiMTQyN2NiIn0%3D;
+          expires=Sat, 09-Dec-2017 23:49:50 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['15']
+      X-RateLimit-Reset: ['1512857051']
+    status: {code: 200, message: OK}
+version: 1

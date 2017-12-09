@@ -1,0 +1,42 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.18.4]
+    method: GET
+    uri: https://www.cannabisreports.com/api/v1.0/dispensaries/ca/san-francisco/grass-roots/products?page=1
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA7RUXWvbMBT9K+Y+bSDFUrKkid7KYA+hYWVkhVGVoMhqrMSWFUlu2Ir/e5Hz0ZSu
+        Xxnzk85B5557pSPfQyaCAHZ9D0aUChjQbnIp5CqZaKOTS6dKXZcJjivsqqIABOG3jRutq7JaBkCg
+        gyqBfaBCLa0EBuTwfZtcXF1NLs5//GohICi0WQGDPATrGU95utlsOlIYI+baO2UrF3xHViVPhdU8
+        vaMdwtNdS56nr5Veu/cV3lXDO5Kna4dllSmeLpdLHJy2hcJLntIutkKucKmNxnY7b8eaBSCYCxcV
+        J/rt1B/wq11xotfbFvGiS7F45zDtVs9TH5zQxvPUVLOW23W6bUC5o9yMx+Pk07TtIRl/fjEmj/Df
+        YqLc85wc1W6Ogn4I7nYaYNc3CAoxnyofgN2KwisEIZeHtZxnj+tdNwciFz7/rosDdupOq42PJyGr
+        2gRg5P/ln6d7uwaBdEoElZ2H6J2JoIJub6JLaB9TiukoIQPWO2OkH9+9LtWfysQNP6dfo7622Uv6
+        ASYjTIYJPWM9wvqjv+ibmAItI/5COu11tniWi+J2tnCiBGbqotjTzxmlF3nIn3LrWrgQc3VMthWr
+        2kSzY/4J9cppDDDpYzpMul3W67Pe8ITTeEvf3CAoVfwX34MVC21E0JWJKFRBFMAo2seDIrDKzWz7
+        GClBIGvnlAl7Bm0lLfQtjmnyMbZN0zwAAAD//wMAJJRwtfMFAAA=
+    headers:
+      CF-RAY: [3cab2c4f6bb85f63-LAS]
+      Cache-Control: ['private, must-revalidate']
+      Connection: [keep-alive]
+      Content-Encoding: [gzip]
+      Content-Type: [application/json]
+      Date: ['Sat, 09 Dec 2017 21:49:13 GMT']
+      ETag: [W/"e5c21456b53c5daf5f451b48221b72ad-gzip"]
+      Server: [cloudflare-nginx]
+      Set-Cookie: ['__cfduid=ddb7e7f8c0ecd823614387d229b5001e91512856153; expires=Sun,
+          09-Dec-18 21:49:13 GMT; path=/; domain=.cannabisreports.com; HttpOnly',
+        'XSRF-TOKEN=eyJpdiI6IjBZUnhVeVwvNm41cktpM0lETEZVeldBPT0iLCJ2YWx1ZSI6ImxGRHJqYmxWbEtqVFhWN0FndnUyc09kRjRSRE4xdGRmYitMY0MrUGs5UlNsWTVka1dOazJpQkg3cXZ5K2lqcTdcL3A3Y1B2QTI0Z3Y1M3AwUUNNbUNwdz09IiwibWFjIjoiYjAyNWVhZTA0ODM2NjM4MWMwNjFmYzU1MDY4MzYyMjAyOTkzMDdlYzdjNzY3OTI5ZWFiNDllYWRkMWEzY2RlZSJ9;
+          expires=Sat, 09-Dec-2017 23:49:13 GMT; Max-Age=7200; path=/']
+      Vary: [Accept-Encoding]
+      X-RateLimit-Limit: ['25']
+      X-RateLimit-Remaining: ['19']
+      X-RateLimit-Reset: ['1512857051']
+    status: {code: 200, message: OK}
+version: 1

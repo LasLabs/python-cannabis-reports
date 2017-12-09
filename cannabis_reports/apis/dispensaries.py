@@ -2,13 +2,13 @@
 # Copyright 2017-TODAY LasLabs Inc.
 # License MIT (https://opensource.org/licenses/MIT).
 
-from .. import BaseApi
+from .abstract_entity_endpoint import AbstractEntityEndpoint
 
 from ..models.dispensary import Dispensary
 from ..models.strain import Strain
 
 
-class Dispensaries(BaseApi):
+class Dispensaries(AbstractEntityEndpoint):
     """This represents the ``Dispensaries`` Endpoint.
 
     https://developers.cannabisreports.com/docs/dispensaries
@@ -18,106 +18,29 @@ class Dispensaries(BaseApi):
     __endpoint__ = 'dispensaries'
 
     @classmethod
-    def get(cls, session, slug):
-        raise NotImplementedError
-
-    @classmethod
-    def get_by_slug(cls, session, state, city, slug):
-        """Gets information about an individual dispensary based on the
-        state, city, and slug
-
-        Args:
-            session (requests.sessions.Session): Authenticated session.
-            city (str): City the dispensary is in.
-            state (str): Two character state for the dispensary.
-            slug (str): Slug for the name of the dispensary.
-
-        Returns:
-            Dispensary: The dispensary.
-        """
-        return cls(
-            '/%s/%s/%s/%s' % (
-                cls.__endpoint__, state, city, slug,
-            ),
-            session=session,
-        )
-
-    @classmethod
-    def get_strains(cls, session, state, city, slug):
+    def get_strains(cls, session, slug, limit=None):
         """Gets a paginated list of strains for a dispensary with the
         given slug.
 
         Args:
             session (requests.sessions.Session): Authenticated session.
-            city (str): City the dispensary is in.
-            state (str): Two character state for the dispensary.
-            slug (str): Slug for the name of the dispensary.
+            slug (str): Slug for the name of the dispensary (includes
+                city/state slug).
+            limit (int, optional): Stop after iterating this many pages.
 
         Returns:
             RequestPaginator(output_type=Strain):
                 The strains for this dispensary.
         """
         return cls(
-            '/%s/%s/%s/%s/strains' % (
-                cls.__endpoint__, state, city, slug,
-            ),
+            '/%s/%s/strains' % (cls.__endpoint__, slug),
             session=session,
             out_type=Strain,
+            iteration_limit=limit,
         )
 
     @classmethod
-    def get_extracts(cls, session, state, city, slug):
-        """Gets a paginated list of extracts for a dispensary with the
-        given slug.
-
-        Args:
-            session (requests.sessions.Session): Authenticated session.
-            city (str): City the dispensary is in.
-            state (str): Two character state for the dispensary.
-            slug (str): Slug for the name of the dispensary.
-
-        Returns:
-            RequestPaginator(output_type=Extract):
-                The extracts for this dispensary.
-        """
-        return super(Dispensaries, cls).get_extracts(
-            session, slug, '%s/%s/%s' % (cls.__endpoint__, state, city),
-        )
-
-    @classmethod
-    def get_edibles(cls, session, state, city, slug):
-        """Gets a paginated list of edibles for a dispensary with the given
-        slug.
-
-        Args:
-            session (requests.sessions.Session): Authenticated session.
-            city (str): City the dispensary is in.
-            state (str): Two character state for the dispensary.
-            slug (str): Slug for the name of the dispensary.
-
-        Returns:
-            RequestPaginator(output_type=Edible):
-                The edibles for this dispensary.
-        """
-        return super(Dispensaries, cls).get_edibles(
-            session, slug, '%s/%s/%s' % (cls.__endpoint__, state, city),
-        )
-
-    @classmethod
-    def get_products(cls, session, state, city, slug):
-        """Gets a paginated list of products for a dispensary with the given
-        slug.
-
-        Args:
-            session (requests.sessions.Session): Authenticated session.
-            city (str): City the dispensary is in.
-            state (str): Two character state for the dispensary.
-            slug (str): Slug for the name of the dispensary.
-
-        Returns:
-            RequestPaginator(output_type=Product):
-                The products for this dispensary.
-        """
-        return super(Dispensaries, cls).get_products(
-            session, slug, '%s/%s/%s' % (cls.__endpoint__, state, city),
+    def get_available(cls, *args, **kwargs):
+        raise NotImplementedError(
+            'This endpoint does not implement availability searches.',
         )
