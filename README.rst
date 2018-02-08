@@ -42,7 +42,7 @@ within your CannabisReports account. In the below example, our key is ``API_KEY`
 
 .. code-block:: python
 
-   from cannabis-reports import CannabisReports
+   from cannabis_reports import CannabisReports
    cr = CannabisReports('API_KEY')
 
 API Endpoints
